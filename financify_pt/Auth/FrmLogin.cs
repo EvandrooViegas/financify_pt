@@ -27,7 +27,12 @@ namespace financify_pt
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                
+        }   catch (Exception ex) {
+            
+            }
         }
     }
 }
