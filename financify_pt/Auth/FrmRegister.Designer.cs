@@ -38,7 +38,7 @@
             register_btn = new Button();
             register_pass = new TextBox();
             label5 = new Label();
-            register_user = new TextBox();
+            register_email = new TextBox();
             label4 = new Label();
             label3 = new Label();
             register_confirmpass = new TextBox();
@@ -56,8 +56,9 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(417, 581);
+            panel1.Size = new Size(365, 436);
             panel1.TabIndex = 10;
             // 
             // registerlogin_btn
@@ -68,9 +69,10 @@
             registerlogin_btn.FlatStyle = FlatStyle.Flat;
             registerlogin_btn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             registerlogin_btn.ForeColor = Color.White;
-            registerlogin_btn.Location = new Point(26, 495);
+            registerlogin_btn.Location = new Point(23, 371);
+            registerlogin_btn.Margin = new Padding(3, 2, 3, 2);
             registerlogin_btn.Name = "registerlogin_btn";
-            registerlogin_btn.Size = new Size(365, 40);
+            registerlogin_btn.Size = new Size(319, 30);
             registerlogin_btn.TabIndex = 8;
             registerlogin_btn.Text = "SIGN IN";
             registerlogin_btn.UseVisualStyleBackColor = false;
@@ -81,9 +83,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(108, 452);
+            label7.Location = new Point(94, 339);
             label7.Name = "label7";
-            label7.Size = new Size(179, 28);
+            label7.Size = new Size(149, 23);
             label7.TabIndex = 3;
             label7.Text = "SIGN IN HERE";
             // 
@@ -92,18 +94,19 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Menu;
-            label2.Location = new Point(26, 244);
+            label2.Location = new Point(23, 183);
             label2.Name = "label2";
-            label2.Size = new Size(364, 28);
+            label2.Size = new Size(296, 23);
             label2.TabIndex = 1;
             label2.Text = "Income and expenses tracker ";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.user_6639581;
-            pictureBox1.Location = new Point(169, 119);
+            pictureBox1.Location = new Point(148, 89);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 100);
+            pictureBox1.Size = new Size(88, 75);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -113,10 +116,10 @@
             close.AutoSize = true;
             close.Cursor = Cursors.Hand;
             close.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            close.Location = new Point(861, 9);
+            close.Location = new Point(753, 7);
             close.Name = "close";
             close.RightToLeft = RightToLeft.No;
-            close.Size = new Size(28, 28);
+            close.Size = new Size(23, 23);
             close.TabIndex = 18;
             close.Text = "X";
             close.Click += close_Click;
@@ -125,9 +128,10 @@
             // 
             register_showpass.AutoSize = true;
             register_showpass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_showpass.Location = new Point(700, 341);
+            register_showpass.Location = new Point(612, 256);
+            register_showpass.Margin = new Padding(3, 2, 3, 2);
             register_showpass.Name = "register_showpass";
-            register_showpass.Size = new Size(170, 32);
+            register_showpass.Size = new Size(139, 25);
             register_showpass.TabIndex = 17;
             register_showpass.Text = "Show password";
             register_showpass.UseVisualStyleBackColor = true;
@@ -141,9 +145,10 @@
             register_btn.FlatAppearance.MouseOverBackColor = Color.Teal;
             register_btn.FlatStyle = FlatStyle.Flat;
             register_btn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_btn.Location = new Point(450, 390);
+            register_btn.Location = new Point(394, 292);
+            register_btn.Margin = new Padding(3, 2, 3, 2);
             register_btn.Name = "register_btn";
-            register_btn.Size = new Size(101, 40);
+            register_btn.Size = new Size(88, 30);
             register_btn.TabIndex = 16;
             register_btn.Text = "SIGNUP";
             register_btn.UseVisualStyleBackColor = false;
@@ -152,74 +157,77 @@
             // register_pass
             // 
             register_pass.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_pass.Location = new Point(450, 231);
+            register_pass.Location = new Point(394, 173);
+            register_pass.Margin = new Padding(3, 2, 3, 2);
             register_pass.Name = "register_pass";
             register_pass.PasswordChar = '*';
-            register_pass.Size = new Size(420, 32);
+            register_pass.Size = new Size(368, 27);
             register_pass.TabIndex = 15;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(450, 200);
+            label5.Location = new Point(394, 150);
             label5.Name = "label5";
-            label5.Size = new Size(113, 24);
+            label5.Size = new Size(94, 19);
             label5.TabIndex = 14;
             label5.Text = "PASSWORD";
             // 
-            // register_user
+            // register_email
             // 
-            register_user.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_user.Location = new Point(450, 156);
-            register_user.Name = "register_user";
-            register_user.Size = new Size(420, 32);
-            register_user.TabIndex = 13;
+            register_email.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            register_email.Location = new Point(394, 117);
+            register_email.Margin = new Padding(3, 2, 3, 2);
+            register_email.Name = "register_email";
+            register_email.Size = new Size(368, 27);
+            register_email.TabIndex = 13;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(450, 125);
+            label4.Location = new Point(394, 94);
             label4.Name = "label4";
-            label4.Size = new Size(108, 24);
+            label4.Size = new Size(55, 19);
             label4.TabIndex = 12;
-            label4.Text = "USERNAME";
+            label4.Text = "EMAIL";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(450, 85);
+            label3.Location = new Point(394, 64);
             label3.Name = "label3";
-            label3.Size = new Size(131, 28);
+            label3.Size = new Size(109, 23);
             label3.TabIndex = 11;
             label3.Text = "REGISTER";
             // 
             // register_confirmpass
             // 
             register_confirmpass.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_confirmpass.Location = new Point(450, 303);
+            register_confirmpass.Location = new Point(394, 227);
+            register_confirmpass.Margin = new Padding(3, 2, 3, 2);
             register_confirmpass.Name = "register_confirmpass";
             register_confirmpass.PasswordChar = '*';
-            register_confirmpass.Size = new Size(420, 32);
+            register_confirmpass.Size = new Size(368, 27);
             register_confirmpass.TabIndex = 20;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(450, 272);
+            label1.Location = new Point(394, 204);
             label1.Name = "label1";
-            label1.Size = new Size(202, 24);
+            label1.Size = new Size(168, 19);
             label1.TabIndex = 19;
             label1.Text = "CONFIRM PASSWORD";
             // 
-            // registerform
+            // FrmRegister
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(895, 581);
+            ClientSize = new Size(783, 436);
             Controls.Add(register_confirmpass);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -228,11 +236,12 @@
             Controls.Add(register_btn);
             Controls.Add(register_pass);
             Controls.Add(label5);
-            Controls.Add(register_user);
+            Controls.Add(register_email);
             Controls.Add(label4);
             Controls.Add(label3);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "registerform";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "FrmRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "registerform";
             Load += registerform_Load;
@@ -255,7 +264,7 @@
         private Button register_btn;
         private TextBox register_pass;
         private Label label5;
-        private TextBox register_user;
+        private TextBox register_email;
         private Label label4;
         private Label label3;
         private TextBox register_confirmpass;

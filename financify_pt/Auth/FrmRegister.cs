@@ -37,17 +37,29 @@ namespace financify_pt
 
         private void register_btn_Click(object sender, EventArgs e)
         {
-            if (register_user.Text == "" || register_pass.Text == "" || register_confirmpass.Text == "")
+            if (register_email.Text == "" || register_pass.Text == "" || register_confirmpass.Text == "")
             {
                 MessageBox.Show("Please fill all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else if (register_pass.Text != register_confirmpass.Text)
             {
                 MessageBox.Show("Passwords do not match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else
             {
-
+                try
+                {
+                    BLL.User.CreateUser(register_email.Text, register_pass.Text, false, false);
+                    MessageBox.Show("Register Successfull");
+                    var form = new FrmLogin();
+                    form.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         
