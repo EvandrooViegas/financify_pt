@@ -54,9 +54,8 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(365, 436);
+            panel1.Size = new Size(417, 581);
             panel1.TabIndex = 0;
             // 
             // signup_btn
@@ -67,10 +66,9 @@
             signup_btn.FlatStyle = FlatStyle.Flat;
             signup_btn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             signup_btn.ForeColor = Color.White;
-            signup_btn.Location = new Point(23, 371);
-            signup_btn.Margin = new Padding(3, 2, 3, 2);
+            signup_btn.Location = new Point(26, 495);
             signup_btn.Name = "signup_btn";
-            signup_btn.Size = new Size(319, 30);
+            signup_btn.Size = new Size(204, 40);
             signup_btn.TabIndex = 8;
             signup_btn.Text = "SIGNUP";
             signup_btn.UseVisualStyleBackColor = false;
@@ -81,9 +79,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(94, 339);
+            label7.Location = new Point(29, 455);
             label7.Name = "label7";
-            label7.Size = new Size(168, 23);
+            label7.Size = new Size(201, 28);
             label7.TabIndex = 3;
             label7.Text = "REGISTER HERE";
             // 
@@ -92,19 +90,18 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Menu;
-            label2.Location = new Point(46, 183);
+            label2.Location = new Point(53, 244);
             label2.Name = "label2";
-            label2.Size = new Size(296, 23);
+            label2.Size = new Size(142, 28);
             label2.TabIndex = 1;
-            label2.Text = "Income and expenses tracker ";
+            label2.Text = "FINANCIFY";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.user_6639581;
-            pictureBox1.Location = new Point(148, 89);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(169, 119);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(88, 75);
+            pictureBox1.Size = new Size(101, 100);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -113,9 +110,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(392, 77);
+            label3.Location = new Point(448, 103);
             label3.Name = "label3";
-            label3.Size = new Size(90, 23);
+            label3.Size = new Size(109, 28);
             label3.TabIndex = 2;
             label3.Text = "SIGN IN";
             // 
@@ -123,38 +120,36 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(388, 136);
+            label4.Location = new Point(443, 181);
             label4.Name = "label4";
-            label4.Size = new Size(91, 19);
+            label4.Size = new Size(108, 24);
             label4.TabIndex = 3;
             label4.Text = "USERNAME";
             // 
             // login_user
             // 
             login_user.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            login_user.Location = new Point(388, 159);
-            login_user.Margin = new Padding(3, 2, 3, 2);
+            login_user.Location = new Point(443, 212);
             login_user.Name = "login_user";
-            login_user.Size = new Size(368, 27);
+            login_user.Size = new Size(420, 32);
             login_user.TabIndex = 4;
             // 
             // login_pass
             // 
             login_pass.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            login_pass.Location = new Point(388, 223);
-            login_pass.Margin = new Padding(3, 2, 3, 2);
+            login_pass.Location = new Point(443, 297);
             login_pass.Name = "login_pass";
             login_pass.PasswordChar = '*';
-            login_pass.Size = new Size(368, 27);
+            login_pass.Size = new Size(420, 32);
             login_pass.TabIndex = 6;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(388, 200);
+            label5.Location = new Point(443, 267);
             label5.Name = "label5";
-            label5.Size = new Size(94, 19);
+            label5.Size = new Size(113, 24);
             label5.TabIndex = 5;
             label5.Text = "PASSWORD";
             // 
@@ -166,10 +161,9 @@
             login_btn.FlatAppearance.MouseOverBackColor = Color.Teal;
             login_btn.FlatStyle = FlatStyle.Flat;
             login_btn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            login_btn.Location = new Point(399, 320);
-            login_btn.Margin = new Padding(3, 2, 3, 2);
+            login_btn.Location = new Point(456, 427);
             login_btn.Name = "login_btn";
-            login_btn.Size = new Size(88, 30);
+            login_btn.Size = new Size(101, 40);
             login_btn.TabIndex = 7;
             login_btn.Text = "Login";
             login_btn.UseVisualStyleBackColor = false;
@@ -179,10 +173,9 @@
             // 
             login_showpass.AutoSize = true;
             login_showpass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            login_showpass.Location = new Point(607, 251);
-            login_showpass.Margin = new Padding(3, 2, 3, 2);
+            login_showpass.Location = new Point(694, 335);
             login_showpass.Name = "login_showpass";
-            login_showpass.Size = new Size(139, 25);
+            login_showpass.Size = new Size(170, 32);
             login_showpass.TabIndex = 8;
             login_showpass.Text = "Show password";
             login_showpass.UseVisualStyleBackColor = true;
@@ -192,19 +185,19 @@
             close.AutoSize = true;
             close.Cursor = Cursors.Hand;
             close.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            close.Location = new Point(748, 7);
+            close.Location = new Point(855, 9);
             close.Name = "close";
             close.RightToLeft = RightToLeft.No;
-            close.Size = new Size(23, 23);
+            close.Size = new Size(28, 28);
             close.TabIndex = 9;
             close.Text = "X";
             close.Click += close_Click;
             // 
             // FrmLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(783, 436);
+            ClientSize = new Size(895, 581);
             Controls.Add(close);
             Controls.Add(login_showpass);
             Controls.Add(login_btn);
@@ -215,7 +208,6 @@
             Controls.Add(label3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
