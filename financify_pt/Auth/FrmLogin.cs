@@ -27,11 +27,19 @@ namespace financify_pt
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-            try
+            if (login_email.Text == "" || login_pass.Text == "")
             {
-                
-        }   catch (Exception ex) {
-            
+                MessageBox.Show("Email or pass cannot be empty");
+                return;
+                }   
+
+
+                try
+                {
+                BLL.User.Login(login_email.Text, login_pass.Text);
+                MessageBox.Show("Loggin Successfull");
+            }   catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -35,7 +35,7 @@
             pictureBox1 = new PictureBox();
             label3 = new Label();
             label4 = new Label();
-            login_user = new TextBox();
+            login_email = new TextBox();
             login_pass = new TextBox();
             label5 = new Label();
             login_btn = new Button();
@@ -125,18 +125,18 @@
             label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(388, 136);
             label4.Name = "label4";
-            label4.Size = new Size(91, 19);
+            label4.Size = new Size(55, 19);
             label4.TabIndex = 3;
-            label4.Text = "USERNAME";
+            label4.Text = "EMAIL";
             // 
-            // login_user
+            // login_email
             // 
-            login_user.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            login_user.Location = new Point(388, 159);
-            login_user.Margin = new Padding(3, 2, 3, 2);
-            login_user.Name = "login_user";
-            login_user.Size = new Size(368, 27);
-            login_user.TabIndex = 4;
+            login_email.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            login_email.Location = new Point(388, 159);
+            login_email.Margin = new Padding(3, 2, 3, 2);
+            login_email.Name = "login_email";
+            login_email.Size = new Size(368, 27);
+            login_email.TabIndex = 4;
             // 
             // login_pass
             // 
@@ -210,7 +210,7 @@
             Controls.Add(login_btn);
             Controls.Add(login_pass);
             Controls.Add(label5);
-            Controls.Add(login_user);
+            Controls.Add(login_email);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(panel1);
@@ -234,7 +234,7 @@
         private PictureBox pictureBox1;
         private Label label3;
         private Label label4;
-        private TextBox login_user;
+        private TextBox login_email;
         private TextBox login_pass;
         private Label label5;
         private Button login_btn;

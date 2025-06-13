@@ -148,7 +148,7 @@ namespace financify_pt
             return returnTable;
         }
 
-        public int executeNonQuery(String sqlCmd, SqlParameter[] sqlParams)
+        public int ExecuteNonQuery(String sqlCmd, SqlParameter[] sqlParams)
         {
             int returnValue = -1;
 
@@ -169,7 +169,7 @@ namespace financify_pt
             return returnValue;
         }
 
-        public object executeScalar(String sqlCmd, SqlParameter[] sqlParams)
+        public object ExecuteScalar(String sqlCmd, SqlParameter[] sqlParams)
         {
             object result = null;
             AssociateCommand(sqlCmd);

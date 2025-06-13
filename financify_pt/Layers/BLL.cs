@@ -1,6 +1,4 @@
-﻿using DataAccessLayer;
-using financify_pt;
-using financify_pt.Models;
+﻿using financify_pt;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Security.Cryptography;
@@ -58,7 +56,7 @@ namespace financify_pt
                 if (inputHashedPassword != user.Password)
                     throw new ApplicationException("Email or password are wrong!");
 
-                new DAL().executeNonQuery
+                new DataAccessLayer().ExecuteNonQuery
                 (
                     "UPDATE [dbo].[User] SET LastLoginDate = @LastLoginDate WHERE Id = @Id",
                     new SqlParameter[]
@@ -76,7 +74,7 @@ namespace financify_pt
                 if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Cannot be null or whitespace", nameof(password));
 
                 var userDataTable =
-                   new DataAccessLayer().eLxecuteReader
+                   new DataAccessLayer().ExecuteReader
                         (
                             "SELECT * FROM [dbo].[User] WHERE [Email] = @Email",
                             new SqlParameter[]
@@ -92,7 +90,7 @@ namespace financify_pt
                 using var sha256 = SHA512.Create();
                 var inputHashedPassword = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password + salt)));
 
-                new DataAccessLayer().executeNonQuery
+                new DataAccessLayer().ExecuteNonQuery
                 (
                     "INSERT INTO [dbo].[User] ([Email], [Password], [Salt], [IsAdmin], [IsLocked]) VALUES (@Email, @Password, @Salt, @IsAdmin, @IsLocked)",
                     new SqlParameter[]
@@ -106,21 +104,21 @@ namespace financify_pt
                 );
             }
 
-            public static DataTable ListAll() => new DataAccessLayer().executeReader("SELECT * FROM [dbo].[User]", []);
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[User]", []);
 
             public static DataRow GetById(int id) =>
-                new DataAccessLayer().executeReader("SELECT * FROM [dbo].[User] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[User] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
 
             public static void Create(string userName, int idTracker, int idUser) =>
-                new DataAccessLayer().executeNonQuery("INSERT INTO [dbo].[User] (UserName, IdTracker, IdUser) VALUES (@UserName, @IdTracker, @IdUser)",
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[User] (UserName, IdTracker, IdUser) VALUES (@UserName, @IdTracker, @IdUser)",
                     new[] { new SqlParameter("UserName", userName), new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser) });
 
             public static void Update(int id, string userName, int idTracker, int idUser) =>
-                new DataAccessLayer().executeNonQuery("UPDATE [dbo].[User] SET UserName = @UserName, IdTracker = @IdTracker, IdUser = @IdUser WHERE Id = @Id",
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[User] SET UserName = @UserName, IdTracker = @IdTracker, IdUser = @IdUser WHERE Id = @Id",
                     new[] { new SqlParameter("Id", id), new SqlParameter("UserName", userName), new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser) });
 
             public static void Delete(int id) =>
-                new DataAccessLayer().executeNonQuery("DELETE FROM [dbo].[User] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[User] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
         }
 
         // ------------------------------------------------------------------
@@ -128,13 +126,13 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class Notification
         {
-            public static DataTable ListAll() => new DAL().executeReader("SELECT * FROM [dbo].[Notification]", []);
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Notification]", []);
 
             public static DataRow GetById(int id) =>
-                new DataAccessLayer().executeReader("SELECT * FROM [dbo].[Notification] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Notification] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
 
             public static void Create(string messages, int userId) =>
-                new DataAccessLayer().executeNonQuery("INSERT INTO [dbo].[Notification] (Messages, UserIds) VALUES (@Messages, @UserIds)",
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Notification] (Messages, UserIds) VALUES (@Messages, @UserIds)",
                     new[] { new SqlParameter("Messages", messages), new SqlParameter("UserIds", userId) });
 
             public static void Update(int id, string messages, int userId) =>
@@ -150,7 +148,7 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class Tracker
         {
-            public static DataTable ListAll() => new DAL().executeReader("SELECT * FROM [dbo].[Tracker]", []);
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tracker]", []);
 
             public static DataRow GetById(int id) =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
@@ -172,7 +170,7 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class UserTracker
         {
-            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker]");
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker]", []);
 
             public static DataRow GetById(int id) =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
@@ -194,7 +192,7 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class Transaction
         {
-            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Transaction]");
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Transaction]", []);
 
             public static DataRow GetById(int id) =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Transaction] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
@@ -216,7 +214,7 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class TransactionType
         {
-            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionType]");
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionType]", []);
 
             public static DataRow GetById(int id) =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionType] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
@@ -238,7 +236,7 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class Budgets
         {
-            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Budgets]");
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Budgets]", []);
 
             public static DataRow GetById(int id) =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Budgets] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
@@ -260,7 +258,7 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class TransactionTag
         {
-            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionTag]");
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionTag]", []);
 
             public static DataRow GetById(int id) =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionTag] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
@@ -282,7 +280,7 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class Tag
         {
-            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tag]");
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tag]", []);
 
             public static DataRow GetById(int id) =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tag] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
