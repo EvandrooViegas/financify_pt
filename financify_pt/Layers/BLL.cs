@@ -1,0 +1,300 @@
+﻿using financify_pt;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Security.Cryptography;
+using System.Text;
+
+// Business Logic Layer unificada para todas as entidades principais do sistema
+// Métodos: ListAll, GetById, Create, Update, Delete
+
+namespace financify_pt
+{
+    public static class BLL
+    {
+        // ------------------------------------------------------------------
+        // USER
+        // ------------------------------------------------------------------
+        public static class User
+        {
+
+            public static UserModel Login(string email, string password)
+            {
+                if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("Cannot be null or whitespace", nameof(email));
+                if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Cannot be null or whitespace", nameof(password));
+
+                var userDataTable =
+                    new DataAccessLayer().ExecuteReader
+
+                        (
+                            "SELECT * FROM [dbo].[User] WHERE [Email] = @Email AND IsLocked = 0",
+                            new SqlParameter[]
+                            {
+                            new("Email", email)
+                            }
+                        );
+
+                if (userDataTable.Rows.Count == 0)
+                    throw new ApplicationException("Email or password are wrong!");
+
+                var user = new UserModel
+                {
+                    Id = Convert.ToInt32(userDataTable.Rows[0]["Id"]),
+                    Email = userDataTable.Rows[0]["Email"].ToString(),
+                    Password = userDataTable.Rows[0]["Password"].ToString(),
+                    Salt = userDataTable.Rows[0]["Salt"].ToString(),
+                    IsAdmin = Convert.ToBoolean(userDataTable.Rows[0]["IsAdmin"].ToString()),
+                    IsLocked = Convert.ToBoolean(userDataTable.Rows[0]["IsLocked"].ToString()),
+                    LastLoginDate = DateTimeOffset.Now.ToUniversalTime(),
+                    LockedDate =
+                        userDataTable.Rows[0]["LockedDate"] is null
+                            ? Convert.ToDateTime(userDataTable.Rows[0]["LockedDate"])
+                            : null,
+                };
+
+                using var sha256 = SHA512.Create();
+                var inputHashedPassword = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password + user.Salt)));
+                if (inputHashedPassword != user.Password)
+                    throw new ApplicationException("Email or password are wrong!");
+
+                new DataAccessLayer().ExecuteNonQuery
+                (
+                    "UPDATE [dbo].[User] SET LastLoginDate = @LastLoginDate WHERE Id = @Id",
+                    new SqlParameter[]
+                    {
+                    new("Id", user.Id),
+                    new("LastLoginDate", user.LastLoginDate),
+                    }
+                );
+                return user;
+            }
+
+            public static void CreateUser(string email, string password, bool isAdmin, bool isLocked)
+            {
+                if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("Cannot be null or whitespace", nameof(email));
+                if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Cannot be null or whitespace", nameof(password));
+
+                var userDataTable =
+                   new DataAccessLayer().ExecuteReader
+                        (
+                            "SELECT * FROM [dbo].[User] WHERE [Email] = @Email",
+                            new SqlParameter[]
+                            {
+                            new("Email", email)
+                            }
+                        );
+
+                if (userDataTable.Rows.Count != 0)
+                    throw new ApplicationException("The user already exists!");
+
+                var salt = Guid.NewGuid().ToString();
+                using var sha256 = SHA512.Create();
+                var inputHashedPassword = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password + salt)));
+
+                new DataAccessLayer().ExecuteNonQuery
+                (
+                    "INSERT INTO [dbo].[User] ([Email], [Password], [Salt], [IsAdmin], [IsLocked]) VALUES (@Email, @Password, @Salt, @IsAdmin, @IsLocked)",
+                    new SqlParameter[]
+                    {
+                    new("Email", email),
+                    new("Password", inputHashedPassword),
+                    new("Salt", salt),
+                    new("IsAdmin", isAdmin),
+                    new("IsLocked", isLocked),
+                    }
+                );
+            }
+
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[User]", []);
+
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[User] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+
+            public static void Create(string userName, int idTracker, int idUser) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[User] (UserName, IdTracker, IdUser) VALUES (@UserName, @IdTracker, @IdUser)",
+                    new[] { new SqlParameter("UserName", userName), new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser) });
+
+            public static void Update(int id, string userName, int idTracker, int idUser) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[User] SET UserName = @UserName, IdTracker = @IdTracker, IdUser = @IdUser WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("UserName", userName), new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser) });
+
+            public static void Delete(int id) =>
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[User] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+        }
+
+        // ------------------------------------------------------------------
+        // NOTIFICATION
+        // ------------------------------------------------------------------
+        public static class Notification
+        {
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Notification]", []);
+
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Notification] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+
+            public static void Create(string messages, int userId) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Notification] (Messages, UserIds) VALUES (@Messages, @UserIds)",
+                    new[] { new SqlParameter("Messages", messages), new SqlParameter("UserIds", userId) });
+
+            public static void Update(int id, string messages, int userId) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[Notification] SET Messages = @Messages, UserIds = @UserIds WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("Messages", messages), new SqlParameter("UserIds", userId) });
+
+            public static void Delete(int id) =>
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Notification] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+        }
+
+        // ------------------------------------------------------------------
+        // TRACKER
+        // ------------------------------------------------------------------
+        public static class Tracker
+        {
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tracker]", []);
+
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+
+            public static void Create(string name, string description) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Tracker] (Name, Description) VALUES (@Name, @Description)",
+                    new[] { new SqlParameter("Name", name), new SqlParameter("Description", description) });
+
+            public static void Update(int id, string name, string description) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[Tracker] SET Name = @Name, Description = @Description WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("Name", name), new SqlParameter("Description", description) });
+
+            public static void Delete(int id) =>
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Tracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+        }
+
+        // ------------------------------------------------------------------
+        // USERTRACKER
+        // ------------------------------------------------------------------
+        public static class UserTracker
+        {
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker]", []);
+
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+
+            public static void Create(int idTracker, int idUser, bool isOwner) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[UserTracker] (IdTracker, IdUser, IsOwner) VALUES (@IdTracker, @IdUser, @IsOwner)",
+                    new[] { new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
+
+            public static void Update(int id, int idTracker, int idUser, bool isOwner) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[UserTracker] SET IdTracker = @IdTracker, IdUser = @IdUser, IsOwner = @IsOwner WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
+
+            public static void Delete(int id) =>
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[UserTracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+        }
+
+        // ------------------------------------------------------------------
+        // TRANSACTION
+        // ------------------------------------------------------------------
+        public static class Transaction
+        {
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Transaction]", []);
+
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Transaction] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+
+            public static void Create(decimal value, int idTransactionType, string name) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Transaction] (Value, IdTransactionType, Name) VALUES (@Value, @IdTransactionType, @Name)",
+                    new[] { new SqlParameter("Value", value), new SqlParameter("IdTransactionType", idTransactionType), new SqlParameter("Name", name) });
+
+            public static void Update(int id, decimal value, int idTransactionType, string name) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[Transaction] SET Value = @Value, IdTransactionType = @IdTransactionType, Name = @Name WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("Value", value), new SqlParameter("IdTransactionType", idTransactionType), new SqlParameter("Name", name) });
+
+            public static void Delete(int id) =>
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Transaction] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+        }
+
+        // ------------------------------------------------------------------
+        // TRANSACTION TYPE
+        // ------------------------------------------------------------------
+        public static class TransactionType
+        {
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionType]", []);
+
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionType] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+
+            public static void Create(string name) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[TransactionType] (Name) VALUES (@Name)", new[] { new SqlParameter("Name", name) });
+
+            public static void Update(int id, string name) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[TransactionType] SET Name = @Name WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("Name", name) });
+
+            public static void Delete(int id) =>
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[TransactionType] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+        }
+
+        // ------------------------------------------------------------------
+        // ------------------------------------------------------------------
+        // BUDGETS
+        // ------------------------------------------------------------------
+        public static class Budgets
+        {
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Budgets]", []);
+
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Budgets] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+
+            public static void Create(decimal value, string name, string description) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Budgets] (Value, Name, Description) VALUES (@Value, @Name, @Description)",
+                    new[] { new SqlParameter("Value", value), new SqlParameter("Name", name), new SqlParameter("Description", description) });
+
+            public static void Update(int id, decimal value, string name, string description) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[Budgets] SET Value = @Value, Name = @Name, Description = @Description WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("Value", value), new SqlParameter("Name", name), new SqlParameter("Description", description) });
+
+            public static void Delete(int id) =>
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Budgets] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+        }
+
+        // ------------------------------------------------------------------
+        // TRANSACTION TAG
+        // ------------------------------------------------------------------
+        public static class TransactionTag
+        {
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionTag]", []);
+
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[TransactionTag] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+
+            public static void Create(int idTag, int idTransaction) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[TransactionTag] (IdTag, IdTransaction) VALUES (@IdTag, @IdTransaction)",
+                    new[] { new SqlParameter("IdTag", idTag), new SqlParameter("IdTransaction", idTransaction) });
+
+            public static void Update(int id, int idTag, int idTransaction) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[TransactionTag] SET IdTag = @IdTag, IdTransaction = @IdTransaction WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("IdTag", idTag), new SqlParameter("IdTransaction", idTransaction) });
+
+            public static void Delete(int id) =>
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[TransactionTag] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+        }
+
+        // ------------------------------------------------------------------
+        // TAG
+        // ------------------------------------------------------------------
+        public static class Tag
+        {
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tag]", []);
+
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tag] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+
+            public static void Create(string name, string iconUrl) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Tag] (Name, IconUrl) VALUES (@Name, @IconUrl)",
+                    new[] { new SqlParameter("Name", name), new SqlParameter("IconUrl", iconUrl) });
+
+            public static void Update(int id, string name, string iconUrl) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[Tag] SET Name = @Name, IconUrl = @IconUrl WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("Name", name), new SqlParameter("IconUrl", iconUrl) });
+
+            public static void Delete(int id) =>
+                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Tag] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+        }
+    }
+}

@@ -4,22 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using Microsoft.Data.SqlClient;
 
-
-namespace DataAccessLayer
+namespace financify_pt
 {
-    public class DAL
+    public class DataAccessLayer
     {
         private SqlConnection _SqlConn;
         private SqlCommand _SqlCommand;
         private SqlDataReader _SqlReader;
 
-        public DAL()
+        public DataAccessLayer()
         {
             _SqlConn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=" + System.Windows.Forms.Application.StartupPath + @"\Teste_testas.mdf;Integrated Security=True;Connect Timeout=30");
         }
 
-        private void abrirLigacao()
+        private void OpenConnection()
         {
             try
             {
@@ -27,11 +27,11 @@ namespace DataAccessLayer
             }
             catch (Exception e)
             {
-
+                // Handle exception
             }
         }
 
-        private void fecharLigacao()
+        private void CloseConnection()
         {
             try
             {
@@ -39,27 +39,27 @@ namespace DataAccessLayer
             }
             catch (Exception e)
             {
-
+                // Handle exception
             }
         }
 
-        private void associarComando(String sqlCmd)
+        private void AssociateCommand(String sqlCmd)
         {
             _SqlCommand = new SqlCommand(sqlCmd, _SqlConn);
         }
 
-        public DataTable executarStoredProcReader(String sqlCmd, SqlParameter[] sqlParams)
+        public DataTable ExecuteStoredProcReader(String sqlCmd, SqlParameter[] sqlParams)
         {
             DataTable returnTable = new DataTable("returnTable");
 
-            associarComando(sqlCmd);
+            AssociateCommand(sqlCmd);
 
             _SqlCommand.CommandType = CommandType.StoredProcedure;
 
             if (sqlParams != null)
                 _SqlCommand.Parameters.AddRange(sqlParams);
 
-            abrirLigacao();
+            OpenConnection();
 
             if (_SqlConn.State == ConnectionState.Open)
             {
@@ -70,69 +70,69 @@ namespace DataAccessLayer
                 _SqlReader.Close();
             }
 
-            fecharLigacao();
+            CloseConnection();
 
             return returnTable;
         }
 
-        //Stored Procedure sem parâmetros
-        public DataTable executarStoredProcReader(String sqlCmd)
+        // Stored Procedure without parameters
+        public DataTable ExecuteStoredProcReader(String sqlCmd)
         {
-            return this.executarStoredProcReader(sqlCmd, null);
+            return this.ExecuteStoredProcReader(sqlCmd, null);
         }
 
-        public int executarStoredProcNonQuery(String sqlCmd, SqlParameter[] sqlParams)
+        public int ExecuteStoredProcNonQuery(String sqlCmd, SqlParameter[] sqlParams)
         {
-            int retorno = -1;
+            int returnValue = -1;
 
-            associarComando(sqlCmd);
+            AssociateCommand(sqlCmd);
 
             _SqlCommand.CommandType = CommandType.StoredProcedure;
             _SqlCommand.Parameters.AddRange(sqlParams);
 
-            abrirLigacao();
+            OpenConnection();
 
             if (_SqlConn.State == ConnectionState.Open)
             {
-                retorno = _SqlCommand.ExecuteNonQuery();
+                returnValue = _SqlCommand.ExecuteNonQuery();
             }
 
-            fecharLigacao();
+            CloseConnection();
 
-            return retorno;
+            return returnValue;
         }
 
-        public object executarStoredProcScalar(String sqlCmd, SqlParameter[] sqlParams)
+        public object ExecuteStoredProcScalar(String sqlCmd, SqlParameter[] sqlParams)
         {
-            object resultado = null;
-            associarComando(sqlCmd);
+            object result = null;
+            AssociateCommand(sqlCmd);
             _SqlCommand.CommandType = CommandType.StoredProcedure;
             _SqlCommand.Parameters.AddRange(sqlParams);
 
-            abrirLigacao();
+            OpenConnection();
 
             if (_SqlConn.State == ConnectionState.Open)
             {
-                resultado = _SqlCommand.ExecuteScalar();
+                result = _SqlCommand.ExecuteScalar();
             }
 
-            fecharLigacao();
+            CloseConnection();
             _SqlCommand.Parameters.Clear();
-            return resultado;
+            return result;
         }
 
-        public DataTable executarReader(String sqlCmd, SqlParameter[] sqlParams)
+        public DataTable ExecuteReader(String sqlCmd, SqlParameter[] sqlParams)
         {
             DataTable returnTable = new DataTable("returnTable");
 
-            associarComando(sqlCmd);
+            AssociateCommand(sqlCmd);
 
             _SqlCommand.CommandType = CommandType.Text;
 
             if (sqlParams != null)
                 _SqlCommand.Parameters.AddRange(sqlParams);
 
-            abrirLigacao();
+            OpenConnection();
 
             if (_SqlConn.State == ConnectionState.Open)
             {
@@ -143,49 +143,49 @@ namespace DataAccessLayer
                 _SqlReader.Close();
             }
 
-            fecharLigacao();
+            CloseConnection();
             _SqlCommand.Parameters.Clear();
             return returnTable;
         }
 
-        public int executarNonQuery(String sqlCmd, SqlParameter[] sqlParams)
+        public int ExecuteNonQuery(String sqlCmd, SqlParameter[] sqlParams)
         {
-            int retorno = -1;
+            int returnValue = -1;
 
-            associarComando(sqlCmd);
+            AssociateCommand(sqlCmd);
 
             _SqlCommand.CommandType = CommandType.Text;
             _SqlCommand.Parameters.AddRange(sqlParams);
 
-            abrirLigacao();
+            OpenConnection();
 
             if (_SqlConn.State == ConnectionState.Open)
             {
                 _SqlCommand.ExecuteNonQuery();
             }
 
-            fecharLigacao();
+            CloseConnection();
             _SqlCommand.Parameters.Clear();
-            return retorno;
+            return returnValue;
         }
 
-        public object executarScalar(String sqlCmd, SqlParameter[] sqlParams)
+        public object ExecuteScalar(String sqlCmd, SqlParameter[] sqlParams)
         {
-            object resultado = null;
-            associarComando(sqlCmd);
+            object result = null;
+            AssociateCommand(sqlCmd);
             _SqlCommand.CommandType = CommandType.Text;
             _SqlCommand.Parameters.AddRange(sqlParams);
 
-            abrirLigacao();
+            OpenConnection();
 
             if (_SqlConn.State == ConnectionState.Open)
             {
-                resultado = _SqlCommand.ExecuteScalar();
+                result = _SqlCommand.ExecuteScalar();
             }
 
-            fecharLigacao();
+            CloseConnection();
             _SqlCommand.Parameters.Clear();
-            return resultado;
+            return result;
         }
     }
 }
