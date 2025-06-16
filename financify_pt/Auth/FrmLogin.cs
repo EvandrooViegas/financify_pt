@@ -15,6 +15,7 @@ namespace financify_pt
         private void signup_btn_Click(object sender, EventArgs e)
         {
             FrmRegister regform = new FrmRegister();
+
             regform.Show();
 
             this.Hide();
