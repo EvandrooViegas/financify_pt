@@ -1,3 +1,5 @@
+using financify_pt.Auth;
+
 namespace financify_pt
 {
     public partial class FrmLogin : Form
@@ -43,6 +45,8 @@ namespace financify_pt
             }   catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
+            var login = new tracker();
+            login.ShowDialog();
         }
     }
 }
