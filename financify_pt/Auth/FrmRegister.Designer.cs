@@ -43,6 +43,8 @@
             label3 = new Label();
             register_confirmpass = new TextBox();
             label1 = new Label();
+            register_name = new TextBox();
+            label6 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -128,7 +130,7 @@
             // 
             register_showpass.AutoSize = true;
             register_showpass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_showpass.Location = new Point(612, 256);
+            register_showpass.Location = new Point(612, 337);
             register_showpass.Margin = new Padding(3, 2, 3, 2);
             register_showpass.Name = "register_showpass";
             register_showpass.Size = new Size(139, 25);
@@ -145,7 +147,7 @@
             register_btn.FlatAppearance.MouseOverBackColor = Color.Teal;
             register_btn.FlatStyle = FlatStyle.Flat;
             register_btn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_btn.Location = new Point(394, 292);
+            register_btn.Location = new Point(394, 373);
             register_btn.Margin = new Padding(3, 2, 3, 2);
             register_btn.Name = "register_btn";
             register_btn.Size = new Size(88, 30);
@@ -157,7 +159,7 @@
             // register_pass
             // 
             register_pass.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_pass.Location = new Point(394, 173);
+            register_pass.Location = new Point(394, 242);
             register_pass.Margin = new Padding(3, 2, 3, 2);
             register_pass.Name = "register_pass";
             register_pass.PasswordChar = '*';
@@ -168,7 +170,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(394, 150);
+            label5.Location = new Point(394, 219);
             label5.Name = "label5";
             label5.Size = new Size(94, 19);
             label5.TabIndex = 14;
@@ -177,7 +179,7 @@
             // register_email
             // 
             register_email.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_email.Location = new Point(394, 117);
+            register_email.Location = new Point(394, 186);
             register_email.Margin = new Padding(3, 2, 3, 2);
             register_email.Name = "register_email";
             register_email.Size = new Size(368, 27);
@@ -187,7 +189,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(394, 94);
+            label4.Location = new Point(394, 163);
             label4.Name = "label4";
             label4.Size = new Size(55, 19);
             label4.TabIndex = 12;
@@ -206,7 +208,7 @@
             // register_confirmpass
             // 
             register_confirmpass.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_confirmpass.Location = new Point(394, 227);
+            register_confirmpass.Location = new Point(394, 296);
             register_confirmpass.Margin = new Padding(3, 2, 3, 2);
             register_confirmpass.Name = "register_confirmpass";
             register_confirmpass.PasswordChar = '*';
@@ -217,17 +219,38 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(394, 204);
+            label1.Location = new Point(394, 273);
             label1.Name = "label1";
             label1.Size = new Size(168, 19);
             label1.TabIndex = 19;
             label1.Text = "CONFIRM PASSWORD";
+            // 
+            // register_name
+            // 
+            register_name.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            register_name.Location = new Point(394, 125);
+            register_name.Margin = new Padding(3, 2, 3, 2);
+            register_name.Name = "register_name";
+            register_name.Size = new Size(368, 27);
+            register_name.TabIndex = 22;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(394, 102);
+            label6.Name = "label6";
+            label6.Size = new Size(52, 19);
+            label6.TabIndex = 21;
+            label6.Text = "NAME";
             // 
             // FrmRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(783, 436);
+            Controls.Add(register_name);
+            Controls.Add(label6);
             Controls.Add(register_confirmpass);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -269,5 +292,7 @@
         private Label label3;
         private TextBox register_confirmpass;
         private Label label1;
+        private TextBox register_name;
+        private Label label6;
     }
 }

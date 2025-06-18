@@ -37,7 +37,7 @@ namespace financify_pt
 
         private void register_btn_Click(object sender, EventArgs e)
         {
-            if (register_email.Text == "" || register_pass.Text == "" || register_confirmpass.Text == "")
+            if (register_email.Text == "" || register_pass.Text == "" || register_confirmpass.Text == "" || register_name.Text == "")
             {
                 MessageBox.Show("Please fill all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -51,7 +51,7 @@ namespace financify_pt
             {
                 try
                 {
-                    BLL.User.CreateUser(register_email.Text, register_pass.Text, false, false);
+                    BLL.User.CreateUser(register_email.Text, register_pass.Text, register_name.Text, false, false);
                     MessageBox.Show("Register Successfull");
                     var form = new FrmLogin();
                     form.ShowDialog();

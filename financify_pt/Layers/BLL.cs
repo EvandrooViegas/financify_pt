@@ -29,7 +29,7 @@ namespace financify_pt
                             "SELECT * FROM [dbo].[User] WHERE [Email] = @Email AND IsLocked = 0",
                             new SqlParameter[]
                             {
-                            new("Email", email)
+                            new("@Email", email)
                             }
                         );
 
@@ -68,7 +68,7 @@ namespace financify_pt
                 return user;
             }
 
-            public static void CreateUser(string email, string password, bool isAdmin, bool isLocked)
+            public static void CreateUser(string email, string password, string name,bool isAdmin, bool isLocked)
             {
                 if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("Cannot be null or whitespace", nameof(email));
                 if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Cannot be null or whitespace", nameof(password));
@@ -92,7 +92,7 @@ namespace financify_pt
 
                 new DataAccessLayer().ExecuteNonQuery
                 (
-                    "INSERT INTO [dbo].[User] ([Email], [Password], [Salt], [IsAdmin], [IsLocked]) VALUES (@Email, @Password, @Salt, @IsAdmin, @IsLocked)",
+                    "INSERT INTO [dbo].[User] ([Email], [Password], [Name], [Salt], [IsAdmin], [IsLocked]) VALUES (@Email, @Password, @Name, @Salt, @IsAdmin, @IsLocked)",
                     new SqlParameter[]
                     {
                     new("Email", email),
@@ -100,6 +100,7 @@ namespace financify_pt
                     new("Salt", salt),
                     new("IsAdmin", isAdmin),
                     new("IsLocked", isLocked),
+                              new("Name", name),
                     }
                 );
             }

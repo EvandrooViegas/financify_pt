@@ -32,16 +32,31 @@ namespace financify_pt
             {
                MessageBox.Show("Email or pass cannot be empty");
                return;
-             }   
 
-
-            try
+             }
+            else
+            {
+                try
                 {
-                BLL.User.Login(login_email.Text, login_pass.Text);
-                MessageBox.Show("Loggin Successfull");
-            }   catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                    var user = BLL.User.Login(login_email.Text, login_pass.Text);
+                    if (user == null)
+                    {
+                        MessageBox.Show("The email or password are wrong");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Loggin Successfull");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+
+
+            
         }
     }
 }
