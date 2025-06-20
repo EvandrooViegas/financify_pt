@@ -87,6 +87,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Image = Properties.Resources.bell__1_2;
             pictureBox2.Location = new Point(36, 258);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(32, 32);
@@ -188,6 +189,7 @@
             button1.TabIndex = 9;
             button1.Text = "Add New Tracker";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // tracker
             // 

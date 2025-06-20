@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            label2 = new Label();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.image;
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(117, 31);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(58, 75);
+            label1.Font = new Font("Tahoma", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Transparent;
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(81, 28);
+            label1.Size = new Size(223, 34);
             label1.TabIndex = 1;
-            label1.Text = "Trackers";
+            label1.Text = "NEW TRACKER";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Transparent;
+            label2.Location = new Point(12, 43);
+            label2.Name = "label2";
+            label2.Size = new Size(69, 24);
+            label2.TabIndex = 2;
+            label2.Text = "NAME";
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(4, 13, 16);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(516, 583);
+            Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
             Text = "MainForm";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
         private Label label1;
+        private Label label2;
     }
 }

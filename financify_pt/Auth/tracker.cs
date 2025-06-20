@@ -26,5 +26,11 @@ namespace financify_pt.Auth
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var tracker = new Newtracker();
+            tracker.ShowDialog();
+        }
     }
 }

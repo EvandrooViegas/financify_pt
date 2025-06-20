@@ -1,3 +1,5 @@
+using financify_pt.Auth;
+
 namespace financify_pt
 {
     public partial class FrmLogin : Form
@@ -15,6 +17,7 @@ namespace financify_pt
         private void signup_btn_Click(object sender, EventArgs e)
         {
             FrmRegister regform = new FrmRegister();
+
             regform.Show();
 
             this.Hide();
