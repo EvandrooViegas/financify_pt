@@ -1,6 +1,6 @@
 ﻿namespace financify_pt.Auth
 {
-    partial class tracker
+    partial class Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tracker));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panel1 = new Panel();
             panel2 = new Panel();
             pictureBox4 = new PictureBox();

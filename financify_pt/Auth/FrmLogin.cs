@@ -49,7 +49,8 @@ namespace financify_pt
                     else
                     {
                         MessageBox.Show("Loggin Successfull");
-
+                        var form = new Dashboard();
+                        form.ShowDialog();
                     }
                 }
                 catch (Exception ex)

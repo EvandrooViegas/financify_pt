@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace financify_pt.Auth
 {
-    public partial class tracker : Form
+    public partial class Dashboard : Form
     {
-        public tracker()
+        public Dashboard()
         {
             InitializeComponent();
         }
