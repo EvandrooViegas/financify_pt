@@ -15,11 +15,35 @@ namespace financify_pt.Auth
         public Dashboard()
         {
             InitializeComponent();
+            this.Controls.Add(new Label()
+            {
+                Location = new Point(1, 1),
+                Text = "asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd",
+                ForeColor = Color.White,
+                Size = new Size(100, 100)
+
+            }
+            );
         }
 
         private void tracker_Load(object sender, EventArgs e)
         {
+            var trackers 
+            this.panel3.Controls.Add(new TrackerUC()
+            {
+                Location = new Point(1, 1),
+                Size = new Size(100, 100),
+                Message = "O prof é o rei"
+            }
+            );
 
+            this.panel3.Controls.Add(new TrackerUC()
+            {
+                Location = new Point(101, 1),
+                Size = new Size(100, 100),
+                Message = "O evandro é o submundo"
+            }
+);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

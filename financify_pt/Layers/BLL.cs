@@ -1,4 +1,5 @@
 ﻿using financify_pt;
+using financify_pt.Models;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Security.Cryptography;
@@ -154,16 +155,61 @@ namespace financify_pt
             public static DataRow GetById(int id) =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
 
-            public static void Create(string name, string description) =>
-                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Tracker] (Name, Description) VALUES (@Name, @Description)",
-                    new[] { new SqlParameter("Name", name), new SqlParameter("Description", description) });
+            public static TrackerModel Create(string name, string description)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    "INSERT INTO [dbo].[Tracker] (Name, Description) " +
+                    "OUTPUT INSERTED.Id, INSERTED.Name, INSERTED.Description " +
+                    "VALUES (@Name, @Description)",
+                    new[] {
+            new SqlParameter("@Name", name),
+            new SqlParameter("@Description", description)
+                    });
 
+                if (dt.Rows.Count > 0)
+                {
+                    var row = dt.Rows[0];
+                    return new TrackerModel
+                    {
+                        Id = Convert.ToInt32(row["Id"]),
+                        Name = row["Name"].ToString(),
+                        Description = row["Description"].ToString()
+                    };
+                }
+
+                return null; // Or throw an exception if something went wrong
+            }
             public static void Update(int id, string name, string description) =>
                 new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[Tracker] SET Name = @Name, Description = @Description WHERE Id = @Id",
                     new[] { new SqlParameter("Id", id), new SqlParameter("Name", name), new SqlParameter("Description", description) });
 
             public static void Delete(int id) =>
                 new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Tracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+
+            public static TrackerModel[] GetTrackersByUserId(int userId)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    @"SELECT t.* 
+          FROM [dbo].[Tracker] t
+          INNER JOIN [dbo].[UserTracker] ut ON t.Id = ut.IdTracker
+          WHERE ut.IdUser = @UserId",
+                    new[] { new SqlParameter("@UserId", userId) }
+                );
+
+                var trackers = new List<TrackerModel>();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    trackers.Add(new TrackerModel
+                    {
+                        Id = Convert.ToInt32(row["Id"]),
+                        Name = row["Name"].ToString(),
+                        Description = row["Description"].ToString()
+                    });
+                }
+
+                return trackers.ToArray();
+            }
         }
 
         // ------------------------------------------------------------------

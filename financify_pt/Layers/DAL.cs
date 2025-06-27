@@ -16,7 +16,7 @@ namespace financify_pt
 
         public DataAccessLayer()
         {
-            _SqlConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\124644\\Desktop\\LoginExample.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True");
+            _SqlConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\124644\\Desktop\\BD\\LoginExample.mdf;Integrated Security=True;Connect Timeout=30");
         }
 
         private void OpenConnection()

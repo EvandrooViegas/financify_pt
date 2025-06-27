@@ -49,6 +49,7 @@ namespace financify_pt
                     else
                     {
                         MessageBox.Show("Loggin Successfull");
+                        Globals.UserId = user.Id;
                         var form = new Dashboard();
                         form.ShowDialog();
                     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using financify_pt.Auth;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,33 @@ namespace financify_pt
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (tbDescription.Text == "" || tbName.Text == "")
+            {
+                MessageBox.Show("Name or description cannot be empty");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    var tracker = BLL.Tracker.Create(tbName.Text, tbDescription.Text);
+                    BLL.UserTracker.Create(tracker.Id, Globals.UserId, true);
+                    MessageBox.Show("Tracker Created Successfully");
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

@@ -30,8 +30,8 @@
         {
             label2 = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            tbName = new TextBox();
+            tbDescription = new TextBox();
             label3 = new Label();
             label4 = new Label();
             dataGridView1 = new DataGridView();
@@ -47,9 +47,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(32, 66);
+            label2.Location = new Point(28, 50);
             label2.Name = "label2";
-            label2.Size = new Size(69, 24);
+            label2.Size = new Size(57, 19);
             label2.TabIndex = 4;
             label2.Text = "NAME";
             // 
@@ -58,57 +58,59 @@
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(22, 18);
+            label1.Location = new Point(19, 14);
             label1.Name = "label1";
-            label1.Size = new Size(223, 34);
+            label1.Size = new Size(176, 27);
             label1.TabIndex = 3;
             label1.Text = "NEW TRACKER";
             // 
-            // textBox1
+            // tbName
             // 
-            textBox1.Location = new Point(32, 93);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(377, 27);
-            textBox1.TabIndex = 5;
+            tbName.Location = new Point(28, 70);
+            tbName.Margin = new Padding(3, 2, 3, 2);
+            tbName.Name = "tbName";
+            tbName.Size = new Size(330, 23);
+            tbName.TabIndex = 5;
             // 
-            // textBox2
+            // tbDescription
             // 
-            textBox2.Location = new Point(32, 166);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(377, 27);
-            textBox2.TabIndex = 7;
-            textBox2.TextChanged += textBox2_TextChanged;
+            tbDescription.Location = new Point(28, 124);
+            tbDescription.Margin = new Padding(3, 2, 3, 2);
+            tbDescription.Name = "tbDescription";
+            tbDescription.Size = new Size(330, 23);
+            tbDescription.TabIndex = 7;
+            tbDescription.TextChanged += textBox2_TextChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(32, 139);
+            label3.Location = new Point(28, 104);
             label3.Name = "label3";
-            label3.Size = new Size(153, 24);
+            label3.Size = new Size(124, 19);
             label3.TabIndex = 6;
             label3.Text = "DESCRIPTION";
-            //label3.Click += this.label3_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(32, 222);
+            label4.Location = new Point(28, 166);
             label4.Name = "label4";
-            label4.Size = new Size(78, 24);
+            label4.Size = new Size(63, 19);
             label4.TabIndex = 8;
             label4.Text = "USERS";
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(32, 258);
+            dataGridView1.Location = new Point(28, 194);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(377, 142);
+            dataGridView1.Size = new Size(330, 106);
             dataGridView1.TabIndex = 9;
             // 
             // button1
@@ -118,12 +120,14 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(175, 215);
+            button1.Location = new Point(153, 161);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(114, 31);
+            button1.Size = new Size(100, 23);
             button1.TabIndex = 10;
             button1.Text = "ADD/EDIT";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -132,9 +136,10 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(295, 215);
+            button2.Location = new Point(258, 161);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(114, 31);
+            button2.Size = new Size(100, 23);
             button2.TabIndex = 11;
             button2.Text = "REMOVE";
             button2.UseVisualStyleBackColor = false;
@@ -146,9 +151,10 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(295, 430);
+            button3.Location = new Point(258, 322);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(114, 31);
+            button3.Size = new Size(100, 23);
             button3.TabIndex = 13;
             button3.Text = "CANCEL";
             button3.UseVisualStyleBackColor = false;
@@ -160,31 +166,34 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.Transparent;
-            button4.Location = new Point(175, 430);
+            button4.Location = new Point(153, 322);
+            button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(114, 31);
+            button4.Size = new Size(100, 23);
             button4.TabIndex = 12;
             button4.Text = "SAVE";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // Newtracker
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(453, 535);
+            ClientSize = new Size(396, 401);
             Controls.Add(button3);
             Controls.Add(button4);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(label4);
-            Controls.Add(textBox2);
+            Controls.Add(tbDescription);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(tbName);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Newtracker";
             Text = "Newtracker";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -196,8 +205,8 @@
 
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox tbName;
+        private TextBox tbDescription;
         private Label label3;
         private Label label4;
         private DataGridView dataGridView1;
