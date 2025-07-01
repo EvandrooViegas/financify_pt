@@ -103,6 +103,26 @@ namespace financify_pt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_1_07_2025__10_48_35_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT_Image_1_07_2025__10_48_35-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_27_06_2025__17_13_05_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT_Image_27_06_2025__17_13_05-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image {
             get {
                 object obj = ResourceManager.GetObject("image", resourceCulture);
