@@ -51,6 +51,7 @@
             guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            pictureBox3 = new PictureBox();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
@@ -61,12 +62,22 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            pictureBox3 = new PictureBox();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            guna2CustomGradientPanel4.SuspendLayout();
+            guna2CustomGradientPanel1.SuspendLayout();
             guna2CustomGradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -224,6 +235,8 @@
             // guna2CustomGradientPanel4
             // 
             guna2CustomGradientPanel4.BorderColor = Color.Transparent;
+            guna2CustomGradientPanel4.Controls.Add(pictureBox5);
+            guna2CustomGradientPanel4.Controls.Add(label15);
             guna2CustomGradientPanel4.CustomizableEdges = customizableEdges1;
             guna2CustomGradientPanel4.FillColor = Color.Black;
             guna2CustomGradientPanel4.FillColor2 = Color.Gray;
@@ -238,6 +251,11 @@
             // guna2CustomGradientPanel1
             // 
             guna2CustomGradientPanel1.BorderColor = Color.Transparent;
+            guna2CustomGradientPanel1.Controls.Add(pictureBox4);
+            guna2CustomGradientPanel1.Controls.Add(label14);
+            guna2CustomGradientPanel1.Controls.Add(label13);
+            guna2CustomGradientPanel1.Controls.Add(label12);
+            guna2CustomGradientPanel1.Controls.Add(label11);
             guna2CustomGradientPanel1.CustomizableEdges = customizableEdges3;
             guna2CustomGradientPanel1.FillColor = Color.Black;
             guna2CustomGradientPanel1.FillColor2 = Color.Gray;
@@ -267,6 +285,17 @@
             guna2CustomGradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2CustomGradientPanel2.Size = new Size(226, 256);
             guna2CustomGradientPanel2.TabIndex = 14;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = Properties.Resources.ChatGPT_Image_1_07_2025__10_48_35_removebg_preview;
+            pictureBox3.Location = new Point(81, 122);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(145, 134);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 19;
+            pictureBox3.TabStop = false;
             // 
             // label10
             // 
@@ -395,16 +424,88 @@
             label3.TabIndex = 15;
             label3.Text = "Financial";
             // 
-            // pictureBox3
+            // label11
             // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = Properties.Resources.ChatGPT_Image_1_07_2025__10_48_35_removebg_preview;
-            pictureBox3.Location = new Point(81, 122);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(145, 134);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 19;
-            pictureBox3.TabStop = false;
+            label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
+            label11.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.FromArgb(0, 255, 200);
+            label11.Location = new Point(3, 12);
+            label11.Name = "label11";
+            label11.Size = new Size(96, 32);
+            label11.TabIndex = 20;
+            label11.Text = "Budget";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(3, 53);
+            label12.Name = "label12";
+            label12.Size = new Size(146, 21);
+            label12.TabIndex = 20;
+            label12.Text = "Set spending limits ";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.White;
+            label13.Location = new Point(3, 74);
+            label13.Name = "label13";
+            label13.Size = new Size(140, 21);
+            label13.TabIndex = 21;
+            label13.Text = "and organize your ";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = Color.Transparent;
+            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.White;
+            label14.Location = new Point(3, 95);
+            label14.Name = "label14";
+            label14.Size = new Size(62, 21);
+            label14.TabIndex = 22;
+            label14.Text = "budget.";
+            label14.Click += label14_Click;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = Color.Transparent;
+            label15.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.FromArgb(0, 255, 200);
+            label15.Location = new Point(12, 12);
+            label15.Name = "label15";
+            label15.Size = new Size(103, 32);
+            label15.TabIndex = 23;
+            label15.Text = "Reports";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = Properties.Resources.ChatGPT_Image_1_07_2025__11_08_40_removebg_preview;
+            pictureBox4.Location = new Point(81, 122);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(145, 134);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 20;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.Transparent;
+            pictureBox5.Image = Properties.Resources.ChatGPT_Image_1_07_2025__11_06_56;
+            pictureBox5.Location = new Point(12, 53);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(203, 200);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 23;
+            pictureBox5.TabStop = false;
             // 
             // Main
             // 
@@ -435,12 +536,18 @@
             Text = "Mainform";
             Load += Main_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            guna2CustomGradientPanel4.ResumeLayout(false);
+            guna2CustomGradientPanel4.PerformLayout();
+            guna2CustomGradientPanel1.ResumeLayout(false);
+            guna2CustomGradientPanel1.PerformLayout();
             guna2CustomGradientPanel2.ResumeLayout(false);
             guna2CustomGradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             guna2CustomGradientPanel3.ResumeLayout(false);
             guna2CustomGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -473,5 +580,12 @@
         private Label label10;
         private Label label9;
         private PictureBox pictureBox3;
+        private Label label14;
+        private Label label13;
+        private Label label12;
+        private Label label11;
+        private PictureBox pictureBox5;
+        private Label label15;
+        private PictureBox pictureBox4;
     }
 }
