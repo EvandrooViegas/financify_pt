@@ -43,7 +43,6 @@
             label1.Size = new Size(90, 37);
             label1.TabIndex = 0;
             label1.Text = "label1";
-            label1.Click += label1_Click;
             // 
             // richTextBox1
             // 
@@ -62,7 +61,6 @@
             button1.TabIndex = 2;
             button1.Text = "Consultar";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
             // 
             // button2
             // 

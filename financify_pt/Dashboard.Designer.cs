@@ -198,10 +198,10 @@
             button1.TabIndex = 9;
             button1.Text = "Add New Tracker";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // panel3
             // 
+            panel3.AutoScroll = true;
             panel3.Location = new Point(201, 118);
             panel3.Name = "panel3";
             panel3.Size = new Size(850, 301);
@@ -223,7 +223,7 @@
             Name = "Dashboard";
             StartPosition = FormStartPosition.Manual;
             Text = "tracker";
-            Load += tracker_Load;
+            Load += Dashboard_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();

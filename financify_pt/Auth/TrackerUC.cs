@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace financify_pt.Auth
@@ -14,29 +7,23 @@ namespace financify_pt.Auth
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
+
         public TrackerUC()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public TrackerUC(string title, string description, int id) : this()
         {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
+            Title = title;
+            Description = description;
+            Id = id;
         }
 
         private void TrackerUC_Load(object sender, EventArgs e)
         {
-            label1.Text  = Title;
+            label1.Text = Title;
             richTextBox1.Text = Description;
         }
     }
