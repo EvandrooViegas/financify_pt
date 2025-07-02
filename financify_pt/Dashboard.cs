@@ -16,7 +16,7 @@ namespace financify_pt.Auth
 
         }
 
-        private void Dashboard_Load_1(object sender, EventArgs e)
+        private void RefreshData()
         {
             panel3.Controls.Clear();
             panel3.AutoScroll = true;
@@ -26,7 +26,7 @@ namespace financify_pt.Auth
             int itemWidth = 409;
             int itemHeight = 231;
             int margin = 10;
-            int columns = 3;
+            int columns = 2;
 
             for (int i = 0; i < trackers.Count(); i++)
             {
@@ -48,13 +48,24 @@ namespace financify_pt.Auth
 
                 panel3.Controls.Add(trackerUC);
             }
-    }
+        }
 
-    private void button1_Click(object sender, EventArgs e)
+        private void Dashboard_Load_1(object sender, EventArgs e)
+        {
+           RefreshData();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             var tracker = new Newtracker();
             tracker.ShowDialog();
-        }
+            RefreshData();
 
+        }
     }
 }

@@ -198,6 +198,7 @@
             button1.TabIndex = 9;
             button1.Text = "Add New Tracker";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // panel3
             // 

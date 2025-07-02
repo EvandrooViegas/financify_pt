@@ -38,6 +38,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(24, 21);
             label1.Name = "label1";
             label1.Size = new Size(90, 37);
@@ -46,6 +47,7 @@
             // 
             // richTextBox1
             // 
+            richTextBox1.BackColor = Color.Black;
             richTextBox1.BorderStyle = BorderStyle.None;
             richTextBox1.Location = new Point(24, 61);
             richTextBox1.Name = "richTextBox1";
@@ -75,12 +77,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Transparent;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(richTextBox1);
             Controls.Add(label1);
             Name = "TrackerUC";
-            Size = new Size(409, 231);
+            Size = new Size(407, 229);
             Load += TrackerUC_Load;
             ResumeLayout(false);
             PerformLayout();
