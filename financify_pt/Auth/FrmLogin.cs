@@ -63,14 +63,33 @@ namespace financify_pt
             Application.Exit();
         }
 
-        private void signup_btn_Click(object sender, EventArgs e)
+       
+
+
+
+
+
+        private void login_showpass_CheckedChanged(object sender, EventArgs e)
         {
-            FrmRegister regform = new FrmRegister();
-            regform.Show();
-            this.Hide();
+            txt_pass.PasswordChar = login_showpass.Checked ? '\0' : '*';
         }
 
-        private void login_btn_Click(object sender, EventArgs e)
+        private void login_email_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmLogin_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_pass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Login_Click(object sender, EventArgs e)
         {
             if (txt_email.Text == "" || txt_pass.Text == "")
             {
@@ -101,29 +120,16 @@ namespace financify_pt
             }
         }
 
-        private void btn_cancel_Click(object sender, EventArgs e)
+        private void cancel_btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void login_showpass_CheckedChanged(object sender, EventArgs e)
+        private void btn_singUp_Click(object sender, EventArgs e)
         {
-            txt_pass.PasswordChar = login_showpass.Checked ? '\0' : '*';
-        }
-
-        private void login_email_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmLogin_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void login_pass_TextChanged(object sender, EventArgs e)
-        {
-
+            FrmRegister regform = new FrmRegister();
+            regform.Show();
+            this.Hide();
         }
     }
 }
