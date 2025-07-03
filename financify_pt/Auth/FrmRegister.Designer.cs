@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             registerlogin_btn = new Button();
             label7 = new Label();
             label2 = new Label();
-            close = new Label();
             register_showpass = new CheckBox();
             register_btn = new Button();
             register_pass = new TextBox();
@@ -48,6 +47,7 @@
             btn_cancel = new Button();
             guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             pictureBox1 = new PictureBox();
+            btn_X = new Button();
             guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -92,19 +92,6 @@
             label2.Size = new Size(296, 23);
             label2.TabIndex = 1;
             label2.Text = "Income and expenses tracker ";
-            // 
-            // close
-            // 
-            close.AutoSize = true;
-            close.Cursor = Cursors.Hand;
-            close.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            close.Location = new Point(753, 7);
-            close.Name = "close";
-            close.RightToLeft = RightToLeft.No;
-            close.Size = new Size(23, 23);
-            close.TabIndex = 18;
-            close.Text = "X";
-            close.Click += close_Click;
             // 
             // register_showpass
             // 
@@ -256,14 +243,14 @@
             guna2CustomGradientPanel3.Controls.Add(registerlogin_btn);
             guna2CustomGradientPanel3.Controls.Add(label2);
             guna2CustomGradientPanel3.Controls.Add(label7);
-            guna2CustomGradientPanel3.CustomizableEdges = customizableEdges1;
+            guna2CustomGradientPanel3.CustomizableEdges = customizableEdges3;
             guna2CustomGradientPanel3.FillColor = Color.Black;
             guna2CustomGradientPanel3.FillColor2 = Color.Gray;
             guna2CustomGradientPanel3.FillColor3 = Color.Black;
             guna2CustomGradientPanel3.FillColor4 = Color.DimGray;
             guna2CustomGradientPanel3.Location = new Point(0, -1);
             guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
-            guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2CustomGradientPanel3.Size = new Size(368, 437);
             guna2CustomGradientPanel3.TabIndex = 24;
             // 
@@ -278,19 +265,36 @@
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
+            // btn_X
+            // 
+            btn_X.BackColor = Color.Transparent;
+            btn_X.FlatAppearance.BorderSize = 0;
+            btn_X.FlatAppearance.MouseDownBackColor = Color.Teal;
+            btn_X.FlatAppearance.MouseOverBackColor = Color.Teal;
+            btn_X.FlatStyle = FlatStyle.Flat;
+            btn_X.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_X.Location = new Point(738, -1);
+            btn_X.Margin = new Padding(3, 2, 3, 2);
+            btn_X.Name = "btn_X";
+            btn_X.Size = new Size(43, 33);
+            btn_X.TabIndex = 25;
+            btn_X.Text = "X";
+            btn_X.UseVisualStyleBackColor = false;
+            btn_X.Click += btn_X_Click;
+            // 
             // FrmRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(783, 436);
+            Controls.Add(btn_X);
             Controls.Add(guna2CustomGradientPanel3);
             Controls.Add(btn_cancel);
             Controls.Add(register_name);
             Controls.Add(label6);
             Controls.Add(register_confirmpass);
             Controls.Add(label1);
-            Controls.Add(close);
             Controls.Add(register_showpass);
             Controls.Add(register_btn);
             Controls.Add(register_pass);
@@ -305,6 +309,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "registerform";
             Load += registerform_Load;
+            MouseDown += FrmRegister_MouseDown;
             guna2CustomGradientPanel3.ResumeLayout(false);
             guna2CustomGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -316,7 +321,6 @@
         private Button registerlogin_btn;
         private Label label7;
         private Label label2;
-        private Label close;
         private CheckBox register_showpass;
         private Button register_btn;
         private TextBox register_pass;
@@ -331,5 +335,6 @@
         private Button btn_cancel;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
         private PictureBox pictureBox1;
+        private Button btn_X;
     }
 }
