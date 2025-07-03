@@ -31,7 +31,6 @@
             label1 = new Label();
             richTextBox1 = new RichTextBox();
             button1 = new Button();
-            button2 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -57,21 +56,13 @@
             // 
             // button1
             // 
-            button1.Location = new Point(299, 184);
+            button1.BackColor = Color.FromArgb(128, 255, 128);
+            button1.Location = new Point(289, 194);
             button1.Name = "button1";
-            button1.Size = new Size(97, 33);
+            button1.Size = new Size(97, 23);
             button1.TabIndex = 2;
             button1.Text = "Consultar";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(196, 184);
-            button2.Name = "button2";
-            button2.Size = new Size(97, 33);
-            button2.TabIndex = 3;
-            button2.Text = "Editar";
-            button2.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             // 
             // TrackerUC
             // 
@@ -79,7 +70,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             BorderStyle = BorderStyle.FixedSingle;
-            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(richTextBox1);
             Controls.Add(label1);
@@ -95,6 +85,5 @@
         private Label label1;
         private RichTextBox richTextBox1;
         private Button button1;
-        private Button button2;
     }
 }

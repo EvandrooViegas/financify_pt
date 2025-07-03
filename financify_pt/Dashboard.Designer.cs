@@ -187,6 +187,7 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.FromArgb(102, 163, 155);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -197,7 +198,7 @@
             button1.Size = new Size(172, 28);
             button1.TabIndex = 9;
             button1.Text = "Add New Tracker";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
             // panel3
