@@ -232,6 +232,7 @@
             txt_pass.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txt_pass.Location = new Point(392, 222);
             txt_pass.Name = "txt_pass";
+            txt_pass.PasswordChar = '*';
             txt_pass.PlaceholderText = "";
             txt_pass.SelectedText = "";
             txt_pass.ShadowDecoration.CustomizableEdges = customizableEdges8;
@@ -252,9 +253,9 @@
             btn_Login.Location = new Point(394, 320);
             btn_Login.Name = "btn_Login";
             btn_Login.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btn_Login.Size = new Size(88, 30);
+            btn_Login.Size = new Size(115, 34);
             btn_Login.TabIndex = 19;
-            btn_Login.Text = "Login";
+            btn_Login.Text = "LOGIN";
             btn_Login.Click += btn_Login_Click;
             // 
             // cancel_btn
@@ -268,12 +269,12 @@
             cancel_btn.FillColor = Color.FromArgb(102, 163, 155);
             cancel_btn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cancel_btn.ForeColor = Color.White;
-            cancel_btn.Location = new Point(658, 320);
+            cancel_btn.Location = new Point(633, 320);
             cancel_btn.Name = "cancel_btn";
             cancel_btn.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            cancel_btn.Size = new Size(88, 30);
+            cancel_btn.Size = new Size(113, 34);
             cancel_btn.TabIndex = 20;
-            cancel_btn.Text = "Cancel";
+            cancel_btn.Text = "CANCEL";
             cancel_btn.Click += cancel_btn_Click;
             // 
             // FrmLogin

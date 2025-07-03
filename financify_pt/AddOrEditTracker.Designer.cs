@@ -159,7 +159,7 @@
             button3.TabIndex = 13;
             button3.Text = "CANCEL";
             button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            
             // 
             // button4
             // 
