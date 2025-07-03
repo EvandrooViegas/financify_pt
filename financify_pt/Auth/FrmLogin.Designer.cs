@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            signup_btn = new Button();
-            label7 = new Label();
-            label2 = new Label();
-            pictureBox1 = new PictureBox();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label3 = new Label();
             label4 = new Label();
             login_email = new TextBox();
@@ -42,78 +39,20 @@
             login_showpass = new CheckBox();
             close = new Label();
             btn_cancel = new Button();
-            panel1.SuspendLayout();
+            label2 = new Label();
+            label7 = new Label();
+            signup_btn = new Button();
+            guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            pictureBox1 = new PictureBox();
+            guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Teal;
-            panel1.Controls.Add(signup_btn);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(365, 436);
-            panel1.TabIndex = 0;
-            // 
-            // signup_btn
-            // 
-            signup_btn.BackColor = Color.Teal;
-            signup_btn.FlatAppearance.MouseDownBackColor = Color.Teal;
-            signup_btn.FlatAppearance.MouseOverBackColor = Color.Teal;
-            signup_btn.FlatStyle = FlatStyle.Flat;
-            signup_btn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            signup_btn.ForeColor = Color.White;
-            signup_btn.Location = new Point(23, 371);
-            signup_btn.Margin = new Padding(3, 2, 3, 2);
-            signup_btn.Name = "signup_btn";
-            signup_btn.Size = new Size(319, 30);
-            signup_btn.TabIndex = 8;
-            signup_btn.Text = "SIGNUP";
-            signup_btn.UseVisualStyleBackColor = false;
-            signup_btn.Click += signup_btn_Click;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(94, 339);
-            label7.Name = "label7";
-            label7.Size = new Size(168, 23);
-            label7.TabIndex = 3;
-            label7.Text = "REGISTER HERE";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.Menu;
-            label2.Location = new Point(46, 183);
-            label2.Name = "label2";
-            label2.Size = new Size(296, 23);
-            label2.TabIndex = 1;
-            label2.Text = "Income and expenses tracker ";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.user_6639581;
-            pictureBox1.Location = new Point(148, 89);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(88, 75);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Transparent;
             label3.Location = new Point(392, 77);
             label3.Name = "label3";
             label3.Size = new Size(90, 23);
@@ -124,6 +63,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Transparent;
             label4.Location = new Point(388, 136);
             label4.Name = "label4";
             label4.Size = new Size(55, 19);
@@ -153,6 +93,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Transparent;
             label5.Location = new Point(388, 200);
             label5.Name = "label5";
             label5.Size = new Size(94, 19);
@@ -161,7 +102,7 @@
             // 
             // login_btn
             // 
-            login_btn.BackColor = Color.Teal;
+            login_btn.BackColor = Color.FromArgb(0, 255, 200);
             login_btn.FlatAppearance.BorderSize = 0;
             login_btn.FlatAppearance.MouseDownBackColor = Color.Teal;
             login_btn.FlatAppearance.MouseOverBackColor = Color.Teal;
@@ -180,6 +121,7 @@
             // 
             login_showpass.AutoSize = true;
             login_showpass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            login_showpass.ForeColor = Color.Transparent;
             login_showpass.Location = new Point(607, 251);
             login_showpass.Margin = new Padding(3, 2, 3, 2);
             login_showpass.Name = "login_showpass";
@@ -187,6 +129,7 @@
             login_showpass.TabIndex = 8;
             login_showpass.Text = "Show password";
             login_showpass.UseVisualStyleBackColor = true;
+            login_showpass.CheckedChanged += login_showpass_CheckedChanged;
             // 
             // close
             // 
@@ -203,7 +146,7 @@
             // 
             // btn_cancel
             // 
-            btn_cancel.BackColor = Color.Teal;
+            btn_cancel.BackColor = Color.FromArgb(0, 255, 200);
             btn_cancel.FlatAppearance.BorderSize = 0;
             btn_cancel.FlatAppearance.MouseDownBackColor = Color.Teal;
             btn_cancel.FlatAppearance.MouseOverBackColor = Color.Teal;
@@ -218,11 +161,83 @@
             btn_cancel.UseVisualStyleBackColor = false;
             btn_cancel.Click += btn_cancel_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.Menu;
+            label2.Location = new Point(40, 198);
+            label2.Name = "label2";
+            label2.Size = new Size(296, 23);
+            label2.TabIndex = 1;
+            label2.Text = "Income and expenses tracker ";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(95, 368);
+            label7.Name = "label7";
+            label7.Size = new Size(168, 23);
+            label7.TabIndex = 3;
+            label7.Text = "REGISTER HERE";
+            // 
+            // signup_btn
+            // 
+            signup_btn.BackColor = Color.FromArgb(0, 255, 200);
+            signup_btn.FlatAppearance.MouseDownBackColor = Color.Teal;
+            signup_btn.FlatAppearance.MouseOverBackColor = Color.Teal;
+            signup_btn.FlatStyle = FlatStyle.Flat;
+            signup_btn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            signup_btn.ForeColor = Color.White;
+            signup_btn.Location = new Point(17, 393);
+            signup_btn.Margin = new Padding(3, 2, 3, 2);
+            signup_btn.Name = "signup_btn";
+            signup_btn.Size = new Size(319, 30);
+            signup_btn.TabIndex = 8;
+            signup_btn.Text = "SIGNUP";
+            signup_btn.UseVisualStyleBackColor = false;
+            signup_btn.Click += signup_btn_Click;
+            // 
+            // guna2CustomGradientPanel3
+            // 
+            guna2CustomGradientPanel3.BorderColor = Color.Transparent;
+            guna2CustomGradientPanel3.Controls.Add(pictureBox1);
+            guna2CustomGradientPanel3.Controls.Add(signup_btn);
+            guna2CustomGradientPanel3.Controls.Add(label2);
+            guna2CustomGradientPanel3.Controls.Add(label7);
+            guna2CustomGradientPanel3.CustomizableEdges = customizableEdges1;
+            guna2CustomGradientPanel3.FillColor = Color.Black;
+            guna2CustomGradientPanel3.FillColor2 = Color.Gray;
+            guna2CustomGradientPanel3.FillColor3 = Color.Black;
+            guna2CustomGradientPanel3.FillColor4 = Color.DimGray;
+            guna2CustomGradientPanel3.Location = new Point(0, 0);
+            guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
+            guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2CustomGradientPanel3.Size = new Size(356, 437);
+            guna2CustomGradientPanel3.TabIndex = 15;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.image;
+            pictureBox1.Location = new Point(86, 120);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(191, 49);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Black;
             ClientSize = new Size(783, 436);
+            Controls.Add(guna2CustomGradientPanel3);
             Controls.Add(btn_cancel);
             Controls.Add(close);
             Controls.Add(login_showpass);
@@ -232,25 +247,20 @@
             Controls.Add(login_email);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            guna2CustomGradientPanel3.ResumeLayout(false);
+            guna2CustomGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Panel panel1;
-        private Label label2;
-        private PictureBox pictureBox1;
         private Label label3;
         private Label label4;
         private TextBox login_email;
@@ -259,8 +269,11 @@
         private Button login_btn;
         private CheckBox login_showpass;
         private Label close;
-        private Button signup_btn;
-        private Label label7;
         private Button btn_cancel;
+        private Label label2;
+        private Label label7;
+        private Button signup_btn;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
+        private PictureBox pictureBox1;
     }
 }

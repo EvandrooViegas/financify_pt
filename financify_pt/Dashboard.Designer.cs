@@ -244,7 +244,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Dashboard";
-            StartPosition = FormStartPosition.Manual;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "tracker";
             Load += Dashboard_Load_1;
             panel1.ResumeLayout(false);

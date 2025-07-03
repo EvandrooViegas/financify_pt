@@ -45,18 +45,22 @@ namespace financify_pt
                     if (user == null)
                     {
                         MessageBox.Show("The email or password are wrong");
+
                     }
                     else
                     {
                         MessageBox.Show("Loggin Successfull");
+                        this.Hide();
                         Globals.UserId = user.Id;
                         var form = new Dashboard();
                         form.ShowDialog();
+
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    this.Hide();
                 }
             }
 
@@ -67,6 +71,27 @@ namespace financify_pt
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_showpass_CheckedChanged(object sender, EventArgs e)
+        {
+            login_pass.PasswordChar = login_showpass.Checked ? '\0' : '*';
+           
         }
     }
 }
