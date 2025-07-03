@@ -7,31 +7,71 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
-using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 using Microsoft.Data.SqlClient;
 
 namespace financify_pt
 {
     public partial class FrmRegister : Form
     {
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
 
         public FrmRegister()
         {
             InitializeComponent();
+
+            // Permite mover o form ao clicar em qualquer parte neutra
+            this.MouseDown += FrmRegister_MouseDown;
+
+            // Conecta o evento ao botão close (caso não esteja feito no designer)
+           
         }
 
-
-        private void close_Click(object sender, EventArgs e)
+        private void registerform_Load(object sender, EventArgs e)
         {
-            Application.Exit();
+            // Aplica a lógica recursiva sem afetar controles interativos
+            ApplyMoveFormToControls(this);
         }
+
+        private void ApplyMoveFormToControls(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                // Ignora controles interativos
+                if (!(c is Button) && !(c is CheckBox) && !(c is TextBox) && !(c is PictureBox))
+                {
+                    c.MouseDown += FrmRegister_MouseDown;
+                }
+
+                if (c.HasChildren)
+                {
+                    ApplyMoveFormToControls(c);
+                }
+            }
+        }
+
+        private void FrmRegister_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+      
 
         private void registerlogin_btn_Click(object sender, EventArgs e)
         {
             FrmLogin loginform = new FrmLogin();
             loginform.Show();
-
             this.Hide();
         }
 
@@ -52,7 +92,7 @@ namespace financify_pt
                 try
                 {
                     BLL.User.CreateUser(register_email.Text, register_pass.Text, register_name.Text, false, false);
-                    MessageBox.Show("Register Successfull");
+                    MessageBox.Show("Register Successful");
                     var form = new FrmLogin();
                     form.ShowDialog();
                 }
@@ -61,13 +101,6 @@ namespace financify_pt
                     MessageBox.Show(ex.Message);
                 }
             }
-        }
-
-
-
-        private void registerform_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void register_showpass_CheckedChanged(object sender, EventArgs e)
@@ -79,6 +112,15 @@ namespace financify_pt
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btn_X_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

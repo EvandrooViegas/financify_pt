@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             panel2 = new Panel();
             pictureBox4 = new PictureBox();
@@ -40,9 +42,9 @@
             pictureBox1 = new PictureBox();
             pictureBox5 = new PictureBox();
             label4 = new Label();
-            button1 = new Button();
             panel3 = new Panel();
             close = new Label();
+            btn_newTracker = new Guna.UI2.WinForms.Guna2Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -186,22 +188,6 @@
             label4.TabIndex = 8;
             label4.Text = "My Trackers";
             // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(102, 163, 155);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(909, 44);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(172, 28);
-            button1.TabIndex = 9;
-            button1.Text = "Add New Tracker";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_1;
-            // 
             // panel3
             // 
             panel3.AutoScroll = true;
@@ -224,22 +210,41 @@
             close.Text = "X";
             close.Click += close_Click;
             // 
+            // btn_newTracker
+            // 
+            btn_newTracker.BackColor = Color.Transparent;
+            btn_newTracker.BorderRadius = 20;
+            btn_newTracker.CustomizableEdges = customizableEdges1;
+            btn_newTracker.DisabledState.BorderColor = Color.DarkGray;
+            btn_newTracker.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_newTracker.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_newTracker.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_newTracker.FillColor = Color.FromArgb(102, 163, 155);
+            btn_newTracker.Font = new Font("Segoe UI", 9F);
+            btn_newTracker.ForeColor = Color.White;
+            btn_newTracker.Location = new Point(871, 67);
+            btn_newTracker.Name = "btn_newTracker";
+            btn_newTracker.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_newTracker.Size = new Size(180, 45);
+            btn_newTracker.TabIndex = 20;
+            btn_newTracker.Text = "Add New Tracker";
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
             ClientSize = new Size(1123, 460);
+            Controls.Add(btn_newTracker);
             Controls.Add(close);
             Controls.Add(panel3);
-            Controls.Add(button1);
             Controls.Add(label4);
             Controls.Add(pictureBox5);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Dashboard";
-            StartPosition = FormStartPosition.Manual;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "tracker";
             Load += Dashboard_Load_1;
             panel1.ResumeLayout(false);
@@ -265,9 +270,9 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox5;
         private Label label4;
-        private Button button1;
         private Panel panel2;
         private Panel panel3;
         private Label close;
+        private Guna.UI2.WinForms.Guna2Button btn_newTracker;
     }
 }

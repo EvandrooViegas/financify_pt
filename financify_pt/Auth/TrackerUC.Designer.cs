@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             richTextBox1 = new RichTextBox();
-            button1 = new Button();
+            btm_view = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F);
+            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
             label1.Location = new Point(24, 21);
             label1.Name = "label1";
-            label1.Size = new Size(90, 37);
+            label1.Size = new Size(160, 37);
             label1.TabIndex = 0;
-            label1.Text = "label1";
+            label1.Text = "TRACKER 1";
             // 
             // richTextBox1
             // 
@@ -54,15 +56,23 @@
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             // 
-            // button1
+            // btm_view
             // 
-            button1.BackColor = Color.FromArgb(128, 255, 128);
-            button1.Location = new Point(289, 194);
-            button1.Name = "button1";
-            button1.Size = new Size(97, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Consultar";
-            button1.UseVisualStyleBackColor = false;
+            btm_view.BorderRadius = 10;
+            btm_view.CustomizableEdges = customizableEdges1;
+            btm_view.DisabledState.BorderColor = Color.DarkGray;
+            btm_view.DisabledState.CustomBorderColor = Color.DarkGray;
+            btm_view.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btm_view.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btm_view.FillColor = Color.FromArgb(102, 163, 155);
+            btm_view.Font = new Font("Segoe UI", 9F);
+            btm_view.ForeColor = Color.White;
+            btm_view.Location = new Point(289, 194);
+            btm_view.Name = "btm_view";
+            btm_view.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btm_view.Size = new Size(97, 23);
+            btm_view.TabIndex = 3;
+            btm_view.Text = "View";
             // 
             // TrackerUC
             // 
@@ -70,7 +80,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             BorderStyle = BorderStyle.FixedSingle;
-            Controls.Add(button1);
+            Controls.Add(btm_view);
             Controls.Add(richTextBox1);
             Controls.Add(label1);
             Name = "TrackerUC";
@@ -84,6 +94,6 @@
 
         private Label label1;
         private RichTextBox richTextBox1;
-        private Button button1;
+        private Guna.UI2.WinForms.Guna2Button btm_view;
     }
 }
