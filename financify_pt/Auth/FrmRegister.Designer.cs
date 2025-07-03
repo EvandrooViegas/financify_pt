@@ -148,7 +148,7 @@
             label1.Size = new Size(168, 19);
             label1.TabIndex = 19;
             label1.Text = "CONFIRM PASSWORD";
-            label1.Click += label1_Click;
+            //label1.Click += label1_Click;
             // 
             // label6
             // 
@@ -379,7 +379,7 @@
             Name = "FrmRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "registerform";
-            Load += registerform_Load;
+           // Load += registerform_Load;
             MouseDown += FrmRegister_MouseDown;
             guna2CustomGradientPanel3.ResumeLayout(false);
             guna2CustomGradientPanel3.PerformLayout();
