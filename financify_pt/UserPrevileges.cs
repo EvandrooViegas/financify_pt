@@ -8,6 +8,7 @@ namespace financify_pt
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+        public 
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -75,6 +76,10 @@ namespace financify_pt
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(tbName.Text == "")
+            {
+                var exists = BLL.UserTracker.IsUserParticipant(Globals.UserId, )
+            }
         }
     }
 }
