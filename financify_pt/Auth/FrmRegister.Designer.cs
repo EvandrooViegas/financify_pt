@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             registerlogin_btn = new Button();
             label7 = new Label();
             label2 = new Label();
@@ -173,9 +173,9 @@
             label3.ForeColor = Color.Transparent;
             label3.Location = new Point(394, 64);
             label3.Name = "label3";
-            label3.Size = new Size(115, 23);
+            label3.Size = new Size(109, 23);
             label3.TabIndex = 11;
-            label3.Text = "REGISTER.";
+            label3.Text = "REGISTER";
             // 
             // register_confirmpass
             // 
@@ -243,14 +243,14 @@
             guna2CustomGradientPanel3.Controls.Add(registerlogin_btn);
             guna2CustomGradientPanel3.Controls.Add(label2);
             guna2CustomGradientPanel3.Controls.Add(label7);
-            guna2CustomGradientPanel3.CustomizableEdges = customizableEdges1;
+            guna2CustomGradientPanel3.CustomizableEdges = customizableEdges3;
             guna2CustomGradientPanel3.FillColor = Color.Black;
             guna2CustomGradientPanel3.FillColor2 = Color.Gray;
             guna2CustomGradientPanel3.FillColor3 = Color.Black;
             guna2CustomGradientPanel3.FillColor4 = Color.DimGray;
             guna2CustomGradientPanel3.Location = new Point(0, -1);
             guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
-            guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2CustomGradientPanel3.Size = new Size(368, 437);
             guna2CustomGradientPanel3.TabIndex = 24;
             // 
