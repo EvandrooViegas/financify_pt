@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             registerlogin_btn = new Button();
             label7 = new Label();
             label2 = new Label();
-            pictureBox1 = new PictureBox();
             close = new Label();
             register_showpass = new CheckBox();
             register_btn = new Button();
@@ -46,33 +46,21 @@
             register_name = new TextBox();
             label6 = new Label();
             btn_cancel = new Button();
-            panel1.SuspendLayout();
+            guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            pictureBox1 = new PictureBox();
+            guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Teal;
-            panel1.Controls.Add(registerlogin_btn);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(365, 436);
-            panel1.TabIndex = 10;
-            // 
             // registerlogin_btn
             // 
-            registerlogin_btn.BackColor = Color.Teal;
+            registerlogin_btn.BackColor = Color.FromArgb(0, 255, 200);
             registerlogin_btn.FlatAppearance.MouseDownBackColor = Color.Teal;
             registerlogin_btn.FlatAppearance.MouseOverBackColor = Color.Teal;
             registerlogin_btn.FlatStyle = FlatStyle.Flat;
             registerlogin_btn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             registerlogin_btn.ForeColor = Color.White;
-            registerlogin_btn.Location = new Point(23, 371);
+            registerlogin_btn.Location = new Point(31, 374);
             registerlogin_btn.Margin = new Padding(3, 2, 3, 2);
             registerlogin_btn.Name = "registerlogin_btn";
             registerlogin_btn.Size = new Size(319, 30);
@@ -84,9 +72,10 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
             label7.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(94, 339);
+            label7.Location = new Point(112, 340);
             label7.Name = "label7";
             label7.Size = new Size(149, 23);
             label7.TabIndex = 3;
@@ -95,24 +84,14 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Menu;
-            label2.Location = new Point(23, 183);
+            label2.Location = new Point(54, 188);
             label2.Name = "label2";
             label2.Size = new Size(296, 23);
             label2.TabIndex = 1;
             label2.Text = "Income and expenses tracker ";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.user_6639581;
-            pictureBox1.Location = new Point(148, 89);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(88, 75);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // close
             // 
@@ -131,6 +110,7 @@
             // 
             register_showpass.AutoSize = true;
             register_showpass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            register_showpass.ForeColor = Color.Transparent;
             register_showpass.Location = new Point(612, 337);
             register_showpass.Margin = new Padding(3, 2, 3, 2);
             register_showpass.Name = "register_showpass";
@@ -142,7 +122,7 @@
             // 
             // register_btn
             // 
-            register_btn.BackColor = Color.Teal;
+            register_btn.BackColor = Color.FromArgb(0, 255, 200);
             register_btn.FlatAppearance.BorderSize = 0;
             register_btn.FlatAppearance.MouseDownBackColor = Color.Teal;
             register_btn.FlatAppearance.MouseOverBackColor = Color.Teal;
@@ -171,6 +151,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Transparent;
             label5.Location = new Point(394, 219);
             label5.Name = "label5";
             label5.Size = new Size(94, 19);
@@ -190,6 +171,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Transparent;
             label4.Location = new Point(394, 163);
             label4.Name = "label4";
             label4.Size = new Size(55, 19);
@@ -199,7 +181,9 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Transparent;
             label3.Location = new Point(394, 64);
             label3.Name = "label3";
             label3.Size = new Size(109, 23);
@@ -220,11 +204,13 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Transparent;
             label1.Location = new Point(394, 273);
             label1.Name = "label1";
             label1.Size = new Size(168, 19);
             label1.TabIndex = 19;
             label1.Text = "CONFIRM PASSWORD";
+            label1.Click += label1_Click;
             // 
             // register_name
             // 
@@ -239,6 +225,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Transparent;
             label6.Location = new Point(394, 102);
             label6.Name = "label6";
             label6.Size = new Size(52, 19);
@@ -247,7 +234,7 @@
             // 
             // btn_cancel
             // 
-            btn_cancel.BackColor = Color.Teal;
+            btn_cancel.BackColor = Color.FromArgb(0, 255, 200);
             btn_cancel.FlatAppearance.BorderSize = 0;
             btn_cancel.FlatAppearance.MouseDownBackColor = Color.Teal;
             btn_cancel.FlatAppearance.MouseOverBackColor = Color.Teal;
@@ -262,17 +249,47 @@
             btn_cancel.UseVisualStyleBackColor = false;
             btn_cancel.Click += btn_cancel_Click;
             // 
+            // guna2CustomGradientPanel3
+            // 
+            guna2CustomGradientPanel3.BorderColor = Color.Transparent;
+            guna2CustomGradientPanel3.Controls.Add(pictureBox1);
+            guna2CustomGradientPanel3.Controls.Add(registerlogin_btn);
+            guna2CustomGradientPanel3.Controls.Add(label2);
+            guna2CustomGradientPanel3.Controls.Add(label7);
+            guna2CustomGradientPanel3.CustomizableEdges = customizableEdges1;
+            guna2CustomGradientPanel3.FillColor = Color.Black;
+            guna2CustomGradientPanel3.FillColor2 = Color.Gray;
+            guna2CustomGradientPanel3.FillColor3 = Color.Black;
+            guna2CustomGradientPanel3.FillColor4 = Color.DimGray;
+            guna2CustomGradientPanel3.Location = new Point(0, -1);
+            guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
+            guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2CustomGradientPanel3.Size = new Size(368, 437);
+            guna2CustomGradientPanel3.TabIndex = 24;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.image;
+            pictureBox1.Location = new Point(101, 104);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(191, 49);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // FrmRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Black;
             ClientSize = new Size(783, 436);
+            Controls.Add(guna2CustomGradientPanel3);
             Controls.Add(btn_cancel);
             Controls.Add(register_name);
             Controls.Add(label6);
             Controls.Add(register_confirmpass);
             Controls.Add(label1);
-            Controls.Add(panel1);
             Controls.Add(close);
             Controls.Add(register_showpass);
             Controls.Add(register_btn);
@@ -281,26 +298,24 @@
             Controls.Add(register_email);
             Controls.Add(label4);
             Controls.Add(label3);
+            ForeColor = Color.Transparent;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "registerform";
             Load += registerform_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            guna2CustomGradientPanel3.ResumeLayout(false);
+            guna2CustomGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Panel panel1;
         private Button registerlogin_btn;
         private Label label7;
         private Label label2;
-        private PictureBox pictureBox1;
         private Label close;
         private CheckBox register_showpass;
         private Button register_btn;
@@ -314,5 +329,7 @@
         private TextBox register_name;
         private Label label6;
         private Button btn_cancel;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
+        private PictureBox pictureBox1;
     }
 }
