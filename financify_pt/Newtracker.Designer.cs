@@ -116,7 +116,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.Teal;
+            button1.BackColor = Color.FromArgb(102, 163, 155);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -132,7 +132,7 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.Teal;
+            button2.BackColor = Color.FromArgb(102, 163, 155);
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -147,12 +147,12 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.Teal;
+            button3.BackColor = Color.Black;
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(258, 322);
+            button3.Location = new Point(152, 331);
             button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
             button3.Size = new Size(100, 23);
@@ -163,12 +163,12 @@
             // 
             // button4
             // 
-            button4.BackColor = Color.Teal;
+            button4.BackColor = Color.FromArgb(102, 163, 155);
             button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.Transparent;
-            button4.Location = new Point(153, 322);
+            button4.Location = new Point(258, 331);
             button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
             button4.Size = new Size(100, 23);
