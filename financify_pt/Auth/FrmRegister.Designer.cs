@@ -45,6 +45,7 @@
             label1 = new Label();
             register_name = new TextBox();
             label6 = new Label();
+            btn_cancel = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -244,11 +245,29 @@
             label6.TabIndex = 21;
             label6.Text = "NAME";
             // 
+            // btn_cancel
+            // 
+            btn_cancel.BackColor = Color.Teal;
+            btn_cancel.FlatAppearance.BorderSize = 0;
+            btn_cancel.FlatAppearance.MouseDownBackColor = Color.Teal;
+            btn_cancel.FlatAppearance.MouseOverBackColor = Color.Teal;
+            btn_cancel.FlatStyle = FlatStyle.Flat;
+            btn_cancel.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_cancel.Location = new Point(663, 371);
+            btn_cancel.Margin = new Padding(3, 2, 3, 2);
+            btn_cancel.Name = "btn_cancel";
+            btn_cancel.Size = new Size(88, 30);
+            btn_cancel.TabIndex = 23;
+            btn_cancel.Text = "Cancel";
+            btn_cancel.UseVisualStyleBackColor = false;
+            btn_cancel.Click += btn_cancel_Click;
+            // 
             // FrmRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(783, 436);
+            Controls.Add(btn_cancel);
             Controls.Add(register_name);
             Controls.Add(label6);
             Controls.Add(register_confirmpass);
@@ -294,5 +313,6 @@
         private Label label1;
         private TextBox register_name;
         private Label label6;
+        private Button btn_cancel;
     }
 }

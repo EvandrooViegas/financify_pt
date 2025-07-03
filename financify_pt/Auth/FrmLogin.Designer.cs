@@ -41,6 +41,7 @@
             login_btn = new Button();
             login_showpass = new CheckBox();
             close = new Label();
+            btn_cancel = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -200,11 +201,29 @@
             close.Text = "X";
             close.Click += close_Click;
             // 
+            // btn_cancel
+            // 
+            btn_cancel.BackColor = Color.Teal;
+            btn_cancel.FlatAppearance.BorderSize = 0;
+            btn_cancel.FlatAppearance.MouseDownBackColor = Color.Teal;
+            btn_cancel.FlatAppearance.MouseOverBackColor = Color.Teal;
+            btn_cancel.FlatStyle = FlatStyle.Flat;
+            btn_cancel.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_cancel.Location = new Point(658, 320);
+            btn_cancel.Margin = new Padding(3, 2, 3, 2);
+            btn_cancel.Name = "btn_cancel";
+            btn_cancel.Size = new Size(88, 30);
+            btn_cancel.TabIndex = 10;
+            btn_cancel.Text = "Cancel";
+            btn_cancel.UseVisualStyleBackColor = false;
+            btn_cancel.Click += btn_cancel_Click;
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(783, 436);
+            Controls.Add(btn_cancel);
             Controls.Add(close);
             Controls.Add(login_showpass);
             Controls.Add(login_btn);
@@ -242,5 +261,6 @@
         private Label close;
         private Button signup_btn;
         private Label label7;
+        private Button btn_cancel;
     }
 }

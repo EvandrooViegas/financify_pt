@@ -1,4 +1,5 @@
-﻿using System;
+﻿using financify_pt.Auth;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,41 @@ namespace financify_pt
         private void label14_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_Entrar_Click(object sender, EventArgs e)
+        {
+            FrmLogin loginform = new FrmLogin();
+            loginform.Show();
+
+        }
+
+        private void btn_Register_Click(object sender, EventArgs e)
+        {
+            FrmRegister regform = new FrmRegister();
+
+            regform.Show();
+
+
+        }
+
+        private void Btn_Start_Click(object sender, EventArgs e)
+        {
+            FrmLogin loginform = new FrmLogin();
+            loginform.Show();
+
+
+        }
+
+        private void btnDasboard_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
         }
     }
 }

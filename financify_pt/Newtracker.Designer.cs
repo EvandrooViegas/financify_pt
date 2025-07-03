@@ -39,6 +39,7 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            close = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -175,12 +176,28 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
+            // close
+            // 
+            close.AutoSize = true;
+            close.BackColor = Color.Transparent;
+            close.Cursor = Cursors.Hand;
+            close.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            close.ForeColor = Color.Transparent;
+            close.Location = new Point(361, 9);
+            close.Name = "close";
+            close.RightToLeft = RightToLeft.No;
+            close.Size = new Size(23, 23);
+            close.TabIndex = 19;
+            close.Text = "X";
+            close.Click += close_Click;
+            // 
             // Newtracker
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(396, 401);
+            Controls.Add(close);
             Controls.Add(button3);
             Controls.Add(button4);
             Controls.Add(button2);
@@ -192,7 +209,7 @@
             Controls.Add(tbName);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Newtracker";
             Text = "Newtracker";
@@ -214,5 +231,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Label close;
     }
 }
