@@ -501,7 +501,6 @@
             login_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
             login_Btn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             login_Btn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            login_Btn.Enabled = false;
             login_Btn.FillColor = Color.FromArgb(102, 163, 155);
             login_Btn.FocusedColor = Color.Transparent;
             login_Btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -525,7 +524,6 @@
             register_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
             register_Btn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             register_Btn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            register_Btn.Enabled = false;
             register_Btn.FillColor = Color.White;
             register_Btn.FocusedColor = Color.Transparent;
             register_Btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -535,7 +533,7 @@
             register_Btn.ShadowDecoration.CustomizableEdges = customizableEdges12;
             register_Btn.Size = new Size(127, 49);
             register_Btn.TabIndex = 21;
-            register_Btn.Text = "Login";
+            register_Btn.Text = "Register";
             register_Btn.Click += register_Btn_Click;
             // 
             // Start_Btn
@@ -549,7 +547,6 @@
             Start_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
             Start_Btn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             Start_Btn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            Start_Btn.Enabled = false;
             Start_Btn.FillColor = Color.White;
             Start_Btn.FocusedColor = Color.Transparent;
             Start_Btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
