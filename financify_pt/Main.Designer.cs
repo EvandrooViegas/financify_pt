@@ -36,18 +36,21 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pictureBox1 = new PictureBox();
             btnDasboard = new Button();
             btnGoals = new Button();
             btnPlanning = new Button();
             btnEducation = new Button();
             btnsettings = new Button();
-            btn_Entrar = new Button();
-            btn_Register = new Button();
             Lb1 = new Label();
             label1 = new Label();
             label2 = new Label();
-            Btn_Start = new Button();
             guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             pictureBox5 = new PictureBox();
             label15 = new Label();
@@ -70,6 +73,9 @@
             label4 = new Label();
             label3 = new Label();
             close = new Label();
+            login_Btn = new Guna.UI2.WinForms.Guna2Button();
+            register_Btn = new Guna.UI2.WinForms.Guna2Button();
+            Start_Btn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             guna2CustomGradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -162,34 +168,6 @@
             btnsettings.Text = "Settings";
             btnsettings.UseVisualStyleBackColor = false;
             // 
-            // btn_Entrar
-            // 
-            btn_Entrar.BackColor = Color.Black;
-            btn_Entrar.FlatAppearance.BorderSize = 0;
-            btn_Entrar.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Entrar.ForeColor = Color.White;
-            btn_Entrar.Location = new Point(871, 20);
-            btn_Entrar.Name = "btn_Entrar";
-            btn_Entrar.Size = new Size(127, 49);
-            btn_Entrar.TabIndex = 6;
-            btn_Entrar.Text = "Login";
-            btn_Entrar.UseVisualStyleBackColor = false;
-            btn_Entrar.Click += btn_Entrar_Click;
-            // 
-            // btn_Register
-            // 
-            btn_Register.BackColor = Color.FromArgb(0, 255, 200);
-            btn_Register.FlatAppearance.BorderSize = 0;
-            btn_Register.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Register.ForeColor = Color.Black;
-            btn_Register.Location = new Point(1004, 20);
-            btn_Register.Name = "btn_Register";
-            btn_Register.Size = new Size(127, 49);
-            btn_Register.TabIndex = 7;
-            btn_Register.Text = "Register";
-            btn_Register.UseVisualStyleBackColor = false;
-            btn_Register.Click += btn_Register_Click;
-            // 
             // Lb1
             // 
             Lb1.AutoSize = true;
@@ -222,20 +200,6 @@
             label2.Size = new Size(666, 21);
             label2.TabIndex = 10;
             label2.Text = "With Financify, you can track your expenses, set goals and improve your financial life with ease.";
-            // 
-            // Btn_Start
-            // 
-            Btn_Start.BackColor = Color.FromArgb(0, 255, 200);
-            Btn_Start.FlatAppearance.BorderSize = 0;
-            Btn_Start.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Btn_Start.ForeColor = Color.Black;
-            Btn_Start.Location = new Point(55, 270);
-            Btn_Start.Name = "Btn_Start";
-            Btn_Start.Size = new Size(148, 49);
-            Btn_Start.TabIndex = 11;
-            Btn_Start.Text = "Start Now!";
-            Btn_Start.UseVisualStyleBackColor = false;
-            Btn_Start.Click += Btn_Start_Click;
             // 
             // guna2CustomGradientPanel4
             // 
@@ -526,23 +490,95 @@
             close.Text = "X";
             close.Click += close_Click;
             // 
+            // login_Btn
+            // 
+            login_Btn.BackColor = Color.Transparent;
+            login_Btn.BackgroundImageLayout = ImageLayout.None;
+            login_Btn.BorderColor = Color.Transparent;
+            login_Btn.BorderRadius = 25;
+            login_Btn.CustomizableEdges = customizableEdges9;
+            login_Btn.DisabledState.BorderColor = Color.DarkGray;
+            login_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
+            login_Btn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            login_Btn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            login_Btn.Enabled = false;
+            login_Btn.FillColor = Color.FromArgb(102, 163, 155);
+            login_Btn.FocusedColor = Color.Transparent;
+            login_Btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            login_Btn.ForeColor = Color.White;
+            login_Btn.Location = new Point(871, 20);
+            login_Btn.Name = "login_Btn";
+            login_Btn.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            login_Btn.Size = new Size(127, 49);
+            login_Btn.TabIndex = 20;
+            login_Btn.Text = "Login";
+            login_Btn.Click += login_Btn_Click;
+            // 
+            // register_Btn
+            // 
+            register_Btn.BackColor = Color.Transparent;
+            register_Btn.BackgroundImageLayout = ImageLayout.None;
+            register_Btn.BorderColor = Color.Transparent;
+            register_Btn.BorderRadius = 25;
+            register_Btn.CustomizableEdges = customizableEdges11;
+            register_Btn.DisabledState.BorderColor = Color.DarkGray;
+            register_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
+            register_Btn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            register_Btn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            register_Btn.Enabled = false;
+            register_Btn.FillColor = Color.White;
+            register_Btn.FocusedColor = Color.Transparent;
+            register_Btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            register_Btn.ForeColor = Color.Black;
+            register_Btn.Location = new Point(1004, 20);
+            register_Btn.Name = "register_Btn";
+            register_Btn.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            register_Btn.Size = new Size(127, 49);
+            register_Btn.TabIndex = 21;
+            register_Btn.Text = "Login";
+            register_Btn.Click += register_Btn_Click;
+            // 
+            // Start_Btn
+            // 
+            Start_Btn.BackColor = Color.Transparent;
+            Start_Btn.BackgroundImageLayout = ImageLayout.None;
+            Start_Btn.BorderColor = Color.Transparent;
+            Start_Btn.BorderRadius = 25;
+            Start_Btn.CustomizableEdges = customizableEdges13;
+            Start_Btn.DisabledState.BorderColor = Color.DarkGray;
+            Start_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
+            Start_Btn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            Start_Btn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            Start_Btn.Enabled = false;
+            Start_Btn.FillColor = Color.White;
+            Start_Btn.FocusedColor = Color.Transparent;
+            Start_Btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Start_Btn.ForeColor = Color.Black;
+            Start_Btn.Location = new Point(73, 270);
+            Start_Btn.Name = "Start_Btn";
+            Start_Btn.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            Start_Btn.Size = new Size(153, 49);
+            Start_Btn.TabIndex = 22;
+            Start_Btn.Text = "Start Now!";
+            Start_Btn.Click += Start_Btn_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1169, 608);
+            Controls.Add(Start_Btn);
+            Controls.Add(register_Btn);
+            Controls.Add(login_Btn);
             Controls.Add(close);
             Controls.Add(guna2CustomGradientPanel3);
             Controls.Add(guna2CustomGradientPanel2);
             Controls.Add(guna2CustomGradientPanel1);
             Controls.Add(guna2CustomGradientPanel4);
-            Controls.Add(Btn_Start);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(Lb1);
-            Controls.Add(btn_Register);
-            Controls.Add(btn_Entrar);
             Controls.Add(btnsettings);
             Controls.Add(btnEducation);
             Controls.Add(btnPlanning);
@@ -580,12 +616,9 @@
         private Button btnPlanning;
         private Button btnEducation;
         private Button btnsettings;
-        private Button btn_Entrar;
-        private Button btn_Register;
         private Label Lb1;
         private Label label1;
         private Label label2;
-        private Button Btn_Start;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel4;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
@@ -608,5 +641,8 @@
         private Label label15;
         private PictureBox pictureBox4;
         private Label close;
+        private Guna.UI2.WinForms.Guna2Button login_Btn;
+        private Guna.UI2.WinForms.Guna2Button register_Btn;
+        private Guna.UI2.WinForms.Guna2Button Start_Btn;
     }
 }

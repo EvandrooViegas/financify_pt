@@ -43,26 +43,12 @@ namespace financify_pt
             Application.Exit();
         }
 
-        private void btn_Entrar_Click(object sender, EventArgs e)
-        {
-            FrmLogin loginform = new FrmLogin();
-            loginform.Show();
-
-        }
-
-        private void btn_Register_Click(object sender, EventArgs e)
-        {
-            FrmRegister regform = new FrmRegister();
-
-            regform.Show();
 
 
-        }
+
 
         private void Btn_Start_Click(object sender, EventArgs e)
         {
-            FrmLogin loginform = new FrmLogin();
-            loginform.Show();
 
 
         }
@@ -71,6 +57,27 @@ namespace financify_pt
         {
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
+        }
+
+        private void login_Btn_Click(object sender, EventArgs e)
+        {
+            FrmLogin loginform = new FrmLogin();
+            loginform.Show();
+        }
+
+        private void register_Btn_Click(object sender, EventArgs e)
+        {
+            FrmRegister regform = new FrmRegister();
+
+            regform.Show();
+
+        }
+
+        private void Start_Btn_Click(object sender, EventArgs e)
+        {
+            FrmLogin loginform = new FrmLogin();
+            loginform.Show();
+
         }
     }
 }
