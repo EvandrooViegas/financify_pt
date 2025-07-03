@@ -1,6 +1,6 @@
 ﻿namespace financify_pt
 {
-    partial class edituser
+    partial class UserPrevileges
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(177, 173);
+            button2.Location = new Point(239, 158);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
             button2.Size = new Size(100, 23);
@@ -60,7 +60,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(72, 173);
+            button1.Location = new Point(133, 158);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(100, 23);
@@ -74,7 +74,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(22, 123);
+            label4.Location = new Point(9, 121);
             label4.Name = "label4";
             label4.Size = new Size(224, 19);
             label4.TabIndex = 17;
@@ -105,7 +105,7 @@
             radioButton1.AutoSize = true;
             radioButton1.FlatStyle = FlatStyle.Flat;
             radioButton1.ForeColor = SystemColors.ButtonFace;
-            radioButton1.Location = new Point(249, 128);
+            radioButton1.Location = new Point(239, 126);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(13, 12);
             radioButton1.TabIndex = 20;
@@ -120,16 +120,16 @@
             label3.ForeColor = Color.Transparent;
             label3.Location = new Point(6, 56);
             label3.Name = "label3";
-            label3.Size = new Size(53, 19);
+            label3.Size = new Size(101, 19);
             label3.TabIndex = 21;
-            label3.Text = "USER";
+            label3.Text = "USERNAME";
             // 
             // edituser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(351, 229);
+            ClientSize = new Size(351, 197);
             Controls.Add(label3);
             Controls.Add(radioButton1);
             Controls.Add(button2);

@@ -1,4 +1,5 @@
 ﻿using financify_pt.Auth;
+using financify_pt.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +12,15 @@ using System.Windows.Forms;
 
 namespace financify_pt
 {
-    public partial class Newtracker : Form
+    public partial class AddOrEditTracker : Form
     {
-        public Newtracker()
+        private TrackerModel TrackerToEdit { get; }
+
+        public AddOrEditTracker(TrackerModel  tracker = null)
         {
             InitializeComponent();
+
+            TrackerToEdit = tracker;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -25,6 +30,9 @@ namespace financify_pt
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var form = new UserPrevileges();
+            form.ShowDialog();
+            RefreshUserDataGridViewData();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -55,9 +63,27 @@ namespace financify_pt
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void RefreshUserDataGridViewData()
         {
-            this.Close();
+            var trackerUsers = BLL.UserTracker.GetUsersByTrackerId(TrackerToEdit.Id);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = trackerUsers;
+        }
+        private void Newtracker_Load(object sender, EventArgs e)
+        {
+            if(TrackerToEdit == null)
+            {
+                label4.Hide();
+                button1.Hide();
+                button2.Hide();
+                dataGridView1.Hide();
+
+                return;
+            }
+            tbName.Text = TrackerToEdit.Name; 
+            tbDescription.Text = TrackerToEdit.Description;
+
+            RefreshUserDataGridViewData();
         }
     }
 }
