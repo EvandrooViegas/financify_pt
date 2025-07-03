@@ -33,10 +33,10 @@ namespace financify_pt
 
             if (login_email.Text == "" || login_pass.Text == "")
             {
-               MessageBox.Show("Email or pass cannot be empty");
-               return;
+                MessageBox.Show("Email or pass cannot be empty");
+                return;
 
-             }
+            }
             else
             {
                 try
@@ -61,7 +61,12 @@ namespace financify_pt
             }
 
 
-            
+
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -52,12 +52,12 @@ namespace financify_pt.Auth
 
         private void Dashboard_Load_1(object sender, EventArgs e)
         {
-           RefreshData();
+            RefreshData();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-       
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -66,6 +66,11 @@ namespace financify_pt.Auth
             tracker.ShowDialog();
             RefreshData();
 
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -42,6 +42,7 @@
             label4 = new Label();
             button1 = new Button();
             panel3 = new Panel();
+            close = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -191,7 +192,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(879, 51);
+            button1.Location = new Point(909, 44);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(172, 28);
@@ -208,18 +209,33 @@
             panel3.Size = new Size(850, 301);
             panel3.TabIndex = 10;
             // 
+            // close
+            // 
+            close.AutoSize = true;
+            close.Cursor = Cursors.Hand;
+            close.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            close.ForeColor = Color.Transparent;
+            close.Location = new Point(1088, 9);
+            close.Name = "close";
+            close.RightToLeft = RightToLeft.No;
+            close.Size = new Size(23, 23);
+            close.TabIndex = 19;
+            close.Text = "X";
+            close.Click += close_Click;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
             ClientSize = new Size(1123, 460);
+            Controls.Add(close);
             Controls.Add(panel3);
             Controls.Add(button1);
             Controls.Add(label4);
             Controls.Add(pictureBox5);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Dashboard";
             StartPosition = FormStartPosition.Manual;
@@ -251,5 +267,6 @@
         private Button button1;
         private Panel panel2;
         private Panel panel3;
+        private Label close;
     }
 }

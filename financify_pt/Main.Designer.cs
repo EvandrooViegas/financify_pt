@@ -69,6 +69,7 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
+            close = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             guna2CustomGradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -83,10 +84,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.image;
-            pictureBox1.Location = new Point(54, 16);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(178, 65);
+            pictureBox1.Size = new Size(191, 49);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -98,13 +98,13 @@
             btnDasboard.FlatStyle = FlatStyle.Flat;
             btnDasboard.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDasboard.ForeColor = Color.White;
-            btnDasboard.Location = new Point(238, 13);
-            btnDasboard.Margin = new Padding(3, 4, 3, 4);
+            btnDasboard.Location = new Point(208, 10);
             btnDasboard.Name = "btnDasboard";
-            btnDasboard.Size = new Size(168, 65);
+            btnDasboard.Size = new Size(147, 49);
             btnDasboard.TabIndex = 1;
             btnDasboard.Text = "Dashboard";
             btnDasboard.UseVisualStyleBackColor = false;
+            btnDasboard.Click += btnDasboard_Click;
             // 
             // btnGoals
             // 
@@ -113,10 +113,9 @@
             btnGoals.FlatStyle = FlatStyle.Flat;
             btnGoals.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGoals.ForeColor = Color.White;
-            btnGoals.Location = new Point(391, 16);
-            btnGoals.Margin = new Padding(3, 4, 3, 4);
+            btnGoals.Location = new Point(342, 12);
             btnGoals.Name = "btnGoals";
-            btnGoals.Size = new Size(145, 65);
+            btnGoals.Size = new Size(127, 49);
             btnGoals.TabIndex = 2;
             btnGoals.Text = "Goals";
             btnGoals.UseVisualStyleBackColor = false;
@@ -128,10 +127,9 @@
             btnPlanning.FlatStyle = FlatStyle.Flat;
             btnPlanning.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPlanning.ForeColor = Color.White;
-            btnPlanning.Location = new Point(543, 16);
-            btnPlanning.Margin = new Padding(3, 4, 3, 4);
+            btnPlanning.Location = new Point(475, 12);
             btnPlanning.Name = "btnPlanning";
-            btnPlanning.Size = new Size(145, 65);
+            btnPlanning.Size = new Size(127, 49);
             btnPlanning.TabIndex = 3;
             btnPlanning.Text = "Planning";
             btnPlanning.UseVisualStyleBackColor = false;
@@ -143,10 +141,9 @@
             btnEducation.FlatStyle = FlatStyle.Flat;
             btnEducation.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEducation.ForeColor = Color.White;
-            btnEducation.Location = new Point(695, 16);
-            btnEducation.Margin = new Padding(3, 4, 3, 4);
+            btnEducation.Location = new Point(608, 12);
             btnEducation.Name = "btnEducation";
-            btnEducation.Size = new Size(158, 85);
+            btnEducation.Size = new Size(138, 64);
             btnEducation.TabIndex = 4;
             btnEducation.Text = "Financial education";
             btnEducation.UseVisualStyleBackColor = false;
@@ -158,10 +155,9 @@
             btnsettings.FlatStyle = FlatStyle.Flat;
             btnsettings.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnsettings.ForeColor = Color.White;
-            btnsettings.Location = new Point(859, 27);
-            btnsettings.Margin = new Padding(3, 4, 3, 4);
+            btnsettings.Location = new Point(752, 20);
             btnsettings.Name = "btnsettings";
-            btnsettings.Size = new Size(145, 65);
+            btnsettings.Size = new Size(127, 49);
             btnsettings.TabIndex = 5;
             btnsettings.Text = "Settings";
             btnsettings.UseVisualStyleBackColor = false;
@@ -172,13 +168,13 @@
             btn_Entrar.FlatAppearance.BorderSize = 0;
             btn_Entrar.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Entrar.ForeColor = Color.White;
-            btn_Entrar.Location = new Point(995, 27);
-            btn_Entrar.Margin = new Padding(3, 4, 3, 4);
+            btn_Entrar.Location = new Point(871, 20);
             btn_Entrar.Name = "btn_Entrar";
-            btn_Entrar.Size = new Size(145, 65);
+            btn_Entrar.Size = new Size(127, 49);
             btn_Entrar.TabIndex = 6;
             btn_Entrar.Text = "Login";
             btn_Entrar.UseVisualStyleBackColor = false;
+            btn_Entrar.Click += btn_Entrar_Click;
             // 
             // btn_Register
             // 
@@ -186,22 +182,22 @@
             btn_Register.FlatAppearance.BorderSize = 0;
             btn_Register.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Register.ForeColor = Color.Black;
-            btn_Register.Location = new Point(1147, 27);
-            btn_Register.Margin = new Padding(3, 4, 3, 4);
+            btn_Register.Location = new Point(1004, 20);
             btn_Register.Name = "btn_Register";
-            btn_Register.Size = new Size(145, 65);
+            btn_Register.Size = new Size(127, 49);
             btn_Register.TabIndex = 7;
             btn_Register.Text = "Register";
             btn_Register.UseVisualStyleBackColor = false;
+            btn_Register.Click += btn_Register_Click;
             // 
             // Lb1
             // 
             Lb1.AutoSize = true;
             Lb1.Font = new Font("Segoe UI", 39.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Lb1.ForeColor = Color.White;
-            Lb1.Location = new Point(54, 127);
+            Lb1.Location = new Point(47, 95);
             Lb1.Name = "Lb1";
-            Lb1.Size = new Size(733, 89);
+            Lb1.Size = new Size(582, 71);
             Lb1.TabIndex = 8;
             Lb1.Text = "WHAT DO YOU WANT";
             // 
@@ -210,9 +206,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 39.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(0, 255, 200);
-            label1.Location = new Point(54, 221);
+            label1.Location = new Point(47, 166);
             label1.Name = "label1";
-            label1.Size = new Size(616, 89);
+            label1.Size = new Size(486, 71);
             label1.TabIndex = 9;
             label1.Text = "CONTROL TODAY?";
             // 
@@ -221,9 +217,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(58, 316);
+            label2.Location = new Point(51, 237);
             label2.Name = "label2";
-            label2.Size = new Size(833, 28);
+            label2.Size = new Size(666, 21);
             label2.TabIndex = 10;
             label2.Text = "With Financify, you can track your expenses, set goals and improve your financial life with ease.";
             // 
@@ -233,13 +229,13 @@
             Btn_Start.FlatAppearance.BorderSize = 0;
             Btn_Start.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Btn_Start.ForeColor = Color.Black;
-            Btn_Start.Location = new Point(63, 360);
-            Btn_Start.Margin = new Padding(3, 4, 3, 4);
+            Btn_Start.Location = new Point(55, 270);
             Btn_Start.Name = "Btn_Start";
-            Btn_Start.Size = new Size(169, 65);
+            Btn_Start.Size = new Size(148, 49);
             Btn_Start.TabIndex = 11;
             Btn_Start.Text = "Start Now!";
             Btn_Start.UseVisualStyleBackColor = false;
+            Btn_Start.Click += Btn_Start_Click;
             // 
             // guna2CustomGradientPanel4
             // 
@@ -251,21 +247,19 @@
             guna2CustomGradientPanel4.FillColor2 = Color.Gray;
             guna2CustomGradientPanel4.FillColor3 = Color.Black;
             guna2CustomGradientPanel4.FillColor4 = Color.DimGray;
-            guna2CustomGradientPanel4.Location = new Point(919, 447);
-            guna2CustomGradientPanel4.Margin = new Padding(3, 4, 3, 4);
+            guna2CustomGradientPanel4.Location = new Point(804, 335);
             guna2CustomGradientPanel4.Name = "guna2CustomGradientPanel4";
             guna2CustomGradientPanel4.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2CustomGradientPanel4.Size = new Size(258, 341);
+            guna2CustomGradientPanel4.Size = new Size(226, 256);
             guna2CustomGradientPanel4.TabIndex = 13;
             // 
             // pictureBox5
             // 
             pictureBox5.BackColor = Color.Transparent;
             pictureBox5.Image = Properties.Resources.ChatGPT_Image_1_07_2025__11_06_56;
-            pictureBox5.Location = new Point(14, 71);
-            pictureBox5.Margin = new Padding(3, 4, 3, 4);
+            pictureBox5.Location = new Point(12, 53);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(232, 267);
+            pictureBox5.Size = new Size(203, 200);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 23;
             pictureBox5.TabStop = false;
@@ -276,9 +270,9 @@
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.FromArgb(0, 255, 200);
-            label15.Location = new Point(14, 16);
+            label15.Location = new Point(12, 12);
             label15.Name = "label15";
-            label15.Size = new Size(128, 41);
+            label15.Size = new Size(103, 32);
             label15.TabIndex = 23;
             label15.Text = "Reports";
             // 
@@ -295,21 +289,19 @@
             guna2CustomGradientPanel1.FillColor2 = Color.Gray;
             guna2CustomGradientPanel1.FillColor3 = Color.Black;
             guna2CustomGradientPanel1.FillColor4 = Color.DimGray;
-            guna2CustomGradientPanel1.Location = new Point(632, 447);
-            guna2CustomGradientPanel1.Margin = new Padding(3, 4, 3, 4);
+            guna2CustomGradientPanel1.Location = new Point(553, 335);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2CustomGradientPanel1.Size = new Size(258, 341);
+            guna2CustomGradientPanel1.Size = new Size(226, 256);
             guna2CustomGradientPanel1.TabIndex = 14;
             // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.Transparent;
             pictureBox4.Image = Properties.Resources.ChatGPT_Image_1_07_2025__11_08_40_removebg_preview;
-            pictureBox4.Location = new Point(93, 163);
-            pictureBox4.Margin = new Padding(3, 4, 3, 4);
+            pictureBox4.Location = new Point(81, 122);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(166, 179);
+            pictureBox4.Size = new Size(145, 134);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 20;
             pictureBox4.TabStop = false;
@@ -320,9 +312,9 @@
             label14.BackColor = Color.Transparent;
             label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.White;
-            label14.Location = new Point(3, 127);
+            label14.Location = new Point(3, 95);
             label14.Name = "label14";
-            label14.Size = new Size(80, 28);
+            label14.Size = new Size(62, 21);
             label14.TabIndex = 22;
             label14.Text = "budget.";
             label14.Click += label14_Click;
@@ -333,9 +325,9 @@
             label13.BackColor = Color.Transparent;
             label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.White;
-            label13.Location = new Point(3, 99);
+            label13.Location = new Point(3, 74);
             label13.Name = "label13";
-            label13.Size = new Size(176, 28);
+            label13.Size = new Size(140, 21);
             label13.TabIndex = 21;
             label13.Text = "and organize your ";
             // 
@@ -345,9 +337,9 @@
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.White;
-            label12.Location = new Point(3, 71);
+            label12.Location = new Point(3, 53);
             label12.Name = "label12";
-            label12.Size = new Size(183, 28);
+            label12.Size = new Size(146, 21);
             label12.TabIndex = 20;
             label12.Text = "Set spending limits ";
             // 
@@ -357,9 +349,9 @@
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.FromArgb(0, 255, 200);
-            label11.Location = new Point(3, 16);
+            label11.Location = new Point(3, 12);
             label11.Name = "label11";
-            label11.Size = new Size(121, 41);
+            label11.Size = new Size(96, 32);
             label11.TabIndex = 20;
             label11.Text = "Budget";
             // 
@@ -376,21 +368,19 @@
             guna2CustomGradientPanel2.FillColor2 = Color.Gray;
             guna2CustomGradientPanel2.FillColor3 = Color.Black;
             guna2CustomGradientPanel2.FillColor4 = Color.DimGray;
-            guna2CustomGradientPanel2.Location = new Point(345, 447);
-            guna2CustomGradientPanel2.Margin = new Padding(3, 4, 3, 4);
+            guna2CustomGradientPanel2.Location = new Point(302, 335);
             guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             guna2CustomGradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2CustomGradientPanel2.Size = new Size(258, 341);
+            guna2CustomGradientPanel2.Size = new Size(226, 256);
             guna2CustomGradientPanel2.TabIndex = 14;
             // 
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = Properties.Resources.ChatGPT_Image_1_07_2025__10_48_35_removebg_preview;
-            pictureBox3.Location = new Point(93, 163);
-            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Location = new Point(81, 122);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(166, 179);
+            pictureBox3.Size = new Size(145, 134);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 19;
             pictureBox3.TabStop = false;
@@ -401,9 +391,9 @@
             label10.BackColor = Color.Transparent;
             label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(0, 127);
+            label10.Location = new Point(0, 95);
             label10.Name = "label10";
-            label10.Size = new Size(136, 28);
+            label10.Size = new Size(109, 21);
             label10.TabIndex = 19;
             label10.Text = "financial goals";
             // 
@@ -413,9 +403,9 @@
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(0, 99);
+            label9.Location = new Point(0, 74);
             label9.Name = "label9";
-            label9.Size = new Size(176, 28);
+            label9.Size = new Size(140, 21);
             label9.TabIndex = 19;
             label9.Text = "Set and track your ";
             // 
@@ -425,9 +415,9 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(0, 255, 200);
-            label8.Location = new Point(3, 13);
+            label8.Location = new Point(3, 10);
             label8.Name = "label8";
-            label8.Size = new Size(145, 41);
+            label8.Size = new Size(119, 32);
             label8.TabIndex = 19;
             label8.Text = "Economy";
             // 
@@ -437,9 +427,9 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(0, 255, 200);
-            label7.Location = new Point(3, 56);
+            label7.Location = new Point(3, 42);
             label7.Name = "label7";
-            label7.Size = new Size(95, 41);
+            label7.Size = new Size(77, 32);
             label7.TabIndex = 19;
             label7.Text = "Goals";
             // 
@@ -456,21 +446,19 @@
             guna2CustomGradientPanel3.FillColor2 = Color.Gray;
             guna2CustomGradientPanel3.FillColor3 = Color.Black;
             guna2CustomGradientPanel3.FillColor4 = Color.DimGray;
-            guna2CustomGradientPanel3.Location = new Point(63, 447);
-            guna2CustomGradientPanel3.Margin = new Padding(3, 4, 3, 4);
+            guna2CustomGradientPanel3.Location = new Point(55, 335);
             guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
             guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2CustomGradientPanel3.Size = new Size(258, 341);
+            guna2CustomGradientPanel3.Size = new Size(226, 256);
             guna2CustomGradientPanel3.TabIndex = 14;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = Properties.Resources.ChatGPT_Image_27_06_2025__17_13_05_removebg_preview;
-            pictureBox2.Location = new Point(93, 163);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Location = new Point(81, 122);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(166, 179);
+            pictureBox2.Size = new Size(145, 134);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 18;
             pictureBox2.TabStop = false;
@@ -481,9 +469,9 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(15, 127);
+            label6.Location = new Point(13, 95);
             label6.Name = "label6";
-            label6.Size = new Size(121, 28);
+            label6.Size = new Size(96, 21);
             label6.TabIndex = 17;
             label6.Text = "in one place.";
             // 
@@ -493,9 +481,9 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(15, 99);
+            label5.Location = new Point(13, 74);
             label5.Name = "label5";
-            label5.Size = new Size(196, 28);
+            label5.Size = new Size(158, 21);
             label5.TabIndex = 0;
             label5.Text = "See all your expenses";
             label5.Click += label5_Click;
@@ -506,9 +494,9 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(0, 255, 200);
-            label4.Location = new Point(15, 56);
+            label4.Location = new Point(13, 42);
             label4.Name = "label4";
-            label4.Size = new Size(152, 41);
+            label4.Size = new Size(123, 32);
             label4.TabIndex = 16;
             label4.Text = "Summary";
             // 
@@ -518,18 +506,33 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(15, 16);
+            label3.Location = new Point(13, 12);
             label3.Name = "label3";
-            label3.Size = new Size(130, 37);
+            label3.Size = new Size(100, 30);
             label3.TabIndex = 15;
             label3.Text = "Financial";
             // 
+            // close
+            // 
+            close.AutoSize = true;
+            close.Cursor = Cursors.Hand;
+            close.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            close.ForeColor = Color.Transparent;
+            close.Location = new Point(1137, 9);
+            close.Name = "close";
+            close.RightToLeft = RightToLeft.No;
+            close.Size = new Size(23, 23);
+            close.TabIndex = 19;
+            close.Text = "X";
+            close.Click += close_Click;
+            // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(1336, 811);
+            ClientSize = new Size(1169, 608);
+            Controls.Add(close);
             Controls.Add(guna2CustomGradientPanel3);
             Controls.Add(guna2CustomGradientPanel2);
             Controls.Add(guna2CustomGradientPanel1);
@@ -547,6 +550,7 @@
             Controls.Add(btnDasboard);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mainform";
@@ -603,5 +607,6 @@
         private PictureBox pictureBox5;
         private Label label15;
         private PictureBox pictureBox4;
+        private Label close;
     }
 }

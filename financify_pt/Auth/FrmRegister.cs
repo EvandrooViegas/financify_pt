@@ -15,7 +15,7 @@ namespace financify_pt
 {
     public partial class FrmRegister : Form
     {
-        
+
         public FrmRegister()
         {
             InitializeComponent();
@@ -62,8 +62,8 @@ namespace financify_pt
                 }
             }
         }
-        
-            
+
+
 
         private void registerform_Load(object sender, EventArgs e)
         {
@@ -74,6 +74,11 @@ namespace financify_pt
         {
             register_pass.PasswordChar = register_showpass.Checked ? '\0' : '*';
             register_confirmpass.PasswordChar = register_showpass.Checked ? '\0' : '*';
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
