@@ -253,6 +253,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
+            MouseDown += FrmLogin_MouseDown;
             guna2CustomGradientPanel3.ResumeLayout(false);
             guna2CustomGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
