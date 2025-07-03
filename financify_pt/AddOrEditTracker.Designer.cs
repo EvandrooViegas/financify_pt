@@ -1,6 +1,6 @@
 ﻿namespace financify_pt
 {
-    partial class Newtracker
+    partial class AddOrEditTracker
     {
         /// <summary>
         /// Required designer variable.
@@ -213,6 +213,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Newtracker";
             Text = "Newtracker";
+            Load += Newtracker_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

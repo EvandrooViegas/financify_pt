@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace financify_pt
 {
-    public partial class edituser : Form
+    public partial class UserPrevileges : Form
     {
-        public edituser()
+        public UserPrevileges()
         {
             InitializeComponent();
         }
