@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label3 = new Label();
             label4 = new Label();
-            login_email = new TextBox();
-            login_pass = new TextBox();
             label5 = new Label();
             login_btn = new Button();
             login_showpass = new CheckBox();
@@ -44,6 +47,9 @@
             guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             pictureBox1 = new PictureBox();
             btn_X = new Button();
+            txt_email = new Guna.UI2.WinForms.Guna2TextBox();
+            txt_pass = new Guna.UI2.WinForms.Guna2TextBox();
+            b = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -69,25 +75,6 @@
             label4.Size = new Size(55, 19);
             label4.TabIndex = 3;
             label4.Text = "EMAIL";
-            // 
-            // login_email
-            // 
-            login_email.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            login_email.Location = new Point(388, 159);
-            login_email.Margin = new Padding(3, 2, 3, 2);
-            login_email.Name = "login_email";
-            login_email.Size = new Size(368, 27);
-            login_email.TabIndex = 4;
-            // 
-            // login_pass
-            // 
-            login_pass.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            login_pass.Location = new Point(388, 223);
-            login_pass.Margin = new Padding(3, 2, 3, 2);
-            login_pass.Name = "login_pass";
-            login_pass.PasswordChar = '*';
-            login_pass.Size = new Size(368, 27);
-            login_pass.TabIndex = 6;
             // 
             // label5
             // 
@@ -122,7 +109,7 @@
             login_showpass.AutoSize = true;
             login_showpass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             login_showpass.ForeColor = Color.Transparent;
-            login_showpass.Location = new Point(607, 251);
+            login_showpass.Location = new Point(613, 263);
             login_showpass.Margin = new Padding(3, 2, 3, 2);
             login_showpass.Name = "login_showpass";
             login_showpass.Size = new Size(139, 25);
@@ -196,14 +183,14 @@
             guna2CustomGradientPanel3.Controls.Add(signup_btn);
             guna2CustomGradientPanel3.Controls.Add(label2);
             guna2CustomGradientPanel3.Controls.Add(label7);
-            guna2CustomGradientPanel3.CustomizableEdges = customizableEdges3;
+            guna2CustomGradientPanel3.CustomizableEdges = customizableEdges1;
             guna2CustomGradientPanel3.FillColor = Color.Black;
             guna2CustomGradientPanel3.FillColor2 = Color.Gray;
             guna2CustomGradientPanel3.FillColor3 = Color.Black;
             guna2CustomGradientPanel3.FillColor4 = Color.DimGray;
             guna2CustomGradientPanel3.Location = new Point(0, 0);
             guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
-            guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2CustomGradientPanel3.Size = new Size(356, 437);
             guna2CustomGradientPanel3.TabIndex = 15;
             // 
@@ -236,20 +223,60 @@
             btn_X.UseVisualStyleBackColor = false;
             btn_X.Click += btn_X_Click;
             // 
+            // txt_email
+            // 
+            txt_email.BorderRadius = 10;
+            txt_email.CustomizableEdges = customizableEdges3;
+            txt_email.DefaultText = "";
+            txt_email.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txt_email.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txt_email.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txt_email.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txt_email.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txt_email.Font = new Font("Segoe UI", 9F);
+            txt_email.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txt_email.Location = new Point(392, 158);
+            txt_email.Name = "txt_email";
+            txt_email.PlaceholderText = "";
+            txt_email.SelectedText = "";
+            txt_email.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txt_email.Size = new Size(354, 21);
+            txt_email.TabIndex = 17;
+            // 
+            // txt_pass
+            // 
+            txt_pass.BorderRadius = 10;
+            txt_pass.CustomizableEdges = customizableEdges5;
+            txt_pass.DefaultText = "";
+            txt_pass.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txt_pass.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txt_pass.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txt_pass.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txt_pass.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txt_pass.Font = new Font("Segoe UI", 9F);
+            txt_pass.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txt_pass.Location = new Point(392, 222);
+            txt_pass.Name = "txt_pass";
+            txt_pass.PlaceholderText = "";
+            txt_pass.SelectedText = "";
+            txt_pass.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txt_pass.Size = new Size(354, 21);
+            txt_pass.TabIndex = 18;
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(783, 436);
+            Controls.Add(txt_pass);
+            Controls.Add(txt_email);
             Controls.Add(btn_X);
             Controls.Add(guna2CustomGradientPanel3);
             Controls.Add(btn_cancel);
             Controls.Add(login_showpass);
             Controls.Add(login_btn);
-            Controls.Add(login_pass);
             Controls.Add(label5);
-            Controls.Add(login_email);
             Controls.Add(label4);
             Controls.Add(label3);
             FormBorderStyle = FormBorderStyle.None;
@@ -257,6 +284,7 @@
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += FrmLogin_Load_1;
             MouseDown += FrmLogin_MouseDown;
             guna2CustomGradientPanel3.ResumeLayout(false);
             guna2CustomGradientPanel3.PerformLayout();
@@ -280,5 +308,10 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
         private PictureBox pictureBox1;
         private Button btn_X;
+        private Guna.UI2.WinForms.Guna2TextBox txt_email;
+        private Guna.UI2.WinForms.Guna2TextBox txt_pass;
+        private Guna.UI2.WinForms.Guna2AnimateWindow b;
+        //  private Guna.UI2.WinForms.Guna2TextBox login_email;
+        // private Guna.UI2.WinForms.Guna2TextBox login_pass;
     }
 }

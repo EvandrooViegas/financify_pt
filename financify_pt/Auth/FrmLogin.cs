@@ -72,7 +72,7 @@ namespace financify_pt
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-            if (login_email.Text == "" || login_pass.Text == "")
+            if (txt_email.Text == "" || txt_pass.Text == "")
             {
                 MessageBox.Show("Email or pass cannot be empty");
                 return;
@@ -80,7 +80,7 @@ namespace financify_pt
 
             try
             {
-                var user = BLL.User.Login(login_email.Text, login_pass.Text);
+                var user = BLL.User.Login(txt_email.Text, txt_pass.Text);
                 if (user == null)
                 {
                     MessageBox.Show("The email or password are wrong");
@@ -108,7 +108,22 @@ namespace financify_pt
 
         private void login_showpass_CheckedChanged(object sender, EventArgs e)
         {
-            login_pass.PasswordChar = login_showpass.Checked ? '\0' : '*';
+            txt_pass.PasswordChar = login_showpass.Checked ? '\0' : '*';
+        }
+
+        private void login_email_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmLogin_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_pass_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
