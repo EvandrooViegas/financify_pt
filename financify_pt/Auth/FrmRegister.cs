@@ -31,7 +31,7 @@ namespace financify_pt
             this.MouseDown += FrmRegister_MouseDown;
 
             // Conecta o evento ao botão close (caso não esteja feito no designer)
-           
+
         }
 
         private void registerform_Load(object sender, EventArgs e)
@@ -65,17 +65,27 @@ namespace financify_pt
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
-      
-
-        private void registerlogin_btn_Click(object sender, EventArgs e)
+        private void register_showpass_CheckedChanged(object sender, EventArgs e)
         {
-            FrmLogin loginform = new FrmLogin();
-            loginform.Show();
-            this.Hide();
+            register_pass.PasswordChar = register_showpass.Checked ? '\0' : '*';
+            register_confirmpass.PasswordChar = register_showpass.Checked ? '\0' : '*';
         }
 
-        private void register_btn_Click(object sender, EventArgs e)
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btn_X_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_register_Click(object sender, EventArgs e)
         {
             if (register_email.Text == "" || register_pass.Text == "" || register_confirmpass.Text == "" || register_name.Text == "")
             {
@@ -103,24 +113,16 @@ namespace financify_pt
             }
         }
 
-        private void register_showpass_CheckedChanged(object sender, EventArgs e)
-        {
-            register_pass.PasswordChar = register_showpass.Checked ? '\0' : '*';
-            register_confirmpass.PasswordChar = register_showpass.Checked ? '\0' : '*';
-        }
-
-        private void btn_cancel_Click(object sender, EventArgs e)
+        private void btn_cancel_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btn_registerlogin_Click(object sender, EventArgs e)
         {
-        }
-
-        private void btn_X_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            FrmLogin loginform = new FrmLogin();
+            loginform.Show();
+            this.Hide();
         }
     }
 }
