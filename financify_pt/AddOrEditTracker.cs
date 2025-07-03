@@ -1,13 +1,7 @@
 ﻿using financify_pt.Auth;
 using financify_pt.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace financify_pt
@@ -16,11 +10,47 @@ namespace financify_pt
     {
         private TrackerModel TrackerToEdit { get; }
 
-        public AddOrEditTracker(TrackerModel  tracker = null)
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        public AddOrEditTracker(TrackerModel tracker = null)
         {
             InitializeComponent();
 
             TrackerToEdit = tracker;
+
+            // Evento para mover o form clicando em áreas neutras
+            this.MouseDown += AddOrEditTracker_MouseDown;
+            ApplyMoveFormToControls(this);
+        }
+
+        private void ApplyMoveFormToControls(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                // Evita associar a controles interativos para não interferir em botões, textbox etc
+                if (!(c is Button) && !(c is TextBox) && !(c is CheckBox) && !(c is DataGridView) && !(c is PictureBox))
+                {
+                    c.MouseDown += AddOrEditTracker_MouseDown;
+                }
+                if (c.HasChildren)
+                    ApplyMoveFormToControls(c);
+            }
+        }
+
+        private void AddOrEditTracker_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -69,18 +99,18 @@ namespace financify_pt
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = trackerUsers;
         }
+
         private void Newtracker_Load(object sender, EventArgs e)
         {
-            if(TrackerToEdit == null)
+            if (TrackerToEdit == null)
             {
                 label4.Hide();
                 button1.Hide();
                 button2.Hide();
                 dataGridView1.Hide();
-
                 return;
             }
-            tbName.Text = TrackerToEdit.Name; 
+            tbName.Text = TrackerToEdit.Name;
             tbDescription.Text = TrackerToEdit.Description;
 
             RefreshUserDataGridViewData();

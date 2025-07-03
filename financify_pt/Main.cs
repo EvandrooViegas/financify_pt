@@ -25,7 +25,7 @@ namespace financify_pt
             ApplyMoveFormToControls(this);
 
             // Associa o evento do botão fechar para garantir
-            
+
         }
 
         private void ApplyMoveFormToControls(Control control)
@@ -56,7 +56,7 @@ namespace financify_pt
             }
         }
 
-       
+
 
         // Outros eventos do form abaixo (sem alteração) ...
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -102,6 +102,11 @@ namespace financify_pt
         private void btn_X_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
