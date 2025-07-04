@@ -25,7 +25,7 @@ namespace financify_pt
             ApplyMoveFormToControls(this);
 
             // Se tiver um botão para fechar (exemplo: button2), garanta que evento está ok
-            button2.Click += button2_Click;
+            
         }
 
         private void ApplyMoveFormToControls(Control control)

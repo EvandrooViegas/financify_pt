@@ -72,10 +72,10 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            close = new Label();
             login_Btn = new Guna.UI2.WinForms.Guna2Button();
             register_Btn = new Guna.UI2.WinForms.Guna2Button();
             Start_Btn = new Guna.UI2.WinForms.Guna2Button();
+            btn_close = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             guna2CustomGradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -281,7 +281,6 @@
             label14.Size = new Size(62, 21);
             label14.TabIndex = 22;
             label14.Text = "budget.";
-          //  label14.Click += label14_Click;
             // 
             // label13
             // 
@@ -476,20 +475,6 @@
             label3.TabIndex = 15;
             label3.Text = "Financial";
             // 
-            // close
-            // 
-            close.AutoSize = true;
-            close.Cursor = Cursors.Hand;
-            close.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            close.ForeColor = Color.Transparent;
-            close.Location = new Point(1137, 9);
-            close.Name = "close";
-            close.RightToLeft = RightToLeft.No;
-            close.Size = new Size(23, 23);
-            close.TabIndex = 19;
-            close.Text = "X";
-          
-            // 
             // login_Btn
             // 
             login_Btn.BackColor = Color.Transparent;
@@ -559,16 +544,29 @@
             Start_Btn.Text = "Start Now!";
             Start_Btn.Click += Start_Btn_Click;
             // 
+            // btn_close
+            // 
+            btn_close.BackColor = Color.Transparent;
+            btn_close.FlatStyle = FlatStyle.Popup;
+            btn_close.ForeColor = Color.White;
+            btn_close.Location = new Point(1137, 0);
+            btn_close.Name = "btn_close";
+            btn_close.Size = new Size(29, 30);
+            btn_close.TabIndex = 23;
+            btn_close.Text = "X";
+            btn_close.UseVisualStyleBackColor = false;
+            btn_close.Click += btn_close_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(1169, 608);
+            ClientSize = new Size(1168, 608);
+            Controls.Add(btn_close);
             Controls.Add(Start_Btn);
             Controls.Add(register_Btn);
             Controls.Add(login_Btn);
-            Controls.Add(close);
             Controls.Add(guna2CustomGradientPanel3);
             Controls.Add(guna2CustomGradientPanel2);
             Controls.Add(guna2CustomGradientPanel1);
@@ -637,9 +635,9 @@
         private PictureBox pictureBox5;
         private Label label15;
         private PictureBox pictureBox4;
-        private Label close;
         private Guna.UI2.WinForms.Guna2Button login_Btn;
         private Guna.UI2.WinForms.Guna2Button register_Btn;
         private Guna.UI2.WinForms.Guna2Button Start_Btn;
+        private Button btn_close;
     }
 }
