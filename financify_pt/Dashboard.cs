@@ -62,15 +62,20 @@ namespace financify_pt.Auth
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            var tracker = new AddOrEditTracker();
-            tracker.ShowDialog();
-            RefreshData();
-
+          
         }
 
         private void close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_newTracker_Click(object sender, EventArgs e)
+        {
+            var tracker = new AddOrEditTracker();
+            tracker.ShowDialog();
+            RefreshData();
+
         }
     }
 }

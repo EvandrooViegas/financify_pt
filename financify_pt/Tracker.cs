@@ -26,5 +26,31 @@ namespace financify_pt
             var form = new AddOrEditTracker(TrackerToEdit);
             form.ShowDialog();
         }
+
+        private void LoadData()
+        {
+           var tracker = BLL.Tracker.GetById(TrackerToEdit.Id);
+
+            label3.Text = tracker.Name;
+            label2.Text = tracker.Description;
+        }
+
+        private void Tracker_Load(object sender, EventArgs e)
+        {
+            LoadData();   
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void register_Btn_Click(object sender, EventArgs e)
+        {
+            var form = new AddOrEditTracker(TrackerToEdit);
+            form.ShowDialog();
+            LoadData();
+
+        }
     }
 }

@@ -71,7 +71,7 @@
             radioButton1.AutoSize = true;
             radioButton1.FlatStyle = FlatStyle.Flat;
             radioButton1.ForeColor = SystemColors.ButtonFace;
-            radioButton1.Location = new Point(239, 126);
+            radioButton1.Location = new Point(322, 126);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(13, 12);
             radioButton1.TabIndex = 20;
@@ -84,7 +84,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(6, 56);
+            label3.Location = new Point(12, 56);
             label3.Name = "label3";
             label3.Size = new Size(101, 19);
             label3.TabIndex = 21;
@@ -102,12 +102,12 @@
             txtName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtName.Font = new Font("Segoe UI", 9F);
             txtName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtName.Location = new Point(6, 78);
+            txtName.Location = new Point(12, 78);
             txtName.Name = "txtName";
             txtName.PlaceholderText = "";
             txtName.SelectedText = "";
             txtName.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtName.Size = new Size(329, 21);
+            txtName.Size = new Size(323, 21);
             txtName.TabIndex = 22;
             // 
             // guna2Button3
@@ -127,6 +127,7 @@
             guna2Button3.Size = new Size(101, 23);
             guna2Button3.TabIndex = 25;
             guna2Button3.Text = "SAVE";
+            guna2Button3.Click += guna2Button3_Click;
             // 
             // guna2Button1
             // 

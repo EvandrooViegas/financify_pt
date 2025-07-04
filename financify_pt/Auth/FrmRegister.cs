@@ -79,7 +79,7 @@ namespace financify_pt
 
         private void btn_X_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
         private void btn_register_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -6,6 +7,8 @@ namespace financify_pt
 {
     public partial class UserPrevileges : Form
     {
+
+        private int trackerId { get; set; } 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -16,16 +19,17 @@ namespace financify_pt
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        public UserPrevileges()
+        public UserPrevileges(int trackerId)
         {
             InitializeComponent();
 
             // Associa o evento para mover o form ao form e controles neutros
             this.MouseDown += UserPrevileges_MouseDown;
             ApplyMoveFormToControls(this);
+            this.trackerId = trackerId;
 
             // Se tiver um botão para fechar (exemplo: button2), garanta que evento está ok
-            
+
         }
 
         private void ApplyMoveFormToControls(Control control)
@@ -87,6 +91,37 @@ namespace financify_pt
         {
             // Fecha ou esconde o form conforme sua lógica
             this.Hide();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            var username = txtName.Text;
+            if(username.IsNullOrEmpty())
+            {
+                MessageBox.Show("Insert a valid username");
+                return;
+            }
+
+            try
+            {
+                var user = BLL.User.GetByUsername(username);
+                if (user == null)
+                {
+                    new Exception("This user doesn't exists");
+                }
+               var exists = BLL.UserTracker.IsUserParticipant(user.Id, trackerId);
+                if(exists)
+                {
+                    new Exception("User is already a participant of this tracker");
+                }
+
+
+                BLL.UserTracker.Create(trackerId, user.Id, radioButton1.Checked);
+                MessageBox.Show("User participant created successfully!");
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

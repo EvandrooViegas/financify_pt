@@ -74,8 +74,18 @@ namespace financify_pt
 
         private void login_Btn_Click(object sender, EventArgs e)
         {
-            FrmLogin loginform = new FrmLogin();
-            loginform.Show();
+            using (FrmLogin loginform = new FrmLogin())
+            {
+                var result = loginform.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    // Close Main and open Dashboard
+                    this.Hide(); // optional fade-out effect
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.FormClosed += (s, args) => this.Close(); // ensures app exits properly
+                    dashboard.Show();
+                }
+            }
         }
 
         private void register_Btn_Click(object sender, EventArgs e)

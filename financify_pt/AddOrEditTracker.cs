@@ -90,7 +90,7 @@ namespace financify_pt
                 return;
             }
             tbName.Text = TrackerToEdit.Name;
-            tbDescription.Text = TrackerToEdit.Description;
+            richTextBox1.Text = TrackerToEdit.Description;
 
             RefreshUserDataGridViewData();
         }
@@ -108,7 +108,7 @@ namespace financify_pt
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
-            var form = new UserPrevileges();
+            var form = new UserPrevileges(TrackerToEdit.Id);
             form.ShowDialog();
             RefreshUserDataGridViewData();
         }
@@ -120,19 +120,34 @@ namespace financify_pt
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            if (tbDescription.Text == "" || tbName.Text == "")
+            if (richTextBox1.Text == "" || tbName.Text == "")
             {
                 MessageBox.Show("Name or description cannot be empty");
+                return;
+            }
+
+            if(richTextBox1.Text.Length < 10 || richTextBox1.Text.Length > 100)
+            {
+                MessageBox.Show("The text length cannot be less than 10 or larger than 100 chars!");
                 return;
             }
             else
             {
                 try
                 {
-                    var tracker = BLL.Tracker.Create(tbName.Text, tbDescription.Text);
-                    BLL.UserTracker.Create(tracker.Id, Globals.UserId, true);
-                    MessageBox.Show("Tracker Created Successfully");
-                    Close();
+
+                    if(TrackerToEdit == null)
+                    {
+                        var tracker = BLL.Tracker.Create(tbName.Text, richTextBox1.Text);
+                        BLL.UserTracker.Create(tracker.Id, Globals.UserId, true);
+                        MessageBox.Show("Tracker Created Successfully");
+
+                    } else
+                    {
+                         BLL.Tracker.Update(TrackerToEdit.Id, tbName.Text, richTextBox1.Text);
+                        MessageBox.Show("Tracker Updated Successfully");
+                    }
+                        Close();
                 }
                 catch (Exception ex)
                 {

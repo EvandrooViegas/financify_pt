@@ -93,7 +93,7 @@ namespace financify_pt
 
                 new DataAccessLayer().ExecuteNonQuery
                 (
-                    "INSERT INTO [dbo].[User] ([Email], [Password], [Name], [Salt], [IsAdmin], [IsLocked]) VALUES (@Email, @Password, @Name, @Salt, @IsAdmin, @IsLocked)",
+                    "INSERT INTO [dbo].[User] ([Email], [Password], [Username], [Salt], [IsAdmin], [IsLocked]) VALUES (@Email, @Password, @Username, @Salt, @IsAdmin, @IsLocked)",
                     new SqlParameter[]
                     {
                     new("Email", email),
@@ -101,12 +101,43 @@ namespace financify_pt
                     new("Salt", salt),
                     new("IsAdmin", isAdmin),
                     new("IsLocked", isLocked),
-                              new("Name", name),
+                              new("Username", name),
                     }
                 );
             }
 
             public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[User]", []);
+
+            public static UserModel GetByUsername(string username)
+            {
+                if (string.IsNullOrWhiteSpace(username))
+                    throw new ArgumentException("Cannot be null or whitespace", nameof(username));
+
+                var dt = new DataAccessLayer().ExecuteReader(
+                    "SELECT * FROM [dbo].[User] WHERE [Username] = @Username",
+                    new[] { new SqlParameter("Username", username) });
+
+                if (dt.Rows.Count == 0)
+                    return null;
+
+                var row = dt.Rows[0];
+
+                return new UserModel
+                {
+                    Id = Convert.ToInt32(row["Id"]),
+                    Email = row["Email"].ToString(),
+                    Password = row["Password"].ToString(),
+                    Salt = row["Salt"].ToString(),
+                    IsAdmin = Convert.ToBoolean(row["IsAdmin"]),
+                    IsLocked = Convert.ToBoolean(row["IsLocked"]),
+                    LastLoginDate = row["LastLoginDate"] == DBNull.Value
+                        ? (DateTimeOffset?)null
+                        : DateTimeOffset.Parse(row["LastLoginDate"].ToString()),
+                    LockedDate = row["LockedDate"] == DBNull.Value
+                        ? (DateTime?)null
+                        : Convert.ToDateTime(row["LockedDate"]),
+                };
+            }
 
             public static DataRow GetById(int id) =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[User] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
@@ -152,9 +183,24 @@ namespace financify_pt
         {
             public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tracker]", []);
 
-            public static DataRow GetById(int id) =>
-                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Tracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+            public static TrackerModel GetById(int id)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    "SELECT * FROM [dbo].[Tracker] WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id) });
 
+                if (dt.Rows.Count == 0)
+                    return null; // or throw an exception
+
+                var row = dt.Rows[0];
+
+                return new TrackerModel
+                {
+                    Id = Convert.ToInt32(row["Id"]),
+                    Name = row["Name"].ToString(),
+                    Description = row["Description"].ToString()
+                };
+            }
             public static TrackerModel Create(string name, string description)
             {
                 var dt = new DataAccessLayer().ExecuteReader(

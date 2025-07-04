@@ -60,7 +60,7 @@ namespace financify_pt
 
         private void btn_X_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
        
@@ -93,7 +93,7 @@ namespace financify_pt
         {
             if (txt_email.Text == "" || txt_pass.Text == "")
             {
-                MessageBox.Show("Email or pass cannot be empty");
+                MessageBox.Show("Email or password cannot be empty.");
                 return;
             }
 
@@ -102,21 +102,18 @@ namespace financify_pt
                 var user = BLL.User.Login(txt_email.Text, txt_pass.Text);
                 if (user == null)
                 {
-                    MessageBox.Show("The email or password are wrong");
+                    MessageBox.Show("Incorrect email or password.");
                 }
                 else
                 {
-                    MessageBox.Show("Login Successful");
-                    this.Hide();
                     Globals.UserId = user.Id;
-                    var form = new Dashboard();
-                    form.ShowDialog();
+                    this.DialogResult = DialogResult.OK; // ✅ Signals Main to proceed
+                    this.Close(); // ✅ Closes FrmLogin
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                this.Hide();
+                MessageBox.Show("Login error: " + ex.Message);
             }
         }
 

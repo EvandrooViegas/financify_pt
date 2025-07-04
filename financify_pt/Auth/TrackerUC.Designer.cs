@@ -31,8 +31,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
-            richTextBox1 = new RichTextBox();
             btm_view = new Guna.UI2.WinForms.Guna2Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -45,16 +45,6 @@
             label1.Size = new Size(160, 37);
             label1.TabIndex = 0;
             label1.Text = "TRACKER 1";
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.BackColor = Color.Black;
-            richTextBox1.BorderStyle = BorderStyle.None;
-            richTextBox1.Location = new Point(24, 61);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(362, 117);
-            richTextBox1.TabIndex = 1;
-            richTextBox1.Text = "";
             // 
             // btm_view
             // 
@@ -73,6 +63,17 @@
             btm_view.Size = new Size(97, 23);
             btm_view.TabIndex = 3;
             btm_view.Text = "View";
+            btm_view.Click += btm_view_Click_1;
+            // 
+            // label2
+            // 
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(24, 72);
+            label2.MaximumSize = new Size(400, 100);
+            label2.Name = "label2";
+            label2.Size = new Size(362, 100);
+            label2.TabIndex = 4;
+            label2.Text = "label2";
             // 
             // TrackerUC
             // 
@@ -80,8 +81,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(label2);
             Controls.Add(btm_view);
-            Controls.Add(richTextBox1);
             Controls.Add(label1);
             Name = "TrackerUC";
             Size = new Size(407, 229);
@@ -93,7 +94,7 @@
         #endregion
 
         private Label label1;
-        private RichTextBox richTextBox1;
         private Guna.UI2.WinForms.Guna2Button btm_view;
+        private Label label2;
     }
 }
