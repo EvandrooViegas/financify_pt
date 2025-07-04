@@ -281,7 +281,7 @@
             label14.Size = new Size(62, 21);
             label14.TabIndex = 22;
             label14.Text = "budget.";
-            label14.Click += label14_Click;
+          //  label14.Click += label14_Click;
             // 
             // label13
             // 
@@ -488,7 +488,7 @@
             close.Size = new Size(23, 23);
             close.TabIndex = 19;
             close.Text = "X";
-            close.Click += close_Click;
+          
             // 
             // login_Btn
             // 

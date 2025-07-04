@@ -38,10 +38,10 @@ namespace financify_pt
        
 
         // Outros eventos do form abaixo (sem alteração) ...
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+      //  private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+      //  {
 
-        }
+        //}
 
         private void close_Click(object sender, EventArgs e)
         {
@@ -85,9 +85,9 @@ namespace financify_pt
 
         }
 
-        private void Main_Load(object sender, EventArgs e)
-        {
-
-        }
+      //  private void Main_Load(object sender, EventArgs e)
+       // {
+//
+       // }
     }
 }

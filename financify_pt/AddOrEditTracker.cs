@@ -115,5 +115,10 @@ namespace financify_pt
 
             RefreshUserDataGridViewData();
         }
+
+        private void tbName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

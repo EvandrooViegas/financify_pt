@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label2 = new Label();
             label1 = new Label();
-            tbName = new TextBox();
-            tbDescription = new TextBox();
             label3 = new Label();
             label4 = new Label();
             dataGridView1 = new DataGridView();
@@ -40,6 +42,8 @@
             button3 = new Button();
             button4 = new Button();
             close = new Label();
+            tbName = new Guna.UI2.WinForms.Guna2TextBox();
+            tbDescription = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -64,23 +68,6 @@
             label1.Size = new Size(176, 27);
             label1.TabIndex = 3;
             label1.Text = "NEW TRACKER";
-            // 
-            // tbName
-            // 
-            tbName.Location = new Point(28, 70);
-            tbName.Margin = new Padding(3, 2, 3, 2);
-            tbName.Name = "tbName";
-            tbName.Size = new Size(330, 23);
-            tbName.TabIndex = 5;
-            // 
-            // tbDescription
-            // 
-            tbDescription.Location = new Point(28, 124);
-            tbDescription.Margin = new Padding(3, 2, 3, 2);
-            tbDescription.Name = "tbDescription";
-            tbDescription.Size = new Size(330, 23);
-            tbDescription.TabIndex = 7;
-            tbDescription.TextChanged += textBox2_TextChanged;
             // 
             // label3
             // 
@@ -159,7 +146,6 @@
             button3.TabIndex = 13;
             button3.Text = "CANCEL";
             button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -192,12 +178,55 @@
             close.Text = "X";
             close.Click += close_Click;
             // 
-            // Newtracker
+            // tbName
+            // 
+            tbName.BorderRadius = 10;
+            tbName.CustomizableEdges = customizableEdges1;
+            tbName.DefaultText = "";
+            tbName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbName.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbName.Font = new Font("Segoe UI", 9F);
+            tbName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbName.Location = new Point(19, 72);
+            tbName.Name = "tbName";
+            tbName.PlaceholderText = "";
+            tbName.SelectedText = "";
+            tbName.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            tbName.Size = new Size(354, 21);
+            tbName.TabIndex = 20;
+            tbName.TextChanged += tbName_TextChanged;
+            // 
+            // tbDescription
+            // 
+            tbDescription.BorderRadius = 10;
+            tbDescription.CustomizableEdges = customizableEdges3;
+            tbDescription.DefaultText = "";
+            tbDescription.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbDescription.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbDescription.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbDescription.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbDescription.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbDescription.Font = new Font("Segoe UI", 9F);
+            tbDescription.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbDescription.Location = new Point(19, 126);
+            tbDescription.Name = "tbDescription";
+            tbDescription.PlaceholderText = "";
+            tbDescription.SelectedText = "";
+            tbDescription.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            tbDescription.Size = new Size(354, 21);
+            tbDescription.TabIndex = 21;
+            // 
+            // AddOrEditTracker
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(396, 401);
+            Controls.Add(tbDescription);
+            Controls.Add(tbName);
             Controls.Add(close);
             Controls.Add(button3);
             Controls.Add(button4);
@@ -205,14 +234,12 @@
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(label4);
-            Controls.Add(tbDescription);
             Controls.Add(label3);
-            Controls.Add(tbName);
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
-            Name = "Newtracker";
+            Name = "AddOrEditTracker";
             Text = "Newtracker";
             Load += Newtracker_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -224,8 +251,6 @@
 
         private Label label2;
         private Label label1;
-        private TextBox tbName;
-        private TextBox tbDescription;
         private Label label3;
         private Label label4;
         private DataGridView dataGridView1;
@@ -234,5 +259,7 @@
         private Button button3;
         private Button button4;
         private Label close;
+        private Guna.UI2.WinForms.Guna2TextBox tbName;
+        private Guna.UI2.WinForms.Guna2TextBox tbDescription;
     }
 }
