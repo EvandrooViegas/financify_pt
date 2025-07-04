@@ -60,12 +60,65 @@ namespace financify_pt
 
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void RefreshUserDataGridViewData()
+        {
+            var trackerUsers = BLL.UserTracker.GetUsersByTrackerId(TrackerToEdit.Id);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = trackerUsers;
+        }
+
+        private void Newtracker_Load(object sender, EventArgs e)
+        {
+            if (TrackerToEdit == null)
+            {
+                label4.Hide();
+                guna2Button1.Hide();
+                guna2Button2.Hide();
+                dataGridView1.Hide();
+                return;
+            }
+            tbName.Text = TrackerToEdit.Name;
+            tbDescription.Text = TrackerToEdit.Description;
+
+            RefreshUserDataGridViewData();
+        }
+
+        private void tbName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
             var form = new UserPrevileges();
             form.ShowDialog();
             RefreshUserDataGridViewData();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
         {
             if (tbDescription.Text == "" || tbName.Text == "")
             {
@@ -86,39 +139,6 @@ namespace financify_pt
                     MessageBox.Show(ex.Message);
                 }
             }
-        }
-
-        private void close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void RefreshUserDataGridViewData()
-        {
-            var trackerUsers = BLL.UserTracker.GetUsersByTrackerId(TrackerToEdit.Id);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = trackerUsers;
-        }
-
-        private void Newtracker_Load(object sender, EventArgs e)
-        {
-            if (TrackerToEdit == null)
-            {
-                label4.Hide();
-                button1.Hide();
-                button2.Hide();
-                dataGridView1.Hide();
-                return;
-            }
-            tbName.Text = TrackerToEdit.Name;
-            tbDescription.Text = TrackerToEdit.Description;
-
-            RefreshUserDataGridViewData();
-        }
-
-        private void tbName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

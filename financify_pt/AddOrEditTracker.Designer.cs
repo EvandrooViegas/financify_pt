@@ -32,18 +32,24 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
             label4 = new Label();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
-            button4 = new Button();
             close = new Label();
             tbName = new Guna.UI2.WinForms.Guna2TextBox();
             tbDescription = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -100,37 +106,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(330, 106);
             dataGridView1.TabIndex = 9;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(102, 163, 155);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(153, 161);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(100, 23);
-            button1.TabIndex = 10;
-            button1.Text = "ADD/EDIT";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(102, 163, 155);
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(258, 161);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(100, 23);
-            button2.TabIndex = 11;
-            button2.Text = "REMOVE";
-            button2.UseVisualStyleBackColor = false;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button3
             // 
@@ -146,22 +122,6 @@
             button3.TabIndex = 13;
             button3.Text = "CANCEL";
             button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(102, 163, 155);
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.Transparent;
-            button4.Location = new Point(258, 331);
-            button4.Margin = new Padding(3, 2, 3, 2);
-            button4.Name = "button4";
-            button4.Size = new Size(100, 23);
-            button4.TabIndex = 12;
-            button4.Text = "SAVE";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
             // 
             // close
             // 
@@ -219,19 +179,75 @@
             tbDescription.Size = new Size(354, 21);
             tbDescription.TabIndex = 21;
             // 
+            // guna2Button1
+            // 
+            guna2Button1.BorderRadius = 10;
+            guna2Button1.CustomizableEdges = customizableEdges5;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.FillColor = Color.FromArgb(102, 163, 155);
+            guna2Button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(152, 162);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Button1.Size = new Size(101, 23);
+            guna2Button1.TabIndex = 22;
+            guna2Button1.Text = "ADD/EDIT";
+            guna2Button1.Click += guna2Button1_Click;
+            // 
+            // guna2Button2
+            // 
+            guna2Button2.BorderRadius = 10;
+            guna2Button2.CustomizableEdges = customizableEdges7;
+            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button2.FillColor = Color.FromArgb(102, 163, 155);
+            guna2Button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button2.ForeColor = Color.White;
+            guna2Button2.Location = new Point(259, 162);
+            guna2Button2.Name = "guna2Button2";
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Button2.Size = new Size(101, 23);
+            guna2Button2.TabIndex = 23;
+            guna2Button2.Text = "REMOVE";
+            // 
+            // guna2Button3
+            // 
+            guna2Button3.BorderRadius = 10;
+            guna2Button3.CustomizableEdges = customizableEdges9;
+            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button3.FillColor = Color.FromArgb(102, 163, 155);
+            guna2Button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button3.ForeColor = Color.White;
+            guna2Button3.Location = new Point(259, 331);
+            guna2Button3.Name = "guna2Button3";
+            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2Button3.Size = new Size(101, 23);
+            guna2Button3.TabIndex = 24;
+            guna2Button3.Text = "SAVE";
+            guna2Button3.Click += guna2Button3_Click;
+            // 
             // AddOrEditTracker
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(396, 401);
+            Controls.Add(guna2Button3);
+            Controls.Add(guna2Button2);
+            Controls.Add(guna2Button1);
             Controls.Add(tbDescription);
             Controls.Add(tbName);
             Controls.Add(close);
             Controls.Add(button3);
-            Controls.Add(button4);
-            Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -254,12 +270,12 @@
         private Label label3;
         private Label label4;
         private DataGridView dataGridView1;
-        private Button button1;
-        private Button button2;
         private Button button3;
-        private Button button4;
         private Label close;
         private Guna.UI2.WinForms.Guna2TextBox tbName;
         private Guna.UI2.WinForms.Guna2TextBox tbDescription;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }
