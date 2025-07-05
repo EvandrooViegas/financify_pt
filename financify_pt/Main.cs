@@ -68,37 +68,67 @@ namespace financify_pt
 
         private void btnDasboard_Click(object sender, EventArgs e)
         {
+            
+            if(Globals.UserId == 0)
+            {
+                MessageBox.Show("You need to be logged in to access the dashboard");
+                return;
+            }
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
         }
 
         private void login_Btn_Click(object sender, EventArgs e)
         {
+            if (Globals.UserId != 0)
+            {
+                // User already logged in, open Dashboard
+                Dashboard dashboard = new Dashboard();
+                this.Hide(); // Hide current form
+                dashboard.Show(); // Show dashboard
+                return;
+            }
+
             using (FrmLogin loginform = new FrmLogin())
             {
                 var result = loginform.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    // Close Main and open Dashboard
-                    this.Hide(); // optional fade-out effect
+                    this.Hide();
                     Dashboard dashboard = new Dashboard();
-                    dashboard.FormClosed += (s, args) => this.Close(); // ensures app exits properly
                     dashboard.Show();
                 }
             }
         }
 
+
         private void register_Btn_Click(object sender, EventArgs e)
         {
+
             FrmRegister regform = new FrmRegister();
             regform.Show();
         }
 
         private void Start_Btn_Click(object sender, EventArgs e)
         {
+            if (Globals.UserId != 0)
+            {
+                Dashboard dashboard = new Dashboard();
+                this.Hide();
+                dashboard.Show();
+                return;
+            }
+
             FrmLogin loginform = new FrmLogin();
-            loginform.Show();
+            var result = loginform.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+            }
         }
+
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {

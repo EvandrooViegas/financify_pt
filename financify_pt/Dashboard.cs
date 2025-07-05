@@ -62,7 +62,7 @@ namespace financify_pt.Auth
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-          
+
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -77,5 +77,14 @@ namespace financify_pt.Auth
             RefreshData();
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            var form = new Main();
+            form.ShowDialog();
+
+            Close();
+        }
+
     }
 }

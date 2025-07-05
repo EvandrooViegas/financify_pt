@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
@@ -43,6 +45,7 @@
             label4 = new Label();
             panel3 = new Panel();
             btn_newTracker = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -54,6 +57,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(guna2Button1);
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox3);
@@ -188,7 +192,7 @@
             // 
             btn_newTracker.BackColor = Color.Transparent;
             btn_newTracker.BorderRadius = 20;
-            btn_newTracker.CustomizableEdges = customizableEdges1;
+            btn_newTracker.CustomizableEdges = customizableEdges3;
             btn_newTracker.DisabledState.BorderColor = Color.DarkGray;
             btn_newTracker.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_newTracker.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -198,11 +202,31 @@
             btn_newTracker.ForeColor = Color.White;
             btn_newTracker.Location = new Point(871, 35);
             btn_newTracker.Name = "btn_newTracker";
-            btn_newTracker.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_newTracker.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btn_newTracker.Size = new Size(180, 45);
             btn_newTracker.TabIndex = 20;
             btn_newTracker.Text = "Add New Tracker";
             btn_newTracker.Click += btn_newTracker_Click;
+            // 
+            // guna2Button1
+            // 
+            guna2Button1.BackColor = Color.Transparent;
+            guna2Button1.BorderRadius = 20;
+            guna2Button1.CustomizableEdges = customizableEdges1;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.FillColor = Color.FromArgb(102, 163, 155);
+            guna2Button1.Font = new Font("Segoe UI", 9F);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(8, 213);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button1.Size = new Size(167, 27);
+            guna2Button1.TabIndex = 21;
+            guna2Button1.Text = "Go Back";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // Dashboard
             // 
@@ -246,5 +270,6 @@
         private Label label4;
         private Panel panel3;
         private Guna.UI2.WinForms.Guna2Button btn_newTracker;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
