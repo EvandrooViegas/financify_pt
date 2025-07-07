@@ -126,7 +126,7 @@ namespace financify_pt
                 return;
             }
 
-            if(richTextBox1.Text.Length < 10 || richTextBox1.Text.Length > 100)
+            if (richTextBox1.Text.Length < 10 || richTextBox1.Text.Length > 100)
             {
                 MessageBox.Show("The text length cannot be less than 10 or larger than 100 chars!");
                 return;
@@ -136,24 +136,42 @@ namespace financify_pt
                 try
                 {
 
-                    if(TrackerToEdit == null)
+                    if (TrackerToEdit == null)
                     {
                         var tracker = BLL.Tracker.Create(tbName.Text, richTextBox1.Text);
                         BLL.UserTracker.Create(tracker.Id, Globals.UserId, true);
                         MessageBox.Show("Tracker Created Successfully");
 
-                    } else
+                    }
+                    else
                     {
-                         BLL.Tracker.Update(TrackerToEdit.Id, tbName.Text, richTextBox1.Text);
+                        BLL.Tracker.Update(TrackerToEdit.Id, tbName.Text, richTextBox1.Text);
                         MessageBox.Show("Tracker Updated Successfully");
                     }
-                        Close();
+                    Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+
+            var form = new UserPrevileges(TrackerToEdit.Id);
+            form.ShowDialog();
+            RefreshUserDataGridViewData();
         }
     }
 }

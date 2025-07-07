@@ -134,6 +134,7 @@
             Controls.Add(register_Btn);
             Controls.Add(label2);
             Controls.Add(label3);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Tracker";
             Text = "Tracker";
             Load += Tracker_Load;

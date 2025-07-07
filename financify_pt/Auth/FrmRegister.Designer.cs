@@ -148,7 +148,6 @@
             label1.Size = new Size(168, 19);
             label1.TabIndex = 19;
             label1.Text = "CONFIRM PASSWORD";
-            //label1.Click += label1_Click;
             // 
             // label6
             // 
@@ -288,6 +287,7 @@
             register_pass.ShadowDecoration.CustomizableEdges = customizableEdges10;
             register_pass.Size = new Size(354, 21);
             register_pass.TabIndex = 28;
+            register_pass.TextChanged += register_pass_TextChanged;
             // 
             // register_confirmpass
             // 
@@ -308,6 +308,7 @@
             register_confirmpass.ShadowDecoration.CustomizableEdges = customizableEdges12;
             register_confirmpass.Size = new Size(354, 21);
             register_confirmpass.TabIndex = 29;
+            register_confirmpass.TextChanged += register_confirmpass_TextChanged;
             // 
             // btn_register
             // 
@@ -379,7 +380,6 @@
             Name = "FrmRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "registerform";
-           // Load += registerform_Load;
             MouseDown += FrmRegister_MouseDown;
             guna2CustomGradientPanel3.ResumeLayout(false);
             guna2CustomGradientPanel3.PerformLayout();
