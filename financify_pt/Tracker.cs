@@ -47,7 +47,8 @@ namespace financify_pt
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-
+            var form = new transactions();
+           form.ShowDialog();
         }
 
         private void register_Btn_Click(object sender, EventArgs e)

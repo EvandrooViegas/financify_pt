@@ -71,7 +71,7 @@ namespace financify_pt
             register_confirmpass.PasswordChar = register_showpass.Checked ? '\0' : '*';
         }
 
-      
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -112,7 +112,7 @@ namespace financify_pt
 
         private void btn_cancel_Click_1(object sender, EventArgs e)
         {
-             this.Close();
+            this.Close();
         }
 
         private void btn_registerlogin_Click(object sender, EventArgs e)
@@ -120,6 +120,16 @@ namespace financify_pt
             FrmLogin loginform = new FrmLogin();
             loginform.Show();
             this.Hide();
+        }
+
+        private void register_confirmpass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void register_pass_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
