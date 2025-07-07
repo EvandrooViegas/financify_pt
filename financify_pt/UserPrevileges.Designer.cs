@@ -132,7 +132,7 @@
             Controls.Add(txtName);
             Controls.Add(label3);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "UserPrevileges";
             Text = "edituser";
             Load += edituser_Load;

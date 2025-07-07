@@ -47,12 +47,12 @@
             tbName = new Guna.UI2.WinForms.Guna2TextBox();
             richTextBox1 = new RichTextBox();
             guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            pictureBox1 = new PictureBox();
+            label4 = new Label();
             guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             btn_cancel = new Guna.UI2.WinForms.Guna2Button();
             guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            label4 = new Label();
-            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -152,6 +152,29 @@
             guna2CustomGradientPanel3.Size = new Size(393, 503);
             guna2CustomGradientPanel3.TabIndex = 33;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.image;
+            pictureBox1.Location = new Point(252, 14);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(121, 30);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 40;
+            pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Transparent;
+            label4.Location = new Point(27, 292);
+            label4.Name = "label4";
+            label4.Size = new Size(63, 19);
+            label4.TabIndex = 39;
+            label4.Text = "USERS";
+            // 
             // guna2Button4
             // 
             guna2Button4.BackColor = Color.Transparent;
@@ -169,7 +192,7 @@
             guna2Button4.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button4.Size = new Size(91, 24);
             guna2Button4.TabIndex = 38;
-            guna2Button4.Text = " ADD/EDIT";
+            guna2Button4.Text = " ADD";
             guna2Button4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             guna2Button4.Tile = true;
             guna2Button4.Click += guna2Button4_Click;
@@ -192,6 +215,7 @@
             guna2Button5.Size = new Size(101, 24);
             guna2Button5.TabIndex = 37;
             guna2Button5.Text = "REMOVE";
+            guna2Button5.Click += guna2Button5_Click;
             // 
             // btn_cancel
             // 
@@ -213,6 +237,7 @@
             btn_cancel.Text = "CANCEL";
             btn_cancel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             btn_cancel.Tile = true;
+            btn_cancel.Click += btn_cancel_Click;
             // 
             // guna2Button3
             // 
@@ -232,29 +257,7 @@
             guna2Button3.Size = new Size(101, 24);
             guna2Button3.TabIndex = 35;
             guna2Button3.Text = "SAVE";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(27, 292);
-            label4.Name = "label4";
-            label4.Size = new Size(63, 19);
-            label4.TabIndex = 39;
-            label4.Text = "USERS";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Resources.image;
-            pictureBox1.Location = new Point(252, 14);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(121, 30);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 40;
-            pictureBox1.TabStop = false;
+            guna2Button3.Click += guna2Button3_Click_1;
             // 
             // AddOrEditTracker
             // 

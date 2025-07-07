@@ -36,5 +36,33 @@ namespace financify_pt
         {
 
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+
+            var value = guna2NumericUpDown1.Value;
+            var date = guna2DateTimePicker1.Value;
+            var type = comboBox1.SelectedValue;
+
+            if(date > DateTime.Now)
+            {
+                MessageBox.Show("The date cannot be in the future");
+                return;
+            }
+
+            if (value <= 0) {
+                MessageBox.Show("The value cannot be less or equal to zero");
+                return;
+            }
+
+            if(type == "")
+            {
+                MessageBox.Show("The type cannot be empty");
+                return;
+            }
+
+
+
+        }
     }
 }

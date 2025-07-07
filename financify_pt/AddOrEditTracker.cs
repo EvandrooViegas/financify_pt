@@ -84,8 +84,8 @@ namespace financify_pt
             if (TrackerToEdit == null)
             {
                 label4.Hide();
-                guna2Button1.Hide();
-                guna2Button2.Hide();
+                guna2Button4.Hide();
+                guna2Button5.Hide();
                 dataGridView1.Hide();
                 return;
             }
@@ -119,6 +119,16 @@ namespace financify_pt
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void guna2Button3_Click_1(object sender, EventArgs e)
         {
             if (richTextBox1.Text == "" || tbName.Text == "")
             {
@@ -157,20 +167,31 @@ namespace financify_pt
             }
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void btn_cancel_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0) 
+            Close();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            var form = new UserPrevileges(TrackerToEdit.Id);
+            form.ShowDialog();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Select a row first");
                 return;
             }
 
             var idToDelete = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
-        
+
             try
             {
                 var isOwner = BLL.UserTracker.IsUserOwner(idToDelete, TrackerToEdit.Id);
-                if(isOwner)
+                if (isOwner)
                 {
                     MessageBox.Show("You can't remove the owner");
                     return;
@@ -179,10 +200,13 @@ namespace financify_pt
 
                 BLL.UserTracker.Delete(TrackerToEdit.Id, idToDelete);
                 MessageBox.Show("User removed!");
-            } catch (Exception ex)
+        RefreshUserDataGridViewData();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
 
 
