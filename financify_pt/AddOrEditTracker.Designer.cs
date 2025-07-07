@@ -101,7 +101,7 @@
             dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(330, 106);
+            dataGridView1.Size = new Size(346, 106);
             dataGridView1.TabIndex = 9;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -112,7 +112,7 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(151, 455);
+            button3.Location = new Point(166, 455);
             button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
             button3.Size = new Size(100, 23);
@@ -152,12 +152,12 @@
             guna2Button1.FillColor = Color.FromArgb(102, 163, 155);
             guna2Button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(151, 286);
+            guna2Button1.Location = new Point(165, 286);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button1.Size = new Size(101, 23);
             guna2Button1.TabIndex = 22;
-            guna2Button1.Text = "ADD/EDIT";
+            guna2Button1.Text = "ADD";
             guna2Button1.Click += guna2Button1_Click;
             // 
             // guna2Button2
@@ -171,12 +171,13 @@
             guna2Button2.FillColor = Color.FromArgb(102, 163, 155);
             guna2Button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(258, 286);
+            guna2Button2.Location = new Point(272, 286);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Button2.Size = new Size(101, 23);
             guna2Button2.TabIndex = 23;
             guna2Button2.Text = "REMOVE";
+            guna2Button2.Click += guna2Button2_Click;
             // 
             // guna2Button3
             // 
@@ -189,7 +190,7 @@
             guna2Button3.FillColor = Color.FromArgb(102, 163, 155);
             guna2Button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(258, 455);
+            guna2Button3.Location = new Point(272, 455);
             guna2Button3.Name = "guna2Button3";
             guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Button3.Size = new Size(101, 23);

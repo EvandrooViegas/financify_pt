@@ -37,6 +37,11 @@ namespace financify_pt
 
         private void Tracker_Load(object sender, EventArgs e)
         {
+            var isOwner = BLL.UserTracker.IsUserOwner(Globals.UserId, TrackerToEdit.Id);
+            if(!isOwner)
+            {
+                register_Btn.Hide();
+            }
             LoadData();   
         }
 

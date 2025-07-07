@@ -126,7 +126,7 @@ namespace financify_pt
                 return;
             }
 
-            if(richTextBox1.Text.Length < 10 || richTextBox1.Text.Length > 100)
+            if (richTextBox1.Text.Length < 10 || richTextBox1.Text.Length > 100)
             {
                 MessageBox.Show("The text length cannot be less than 10 or larger than 100 chars!");
                 return;
@@ -136,18 +136,19 @@ namespace financify_pt
                 try
                 {
 
-                    if(TrackerToEdit == null)
+                    if (TrackerToEdit == null)
                     {
                         var tracker = BLL.Tracker.Create(tbName.Text, richTextBox1.Text);
                         BLL.UserTracker.Create(tracker.Id, Globals.UserId, true);
                         MessageBox.Show("Tracker Created Successfully");
 
-                    } else
+                    }
+                    else
                     {
-                         BLL.Tracker.Update(TrackerToEdit.Id, tbName.Text, richTextBox1.Text);
+                        BLL.Tracker.Update(TrackerToEdit.Id, tbName.Text, richTextBox1.Text);
                         MessageBox.Show("Tracker Updated Successfully");
                     }
-                        Close();
+                    Close();
                 }
                 catch (Exception ex)
                 {
@@ -155,5 +156,35 @@ namespace financify_pt
                 }
             }
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0) 
+            {
+                MessageBox.Show("Select a row first");
+                return;
+            }
+
+            var idToDelete = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
+        
+            try
+            {
+                var isOwner = BLL.UserTracker.IsUserOwner(idToDelete, TrackerToEdit.Id);
+                if(isOwner)
+                {
+                    MessageBox.Show("You can't remove the owner");
+                    return;
+                }
+
+
+                BLL.UserTracker.Delete(TrackerToEdit.Id, idToDelete);
+                MessageBox.Show("User removed!");
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
     }
 }

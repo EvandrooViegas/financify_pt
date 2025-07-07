@@ -116,7 +116,7 @@ namespace financify_pt
                 }
 
 
-                BLL.UserTracker.Create(trackerId, user.Id, radioButton1.Checked);
+                BLL.UserTracker.Create(trackerId, user.Id, user.Id == Globals.UserId);
                 MessageBox.Show("User participant created successfully!");
             } catch(Exception ex)
             {

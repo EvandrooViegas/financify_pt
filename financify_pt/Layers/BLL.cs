@@ -261,54 +261,76 @@ namespace financify_pt
         // ------------------------------------------------------------------
         // USERTRACKER
         // ------------------------------------------------------------------
-        public static class UserTracker
-        {
+            public static class UserTracker
+            {
 
-            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker]", []);
+                public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker]", []);
 
-            public static DataRow GetById(int id) =>
-                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+                public static DataRow GetById(int id) =>
+                    new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
 
-            public static void Create(int idTracker, int idUser, bool isOwner) =>
-                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[UserTracker] (IdTracker, IdUser, IsOwner) VALUES (@IdTracker, @IdUser, @IsOwner)",
-                    new[] { new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
+                public static void Create(int idTracker, int idUser, bool isOwner) =>
+                    new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[UserTracker] (IdTracker, IdUser, IsOwner) VALUES (@IdTracker, @IdUser, @IsOwner)",
+                        new[] { new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
 
-            public static void Update(int id, int idTracker, int idUser, bool isOwner) =>
-                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[UserTracker] SET IdTracker = @IdTracker, IdUser = @IdUser, IsOwner = @IsOwner WHERE Id = @Id",
-                    new[] { new SqlParameter("Id", id), new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
+                public static void Update(int id, int idTracker, int idUser, bool isOwner) =>
+                    new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[UserTracker] SET IdTracker = @IdTracker, IdUser = @IdUser, IsOwner = @IsOwner WHERE Id = @Id",
+                        new[] { new SqlParameter("Id", id), new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
 
-            public static void Delete(int id) =>
-                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[UserTracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
-
+            public static void Delete(int trackerId, int userId) =>
+  new DataAccessLayer().ExecuteNonQuery(
+      "DELETE FROM [dbo].[UserTracker] WHERE IdTracker = @IdTracker AND IdUser = @IdUser",
+      new[] {
+            new SqlParameter("@IdTracker", trackerId),
+            new SqlParameter("@IdUser", userId)
+      });
             public static DataTable GetUsersByTrackerId(int trackerId)
-            {
-                return new DataAccessLayer().ExecuteReader(
-                    @"SELECT u.* 
-              FROM [dbo].[User] u
-              INNER JOIN [dbo].[UserTracker] ut ON u.Id = ut.IdUser
-              WHERE ut.IdTracker = @TrackerId",
-                    new[] { new SqlParameter("@TrackerId", trackerId) });
-            }
+                {
+                    return new DataAccessLayer().ExecuteReader(
+                        @"SELECT u.* 
+                  FROM [dbo].[User] u
+                  INNER JOIN [dbo].[UserTracker] ut ON u.Id = ut.IdUser
+                  WHERE ut.IdTracker = @TrackerId",
+                        new[] { new SqlParameter("@TrackerId", trackerId) });
+                }
 
-            // New method: returns true if user is already a participant in the tracker
-            public static bool IsUserParticipant(int userId, int trackerId)
-            {
-                var dt = new DataAccessLayer().ExecuteReader(
-                    @"SELECT COUNT(*) AS Count
+                // New method: returns true if user is already a participant in the tracker
+                public static bool IsUserParticipant(int userId, int trackerId)
+                {
+                    var dt = new DataAccessLayer().ExecuteReader(
+                        @"SELECT COUNT(*) AS Count
+                  FROM [dbo].[UserTracker]
+                  WHERE IdUser = @UserId AND IdTracker = @TrackerId",
+                        new[] {
+                    new SqlParameter("@UserId", userId),
+                    new SqlParameter("@TrackerId", trackerId)
+                        });
+
+                    if (dt.Rows.Count > 0 && int.TryParse(dt.Rows[0]["Count"].ToString(), out int count))
+                    {
+                        return count > 0;
+                    }
+                    return false;
+                }
+
+                public static bool IsUserOwner(int userId, int trackerId)
+                {
+                    var dt = new DataAccessLayer().ExecuteReader(
+                        @"SELECT COUNT(*) AS Count
               FROM [dbo].[UserTracker]
-              WHERE IdUser = @UserId AND IdTracker = @TrackerId",
-                    new[] {
+              WHERE IdUser = @UserId AND IdTracker = @TrackerId AND IsOwner = 1",
+                        new[] {
                 new SqlParameter("@UserId", userId),
                 new SqlParameter("@TrackerId", trackerId)
-                    });
+                        });
 
-                if (dt.Rows.Count > 0 && int.TryParse(dt.Rows[0]["Count"].ToString(), out int count))
-                {
-                    return count > 0;
+                    if (dt.Rows.Count > 0 && int.TryParse(dt.Rows[0]["Count"].ToString(), out int count))
+                    {
+                        return count > 0;
+                    }
+                    return false;
                 }
-                return false;
             }
-        }
 
         // ------------------------------------------------------------------
         // TRANSACTION

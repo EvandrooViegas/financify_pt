@@ -34,26 +34,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            label4 = new Label();
             label1 = new Label();
-            radioButton1 = new RadioButton();
             label3 = new Label();
             txtName = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(9, 121);
-            label4.Name = "label4";
-            label4.Size = new Size(224, 19);
-            label4.TabIndex = 17;
-            label4.Text = "ADD OWNER PREVILEGES ";
-            label4.Click += label4_Click;
             // 
             // label1
             // 
@@ -65,19 +51,6 @@
             label1.Size = new Size(323, 27);
             label1.TabIndex = 12;
             label1.Text = "ADD USER TO THE TRACKER";
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.FlatStyle = FlatStyle.Flat;
-            radioButton1.ForeColor = SystemColors.ButtonFace;
-            radioButton1.Location = new Point(322, 126);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(13, 12);
-            radioButton1.TabIndex = 20;
-            radioButton1.TabStop = true;
-            radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // label3
             // 
@@ -121,7 +94,7 @@
             guna2Button3.FillColor = Color.FromArgb(102, 163, 155);
             guna2Button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(132, 158);
+            guna2Button3.Location = new Point(127, 124);
             guna2Button3.Name = "guna2Button3";
             guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button3.Size = new Size(101, 23);
@@ -140,7 +113,7 @@
             guna2Button1.FillColor = Color.FromArgb(102, 163, 155);
             guna2Button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(239, 158);
+            guna2Button1.Location = new Point(234, 124);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Button1.Size = new Size(101, 23);
@@ -153,13 +126,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(351, 197);
+            ClientSize = new Size(351, 159);
             Controls.Add(guna2Button1);
             Controls.Add(guna2Button3);
             Controls.Add(txtName);
             Controls.Add(label3);
-            Controls.Add(radioButton1);
-            Controls.Add(label4);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "UserPrevileges";
@@ -170,9 +141,7 @@
         }
 
         #endregion
-        private Label label4;
         private Label label1;
-        private RadioButton radioButton1;
         private Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txtName;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
