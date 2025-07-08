@@ -12,9 +12,11 @@ namespace financify_pt
 {
     public partial class transactions : Form
     {
-        public transactions()
+        public int trackerId { get; set; }
+        public transactions(int trackerId)
         {
             InitializeComponent();
+            this.trackerId = trackerId;
         }
 
         private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
@@ -42,7 +44,7 @@ namespace financify_pt
 
             var value = guna2NumericUpDown1.Value;
             var date = guna2DateTimePicker1.Value;
-            var type = comboBox1.SelectedValue;
+            var type = (string)comboBox1.SelectedValue;
 
             if(date > DateTime.Now)
             {
@@ -62,7 +64,19 @@ namespace financify_pt
             }
 
 
-
+            try
+            {
+                BLL.Transaction.Create(value, type, Globals.UserId, trackerId);
+                var isOwner = BLL.UserTracker.IsUserOwner(Globals.UserId, trackerId);
+                if(isOwner)
+                {
+                    BLL.Notification.Create("A new transaction was created on your tracker", Globals.UserId);
+                }
+                MessageBox.Show("New transaction created successfully");
+            }
+            catch (Exception ex) { 
+            
+            }
         }
     }
 }

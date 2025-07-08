@@ -13,7 +13,8 @@ namespace financify_pt
             public string Password { get; set; } = null!;
             public string Salt { get; set; } = null!;
             public bool IsAdmin { get; set; }
-            public bool IsLocked { get; set; }
+            public string Username { get; set; }
+        public bool IsLocked { get; set; }
             public DateTimeOffset? LastLoginDate { get; set; }
             public DateTimeOffset? LockedDate { get; set; }
     }
