@@ -29,26 +29,43 @@ namespace financify_pt
 
         private void LoadData()
         {
-           var tracker = BLL.Tracker.GetById(TrackerToEdit.Id);
+            var tracker = BLL.Tracker.GetById(TrackerToEdit.Id);
 
             label3.Text = tracker.Name;
             label2.Text = tracker.Description;
+
+            panelTransactions.Controls.Clear(); // clear previous controls
+
+            var transactions = BLL.Transaction.GetAllByTrackerId(TrackerToEdit.Id);
+
+            int y = 0; // vertical offset
+            foreach (var transaction in transactions.Reverse())
+            {
+                var uc = new TransactionUC((int)transaction.Value, transaction.Type, transaction.CreatedById, transaction.Date); // assuming CreatedAt exists
+                uc.Location = new Point(0, y);
+                uc.Width = panelTransactions.Width;
+                uc.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
+                panelTransactions.Controls.Add(uc);
+                y += uc.Height + 10; // space between controls
+            }
         }
 
         private void Tracker_Load(object sender, EventArgs e)
         {
             var isOwner = BLL.UserTracker.IsUserOwner(Globals.UserId, TrackerToEdit.Id);
-            if(!isOwner)
+            if (!isOwner)
             {
                 register_Btn.Hide();
             }
-            LoadData();   
+            LoadData();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            var form = new transactions();
-           form.ShowDialog();
+            var form = new transactions(TrackerToEdit.Id);
+            form.ShowDialog();
+            LoadData();
         }
 
         private void register_Btn_Click(object sender, EventArgs e)
@@ -56,6 +73,11 @@ namespace financify_pt
             var form = new AddOrEditTracker(TrackerToEdit);
             form.ShowDialog();
             LoadData();
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

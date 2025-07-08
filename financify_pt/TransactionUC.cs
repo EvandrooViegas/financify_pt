@@ -40,10 +40,10 @@ namespace financify_pt
         {
             var user = BLL.User.GetById(addedById);
 
-            label2.Text = value.ToString();
+            label2.Text = value.ToString() + "$";
             label1.Text = date.ToString();
             label3.Text = "Added by: " + user.Username;
-            label4.text = type.ToString();
+            label4.Text = type.ToString();
         }
     }
 }

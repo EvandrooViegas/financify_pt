@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             label2 = new Label();
             label3 = new Label();
             register_Btn = new Guna.UI2.WinForms.Guna2Button();
             label1 = new Label();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            panelTransactions = new Panel();
             SuspendLayout();
             // 
             // sqlCommand1
@@ -51,9 +52,10 @@
             label2.Location = new Point(26, 77);
             label2.MaximumSize = new Size(400, 100);
             label2.Name = "label2";
-            label2.Size = new Size(362, 100);
+            label2.Size = new Size(400, 72);
             label2.TabIndex = 6;
             label2.Text = "label3";
+            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -72,7 +74,7 @@
             register_Btn.BackgroundImageLayout = ImageLayout.None;
             register_Btn.BorderColor = Color.Transparent;
             register_Btn.BorderRadius = 10;
-            register_Btn.CustomizableEdges = customizableEdges1;
+            register_Btn.CustomizableEdges = customizableEdges5;
             register_Btn.DisabledState.BorderColor = Color.DarkGray;
             register_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
             register_Btn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -83,7 +85,7 @@
             register_Btn.ForeColor = Color.Black;
             register_Btn.Location = new Point(669, 40);
             register_Btn.Name = "register_Btn";
-            register_Btn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            register_Btn.ShadowDecoration.CustomizableEdges = customizableEdges6;
             register_Btn.Size = new Size(100, 23);
             register_Btn.TabIndex = 22;
             register_Btn.Text = "Edit";
@@ -106,7 +108,7 @@
             guna2Button1.BackgroundImageLayout = ImageLayout.None;
             guna2Button1.BorderColor = Color.Transparent;
             guna2Button1.BorderRadius = 10;
-            guna2Button1.CustomizableEdges = customizableEdges3;
+            guna2Button1.CustomizableEdges = customizableEdges7;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -117,11 +119,19 @@
             guna2Button1.ForeColor = Color.Black;
             guna2Button1.Location = new Point(626, 177);
             guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Button1.Size = new Size(143, 29);
             guna2Button1.TabIndex = 24;
             guna2Button1.Text = "New Transaction";
             guna2Button1.Click += guna2Button1_Click;
+            // 
+            // panelTransactions
+            // 
+            panelTransactions.AutoScroll = true;
+            panelTransactions.Location = new Point(26, 222);
+            panelTransactions.Name = "panelTransactions";
+            panelTransactions.Size = new Size(743, 204);
+            panelTransactions.TabIndex = 25;
             // 
             // Tracker
             // 
@@ -129,6 +139,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(800, 450);
+            Controls.Add(panelTransactions);
             Controls.Add(guna2Button1);
             Controls.Add(label1);
             Controls.Add(register_Btn);
@@ -150,5 +161,6 @@
         private Guna.UI2.WinForms.Guna2Button register_Btn;
         private Label label1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Panel panelTransactions;
     }
 }

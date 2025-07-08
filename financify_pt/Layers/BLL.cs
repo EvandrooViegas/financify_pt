@@ -189,12 +189,8 @@ namespace financify_pt
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Notification] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
 
             public static void Create(string messages, int userId) =>
-                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Notification] (Messages, UserIds) VALUES (@Messages, @UserIds)",
-                    new[] { new SqlParameter("Messages", messages), new SqlParameter("UserIds", userId) });
-
-            public static void Update(int id, string messages, int userId) =>
-                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[Notification] SET Messages = @Messages, UserIds = @UserIds WHERE Id = @Id",
-                    new[] { new SqlParameter("Id", id), new SqlParameter("Messages", messages), new SqlParameter("UserIds", userId) });
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Notification] (Message, IdUser) VALUES (@Message, @IdUser)",
+                    new[] { new SqlParameter("Message", messages), new SqlParameter("IdUser", userId) });
 
             public static void Delete(int id) =>
                 new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Notification] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
@@ -361,28 +357,53 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class Transaction
         {
+            public static TransactionModel[] GetAllByTrackerId(int trackerId)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    "SELECT * FROM [dbo].[Transaction] WHERE TrackerId = @TrackerId ORDER BY Date DESC", // latest first
+                    new[] { new SqlParameter("TrackerId", trackerId) }
+                );
+
+                return dt.AsEnumerable()
+                         .Select(row => new TransactionModel
+                         {
+                             Id = row.Field<int>("Id"),
+                             Value = row.Field<decimal>("Value"),
+                             Type = row.Field<string>("Type"),
+                             CreatedById = row.Field<int>("CreatedById"),
+                             Description = row.IsNull("Description") ? null : row.Field<string>("Description"),
+                             Date = row.Field<DateTime>("Date"),
+                             TrackerId = row.Field<int>("TrackerId")
+                         })
+                         .ToArray();
+            }
+
             public static DataTable ListAll() =>
                 new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Transaction]", []);
 
             public static DataRow GetById(int id) =>
-                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Transaction] WHERE Id = @Id",
-                    new[] { new SqlParameter("Id", id) }).Rows[0];
+                new DataAccessLayer().ExecuteReader(
+                    "SELECT * FROM [dbo].[Transaction] WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id) }
+                ).Rows[0];
 
-            public static void Create(decimal value, string type, int createdById, int trackerId) =>
+            public static void Create(decimal value, string type, int createdById, int trackerId, DateTime date, string description = null) =>
                 new DataAccessLayer().ExecuteNonQuery(
-                    "INSERT INTO [dbo].[Transaction] (Value, Type, CreatedById, TrackerId) " +
-                    "VALUES (@Value, @Type, @CreatedById, @TrackerId)",
+                    "INSERT INTO [dbo].[Transaction] (Value, Type, CreatedById, TrackerId, Date, Description) " +
+                    "VALUES (@Value, @Type, @CreatedById, @TrackerId, @Date, @Description)",
                     new[]
                     {
                 new SqlParameter("Value", value),
                 new SqlParameter("Type", type),
                 new SqlParameter("CreatedById", createdById),
-                new SqlParameter("TrackerId", trackerId)
+                new SqlParameter("TrackerId", trackerId),
+                new SqlParameter("Date", date),
+                new SqlParameter("Description", (object?)description ?? DBNull.Value)
                     });
 
-            public static void Update(int id, decimal value, string type, int createdById, int trackerId) =>
+            public static void Update(int id, decimal value, string type, int createdById, int trackerId, DateTime date, string description = null) =>
                 new DataAccessLayer().ExecuteNonQuery(
-                    "UPDATE [dbo].[Transaction] SET Value = @Value, Type = @Type, CreatedById = @CreatedById, TrackerId = @TrackerId " +
+                    "UPDATE [dbo].[Transaction] SET Value = @Value, Type = @Type, CreatedById = @CreatedById, TrackerId = @TrackerId, Date = @Date, Description = @Description " +
                     "WHERE Id = @Id",
                     new[]
                     {
@@ -390,11 +411,14 @@ namespace financify_pt
                 new SqlParameter("Value", value),
                 new SqlParameter("Type", type),
                 new SqlParameter("CreatedById", createdById),
-                new SqlParameter("TrackerId", trackerId)
+                new SqlParameter("TrackerId", trackerId),
+                new SqlParameter("Date", date),
+                new SqlParameter("Description", (object?)description ?? DBNull.Value)
                     });
 
             public static void Delete(int id) =>
-                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Transaction] WHERE Id = @Id",
+                new DataAccessLayer().ExecuteNonQuery(
+                    "DELETE FROM [dbo].[Transaction] WHERE Id = @Id",
                     new[] { new SqlParameter("Id", id) });
         }
 

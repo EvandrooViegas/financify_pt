@@ -23,21 +23,23 @@ namespace financify_pt.Auth
 
             var trackers = BLL.Tracker.GetTrackersByUserId(Globals.UserId);
 
+            // Reverse to show the latest first
+            var trackersReversed = trackers.Reverse().ToList();
+
             int itemWidth = 409;
             int itemHeight = 231;
             int margin = 10;
             int columns = 2;
 
-            for (int i = 0; i < trackers.Count(); i++)
+            for (int i = 0; i < trackersReversed.Count(); i++)
             {
-                var tracker = trackers[i];
+                var tracker = trackersReversed[i];
 
                 var trackerUC = new TrackerUC(tracker.Name, tracker.Description, tracker.Id)
                 {
                     Size = new Size(itemWidth, itemHeight)
                 };
 
-                // Calculate grid position
                 int col = i % columns;
                 int row = i / columns;
 

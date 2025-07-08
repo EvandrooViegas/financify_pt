@@ -41,42 +41,53 @@ namespace financify_pt
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-
             var value = guna2NumericUpDown1.Value;
             var date = guna2DateTimePicker1.Value;
-            var type = (string)comboBox1.SelectedValue;
+            var type = comboBox1.SelectedItem?.ToString(); // ✅ safer way
+            var description = richTextBox1.Text;
 
-            if(date > DateTime.Now)
+            if (date > DateTime.Now)
             {
                 MessageBox.Show("The date cannot be in the future");
                 return;
             }
 
-            if (value <= 0) {
+            if (value <= 0)
+            {
                 MessageBox.Show("The value cannot be less or equal to zero");
                 return;
             }
 
-            if(type == "")
+            if (string.IsNullOrWhiteSpace(type)) // ✅ better check
             {
                 MessageBox.Show("The type cannot be empty");
                 return;
             }
 
-
             try
             {
-                BLL.Transaction.Create(value, type, Globals.UserId, trackerId);
+                BLL.Transaction.Create(value, type, Globals.UserId, trackerId, date, description);
                 var isOwner = BLL.UserTracker.IsUserOwner(Globals.UserId, trackerId);
-                if(isOwner)
+                if (isOwner)
                 {
                     BLL.Notification.Create("A new transaction was created on your tracker", Globals.UserId);
                 }
                 MessageBox.Show("New transaction created successfully");
             }
-            catch (Exception ex) { 
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
