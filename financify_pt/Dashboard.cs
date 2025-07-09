@@ -18,6 +18,9 @@ namespace financify_pt.Auth
 
         private void RefreshData()
         {
+            var authedUser = BLL.User.GetById(Globals.UserId);
+            label5.Text = authedUser.Email;
+
             panel3.Controls.Clear();
             panel3.AutoScroll = true;
 
@@ -82,11 +85,32 @@ namespace financify_pt.Auth
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            Globals.UserId = 0;
+            MessageBox.Show("Logged out successfully");
             var form = new Main();
             form.ShowDialog();
 
             Close();
         }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            //this.close
+        }
     }
 }
