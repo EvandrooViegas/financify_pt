@@ -41,7 +41,7 @@ namespace financify_pt
             int y = 0; // vertical offset
             foreach (var transaction in transactions.Reverse())
             {
-                var uc = new TransactionUC((int)transaction.Value, transaction.Type, transaction.CreatedById, transaction.Date); // assuming CreatedAt exists
+                var uc = new TransactionRowUC((int)transaction.Value, transaction.Type, transaction.CreatedById, transaction.Date, transaction.Id, TrackerToEdit.Id); // assuming CreatedAt exists
                 uc.Location = new Point(0, y);
                 uc.Width = panelTransactions.Width;
                 uc.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;

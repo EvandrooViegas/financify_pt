@@ -1,4 +1,5 @@
-﻿using System;
+﻿using financify_pt.Panels;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -14,6 +15,14 @@ namespace financify_pt.Auth
         private void Dashboard_Load(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void LoadContent(UserControl uc)
+        {
+            panel2.Controls.Clear();
+            uc.Dock = DockStyle.Fill;
+            panel2.Controls.Add(uc);
         }
 
         private void RefreshData()
@@ -21,38 +30,7 @@ namespace financify_pt.Auth
             var authedUser = BLL.User.GetById(Globals.UserId);
             label5.Text = authedUser.Email;
 
-            panel3.Controls.Clear();
-            panel3.AutoScroll = true;
 
-            var trackers = BLL.Tracker.GetTrackersByUserId(Globals.UserId);
-
-            // Reverse to show the latest first
-            var trackersReversed = trackers.Reverse().ToList();
-
-            int itemWidth = 409;
-            int itemHeight = 231;
-            int margin = 10;
-            int columns = 2;
-
-            for (int i = 0; i < trackersReversed.Count(); i++)
-            {
-                var tracker = trackersReversed[i];
-
-                var trackerUC = new TrackerUC(tracker.Name, tracker.Description, tracker.Id)
-                {
-                    Size = new Size(itemWidth, itemHeight)
-                };
-
-                int col = i % columns;
-                int row = i / columns;
-
-                int x = col * (itemWidth + margin);
-                int y = row * (itemHeight + margin);
-
-                trackerUC.Location = new Point(x, y);
-
-                panel3.Controls.Add(trackerUC);
-            }
         }
 
         private void Dashboard_Load_1(object sender, EventArgs e)
@@ -100,7 +78,7 @@ namespace financify_pt.Auth
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            LoadContent(new TransactionUC());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -111,6 +89,21 @@ namespace financify_pt.Auth
         private void button1_Click_2(object sender, EventArgs e)
         {
             //this.close
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            LoadContent(new TrackerUC());
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            LoadContent(new NotificationUC());
         }
     }
 }

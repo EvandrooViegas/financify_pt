@@ -1,6 +1,6 @@
 ﻿namespace financify_pt
 {
-    partial class TransactionUC
+    partial class TransactionRowUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,23 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Label label5;
             label2 = new Label();
             label4 = new Label();
             label1 = new Label();
             label3 = new Label();
             label5 = new Label();
             SuspendLayout();
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(639, 20);
-            label5.Name = "label5";
-            label5.Size = new Size(12, 15);
-            label5.TabIndex = 4;
-            label5.Text = "x";
             // 
             // label2
             // 
@@ -88,18 +77,30 @@
             label3.TabIndex = 8;
             label3.Text = "Added By Evandro";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = Color.Transparent;
+            label5.Location = new Point(639, 20);
+            label5.Name = "label5";
+            label5.Size = new Size(14, 15);
+            label5.TabIndex = 9;
+            label5.Text = "X";
+            label5.Click += label5_Click;
+            // 
             // TransactionUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
+            BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(label5);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(label4);
             Controls.Add(label2);
-            Controls.Add(label5);
             Name = "TransactionUC";
-            Size = new Size(668, 54);
+            Size = new Size(666, 52);
             Load += TransactionUC_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -111,5 +112,6 @@
         private Label label4;
         private Label label1;
         private Label label3;
+        private Label label5;
     }
 }

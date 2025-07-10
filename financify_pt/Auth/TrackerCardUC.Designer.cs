@@ -1,6 +1,6 @@
 ﻿namespace financify_pt.Auth
 {
-    partial class TrackerUC
+    partial class TrackerCardUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -38,9 +38,10 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(24, 21);
+            label1.Location = new Point(24, 18);
             label1.Name = "label1";
             label1.Size = new Size(160, 37);
             label1.TabIndex = 0;
@@ -57,7 +58,7 @@
             btm_view.FillColor = Color.FromArgb(102, 163, 155);
             btm_view.Font = new Font("Segoe UI", 9F);
             btm_view.ForeColor = Color.White;
-            btm_view.Location = new Point(289, 194);
+            btm_view.Location = new Point(24, 146);
             btm_view.Name = "btm_view";
             btm_view.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btm_view.Size = new Size(97, 23);
@@ -68,14 +69,14 @@
             // label2
             // 
             label2.ForeColor = Color.White;
-            label2.Location = new Point(24, 72);
+            label2.Location = new Point(24, 70);
             label2.MaximumSize = new Size(400, 100);
             label2.Name = "label2";
-            label2.Size = new Size(362, 100);
+            label2.Size = new Size(209, 65);
             label2.TabIndex = 4;
             label2.Text = "label2";
             // 
-            // TrackerUC
+            // TrackerCardUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -84,8 +85,8 @@
             Controls.Add(label2);
             Controls.Add(btm_view);
             Controls.Add(label1);
-            Name = "TrackerUC";
-            Size = new Size(407, 229);
+            Name = "TrackerCardUC";
+            Size = new Size(251, 180);
             Load += TrackerUC_Load;
             ResumeLayout(false);
             PerformLayout();

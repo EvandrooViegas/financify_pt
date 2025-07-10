@@ -3,18 +3,18 @@ using System.Windows.Forms;
 
 namespace financify_pt.Auth
 {
-    public partial class TrackerUC : UserControl
+    public partial class TrackerCardUC : UserControl
     {
         public string Title { get; set; }
         public string Description { get; set; }
         public int Id { get; set; }
 
-        public TrackerUC()
+        public TrackerCardUC()
         {
             InitializeComponent();
         }
 
-        public TrackerUC(string title, string description, int id) : this()
+        public TrackerCardUC(string title, string description, int id) : this()
         {
             Title = title;
             Description = description;

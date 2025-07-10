@@ -31,8 +31,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             label5 = new Label();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -43,17 +41,13 @@
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            panel3 = new Panel();
-            label4 = new Label();
-            pictureBox5 = new PictureBox();
             button1 = new Button();
-            btn_newTracker = new Guna.UI2.WinForms.Guna2Button();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -153,6 +147,7 @@
             label3.Size = new Size(105, 18);
             label3.TabIndex = 2;
             label3.Text = "Notifications";
+            label3.Click += label3_Click;
             // 
             // label2
             // 
@@ -161,7 +156,7 @@
             label2.Cursor = Cursors.Hand;
             label2.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(48, 139);
+            label2.Location = new Point(48, 138);
             label2.Name = "label2";
             label2.Size = new Size(104, 18);
             label2.TabIndex = 2;
@@ -180,6 +175,7 @@
             label1.Size = new Size(74, 18);
             label1.TabIndex = 1;
             label1.Text = "Trackers";
+            label1.Click += label1_Click;
             // 
             // pictureBox1
             // 
@@ -191,38 +187,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // panel3
-            // 
-            panel3.AutoScroll = true;
-            panel3.Location = new Point(201, 118);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(850, 301);
-            panel3.TabIndex = 10;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Cursor = Cursors.Hand;
-            label4.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(231, 44);
-            label4.Name = "label4";
-            label4.Size = new Size(157, 29);
-            label4.TabIndex = 8;
-            label4.Text = "My Trackers";
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(201, 49);
-            pictureBox5.Margin = new Padding(3, 2, 3, 2);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(24, 24);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 7;
-            pictureBox5.TabStop = false;
             // 
             // button1
             // 
@@ -238,39 +202,23 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_2;
             // 
-            // btn_newTracker
+            // panel2
             // 
-            btn_newTracker.BackColor = Color.Transparent;
-            btn_newTracker.BorderRadius = 10;
-            btn_newTracker.CustomizableEdges = customizableEdges3;
-            btn_newTracker.DisabledState.BorderColor = Color.DarkGray;
-            btn_newTracker.DisabledState.CustomBorderColor = Color.DarkGray;
-            btn_newTracker.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btn_newTracker.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_newTracker.FillColor = Color.FromArgb(102, 163, 155);
-            btn_newTracker.Font = new Font("Segoe UI", 9F);
-            btn_newTracker.ForeColor = Color.White;
-            btn_newTracker.Location = new Point(871, 44);
-            btn_newTracker.Name = "btn_newTracker";
-            btn_newTracker.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btn_newTracker.Size = new Size(180, 29);
-            btn_newTracker.TabIndex = 20;
-            btn_newTracker.Text = "Add New Tracker";
-            btn_newTracker.Click += btn_newTracker_Click;
+            panel2.Location = new Point(193, 12);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(613, 447);
+            panel2.TabIndex = 23;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
-            ClientSize = new Size(1081, 471);
+            ClientSize = new Size(818, 471);
+            Controls.Add(panel2);
             Controls.Add(button1);
-            Controls.Add(btn_newTracker);
-            Controls.Add(panel3);
-            Controls.Add(label4);
             Controls.Add(panel1);
-            Controls.Add(pictureBox5);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Dashboard";
             StartPosition = FormStartPosition.CenterScreen;
@@ -283,9 +231,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -298,12 +244,9 @@
         private Label label2;
         private PictureBox pictureBox4;
         private PictureBox pictureBox2;
-        private Panel panel3;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Label label5;
-        private Label label4;
-        private PictureBox pictureBox5;
         private Button button1;
-        private Guna.UI2.WinForms.Guna2Button btn_newTracker;
+        private Panel panel2;
     }
 }
