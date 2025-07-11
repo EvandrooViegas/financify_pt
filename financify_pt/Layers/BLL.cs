@@ -46,6 +46,7 @@ namespace financify_pt
                     IsAdmin = Convert.ToBoolean(userDataTable.Rows[0]["IsAdmin"].ToString()),
                     IsLocked = Convert.ToBoolean(userDataTable.Rows[0]["IsLocked"].ToString()),
                     LastLoginDate = DateTimeOffset.Now.ToUniversalTime(),
+                    Username = userDataTable.Rows[0]["Username"].ToString(),
                     LockedDate =
                         userDataTable.Rows[0]["LockedDate"] is null
                             ? Convert.ToDateTime(userDataTable.Rows[0]["LockedDate"])
@@ -93,7 +94,7 @@ namespace financify_pt
 
                 new DataAccessLayer().ExecuteNonQuery
                 (
-                    "INSERT INTO [dbo].[User] ([Email], [Password], [Username], [Salt], [IsAdmin], [IsLocked]) VALUES (@Email, @Password, @Username, @Salt, @IsAdmin, @IsLocked)",
+                    "INSERT INTO [dbo].[User] ([Email], [Password], [Username], [Salt], [IsAdmin], [IsLocked], [Username]) VALUES (@Email, @Password, @Username, @Salt, @IsAdmin, @IsLocked)",
                     new SqlParameter[]
                     {
                     new("Email", email),
@@ -107,6 +108,51 @@ namespace financify_pt
             }
 
             public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[User]", []);
+
+            public static void UpdateUser(int id, string email, string username)
+            {
+                if (string.IsNullOrWhiteSpace(email))
+                    throw new ArgumentException("Email cannot be empty.");
+
+                if (string.IsNullOrWhiteSpace(username))
+                    throw new ArgumentException("Username cannot be empty.");
+
+                var dal = new DataAccessLayer();
+
+                // Verificar se o email já está em uso por outro usuário
+                var emailCheck = dal.ExecuteReader(
+                    "SELECT Id FROM [dbo].[User] WHERE Email = @Email AND Id != @Id",
+                    new[]
+                    {
+            new SqlParameter("Email", email),
+            new SqlParameter("Id", id)
+                    });
+
+                if (emailCheck.Rows.Count > 0)
+                    throw new ApplicationException("This email is already in use by another user.");
+
+                // Verificar se o username já está em uso por outro usuário
+                var usernameCheck = dal.ExecuteReader(
+                    "SELECT Id FROM [dbo].[User] WHERE Username = @Username AND Id != @Id",
+                    new[]
+                    {
+            new SqlParameter("Username", username),
+            new SqlParameter("Id", id)
+                    });
+
+                if (usernameCheck.Rows.Count > 0)
+                    throw new ApplicationException("This username is already in use by another user.");
+
+                // Atualizar usuário
+                dal.ExecuteNonQuery(
+                    "UPDATE [dbo].[User] SET Email = @Email, Username = @Username WHERE Id = @Id",
+                    new[]
+                    {
+            new SqlParameter("Email", email),
+            new SqlParameter("Username", username),
+            new SqlParameter("Id", id)
+                    });
+            }
 
             public static UserModel GetByUsername(string username)
             {
@@ -129,6 +175,7 @@ namespace financify_pt
                     Password = row["Password"].ToString(),
                     Salt = row["Salt"].ToString(),
                     IsAdmin = Convert.ToBoolean(row["IsAdmin"]),
+                    Username = row["Username"].ToString(),
                     IsLocked = Convert.ToBoolean(row["IsLocked"]),
                     LastLoginDate = row["LastLoginDate"] == DBNull.Value
                         ? (DateTimeOffset?)null
@@ -152,6 +199,7 @@ namespace financify_pt
 
                 return new UserModel
                 {
+                    Username = row["Username"].ToString(),
                     Id = Convert.ToInt32(row["Id"]),
                     Email = row["Email"].ToString(),
                     Password = row["Password"].ToString(),

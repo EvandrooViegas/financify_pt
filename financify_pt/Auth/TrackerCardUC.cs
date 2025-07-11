@@ -23,10 +23,11 @@ namespace financify_pt.Auth
 
         private void TrackerUC_Load(object sender, EventArgs e)
         {
+            this.AutoSize = false;
+            this.Dock = DockStyle.None;
             label1.Text = Title;
             label2.Text = Description;
 
-      
         }
 
         private void btm_view_Click(object sender, EventArgs e)

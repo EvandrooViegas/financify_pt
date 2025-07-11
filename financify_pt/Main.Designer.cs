@@ -42,6 +42,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pictureBox1 = new PictureBox();
             btnDasboard = new Button();
             btnGoals = new Button();
@@ -76,6 +80,8 @@
             register_Btn = new Guna.UI2.WinForms.Guna2Button();
             Start_Btn = new Guna.UI2.WinForms.Guna2Button();
             btn_close = new Button();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             guna2CustomGradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -90,7 +96,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.image;
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(55, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(191, 49);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -102,11 +108,11 @@
             btnDasboard.BackColor = Color.Black;
             btnDasboard.FlatAppearance.BorderSize = 0;
             btnDasboard.FlatStyle = FlatStyle.Flat;
-            btnDasboard.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDasboard.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnDasboard.ForeColor = Color.White;
-            btnDasboard.Location = new Point(208, 10);
+            btnDasboard.Location = new Point(263, 12);
             btnDasboard.Name = "btnDasboard";
-            btnDasboard.Size = new Size(147, 49);
+            btnDasboard.Size = new Size(81, 49);
             btnDasboard.TabIndex = 1;
             btnDasboard.Text = "Dashboard";
             btnDasboard.UseVisualStyleBackColor = false;
@@ -117,11 +123,11 @@
             btnGoals.BackColor = Color.Black;
             btnGoals.FlatAppearance.BorderSize = 0;
             btnGoals.FlatStyle = FlatStyle.Flat;
-            btnGoals.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGoals.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnGoals.ForeColor = Color.White;
-            btnGoals.Location = new Point(342, 12);
+            btnGoals.Location = new Point(345, 12);
             btnGoals.Name = "btnGoals";
-            btnGoals.Size = new Size(127, 49);
+            btnGoals.Size = new Size(73, 49);
             btnGoals.TabIndex = 2;
             btnGoals.Text = "Goals";
             btnGoals.UseVisualStyleBackColor = false;
@@ -131,11 +137,11 @@
             btnPlanning.BackColor = Color.Black;
             btnPlanning.FlatAppearance.BorderSize = 0;
             btnPlanning.FlatStyle = FlatStyle.Flat;
-            btnPlanning.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPlanning.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnPlanning.ForeColor = Color.White;
-            btnPlanning.Location = new Point(475, 12);
+            btnPlanning.Location = new Point(408, 12);
             btnPlanning.Name = "btnPlanning";
-            btnPlanning.Size = new Size(127, 49);
+            btnPlanning.Size = new Size(77, 49);
             btnPlanning.TabIndex = 3;
             btnPlanning.Text = "Planning";
             btnPlanning.UseVisualStyleBackColor = false;
@@ -145,9 +151,9 @@
             btnEducation.BackColor = Color.Black;
             btnEducation.FlatAppearance.BorderSize = 0;
             btnEducation.FlatStyle = FlatStyle.Flat;
-            btnEducation.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEducation.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnEducation.ForeColor = Color.White;
-            btnEducation.Location = new Point(608, 12);
+            btnEducation.Location = new Point(491, 5);
             btnEducation.Name = "btnEducation";
             btnEducation.Size = new Size(138, 64);
             btnEducation.TabIndex = 4;
@@ -159,14 +165,15 @@
             btnsettings.BackColor = Color.Black;
             btnsettings.FlatAppearance.BorderSize = 0;
             btnsettings.FlatStyle = FlatStyle.Flat;
-            btnsettings.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnsettings.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnsettings.ForeColor = Color.White;
-            btnsettings.Location = new Point(752, 20);
+            btnsettings.Location = new Point(263, 13);
             btnsettings.Name = "btnsettings";
-            btnsettings.Size = new Size(127, 49);
+            btnsettings.Size = new Size(83, 49);
             btnsettings.TabIndex = 5;
             btnsettings.Text = "Settings";
             btnsettings.UseVisualStyleBackColor = false;
+            btnsettings.Click += btnsettings_Click;
             // 
             // Lb1
             // 
@@ -183,7 +190,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 39.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(0, 255, 200);
+            label1.ForeColor = Color.FromArgb(102, 163, 155);
             label1.Location = new Point(47, 166);
             label1.Name = "label1";
             label1.Size = new Size(486, 71);
@@ -233,7 +240,7 @@
             label15.AutoSize = true;
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.ForeColor = Color.FromArgb(0, 255, 200);
+            label15.ForeColor = Color.FromArgb(102, 163, 155);
             label15.Location = new Point(12, 12);
             label15.Name = "label15";
             label15.Size = new Size(103, 32);
@@ -311,7 +318,7 @@
             label11.AutoSize = true;
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.FromArgb(0, 255, 200);
+            label11.ForeColor = Color.FromArgb(102, 163, 155);
             label11.Location = new Point(3, 12);
             label11.Name = "label11";
             label11.Size = new Size(96, 32);
@@ -377,7 +384,7 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.FromArgb(0, 255, 200);
+            label8.ForeColor = Color.FromArgb(102, 163, 155);
             label8.Location = new Point(3, 10);
             label8.Name = "label8";
             label8.Size = new Size(119, 32);
@@ -389,7 +396,7 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(0, 255, 200);
+            label7.ForeColor = Color.FromArgb(102, 163, 155);
             label7.Location = new Point(3, 42);
             label7.Name = "label7";
             label7.Size = new Size(77, 32);
@@ -456,7 +463,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(0, 255, 200);
+            label4.ForeColor = Color.FromArgb(102, 163, 155);
             label4.Location = new Point(13, 42);
             label4.Name = "label4";
             label4.Size = new Size(123, 32);
@@ -480,7 +487,7 @@
             login_Btn.BackColor = Color.Transparent;
             login_Btn.BackgroundImageLayout = ImageLayout.None;
             login_Btn.BorderColor = Color.Transparent;
-            login_Btn.BorderRadius = 25;
+            login_Btn.BorderRadius = 19;
             login_Btn.CustomizableEdges = customizableEdges9;
             login_Btn.DisabledState.BorderColor = Color.DarkGray;
             login_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -490,10 +497,10 @@
             login_Btn.FocusedColor = Color.Transparent;
             login_Btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             login_Btn.ForeColor = Color.White;
-            login_Btn.Location = new Point(871, 20);
+            login_Btn.Location = new Point(887, 20);
             login_Btn.Name = "login_Btn";
             login_Btn.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            login_Btn.Size = new Size(127, 49);
+            login_Btn.Size = new Size(111, 41);
             login_Btn.TabIndex = 20;
             login_Btn.Text = "Login";
             login_Btn.Click += login_Btn_Click;
@@ -503,7 +510,7 @@
             register_Btn.BackColor = Color.Transparent;
             register_Btn.BackgroundImageLayout = ImageLayout.None;
             register_Btn.BorderColor = Color.Transparent;
-            register_Btn.BorderRadius = 25;
+            register_Btn.BorderRadius = 19;
             register_Btn.CustomizableEdges = customizableEdges11;
             register_Btn.DisabledState.BorderColor = Color.DarkGray;
             register_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -516,7 +523,7 @@
             register_Btn.Location = new Point(1004, 20);
             register_Btn.Name = "register_Btn";
             register_Btn.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            register_Btn.Size = new Size(127, 49);
+            register_Btn.Size = new Size(109, 41);
             register_Btn.TabIndex = 21;
             register_Btn.Text = "Register";
             register_Btn.Click += register_Btn_Click;
@@ -536,7 +543,7 @@
             Start_Btn.FocusedColor = Color.Transparent;
             Start_Btn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Start_Btn.ForeColor = Color.Black;
-            Start_Btn.Location = new Point(73, 270);
+            Start_Btn.Location = new Point(51, 270);
             Start_Btn.Name = "Start_Btn";
             Start_Btn.ShadowDecoration.CustomizableEdges = customizableEdges14;
             Start_Btn.Size = new Size(153, 49);
@@ -557,12 +564,60 @@
             btn_close.UseVisualStyleBackColor = false;
             btn_close.Click += btn_close_Click;
             // 
+            // guna2Button1
+            // 
+            guna2Button1.BackColor = Color.Transparent;
+            guna2Button1.BackgroundImageLayout = ImageLayout.None;
+            guna2Button1.BorderColor = Color.Transparent;
+            guna2Button1.BorderRadius = 19;
+            guna2Button1.CustomizableEdges = customizableEdges15;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.FillColor = Color.FromArgb(102, 163, 155);
+            guna2Button1.FocusedColor = Color.Transparent;
+            guna2Button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(924, 20);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2Button1.Size = new Size(189, 41);
+            guna2Button1.TabIndex = 24;
+            guna2Button1.Text = "Go To Dashboard";
+            guna2Button1.Click += guna2Button1_Click;
+            // 
+            // guna2Button2
+            // 
+            guna2Button2.BackColor = Color.Transparent;
+            guna2Button2.BackgroundImageLayout = ImageLayout.None;
+            guna2Button2.BorderColor = Color.Transparent;
+            guna2Button2.BorderRadius = 25;
+            guna2Button2.CustomizableEdges = customizableEdges17;
+            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button2.FillColor = Color.White;
+            guna2Button2.FocusedColor = Color.Transparent;
+            guna2Button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button2.ForeColor = Color.Black;
+            guna2Button2.Location = new Point(51, 270);
+            guna2Button2.Name = "guna2Button2";
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2Button2.Size = new Size(195, 49);
+            guna2Button2.TabIndex = 25;
+            guna2Button2.Text = "Go To Dashboard";
+            guna2Button2.Click += guna2Button2_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1168, 608);
+            Controls.Add(guna2Button2);
+            Controls.Add(guna2Button1);
             Controls.Add(btn_close);
             Controls.Add(Start_Btn);
             Controls.Add(register_Btn);
@@ -639,5 +694,7 @@
         private Guna.UI2.WinForms.Guna2Button register_Btn;
         private Guna.UI2.WinForms.Guna2Button Start_Btn;
         private Button btn_close;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

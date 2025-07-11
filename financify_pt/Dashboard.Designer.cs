@@ -32,6 +32,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panel1 = new Panel();
+            label4 = new Label();
             label5 = new Label();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             pictureBox4 = new PictureBox();
@@ -52,7 +53,9 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Transparent;
+            panel1.BackColor = Color.Black;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label4);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(guna2Button1);
             panel1.Controls.Add(pictureBox4);
@@ -62,21 +65,33 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Left;
+            panel1.Dock = DockStyle.Fill;
             panel1.ForeColor = Color.Gold;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(178, 471);
+            panel1.Size = new Size(818, 471);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(15, 441);
+            label4.Name = "label4";
+            label4.Size = new Size(95, 15);
+            label4.TabIndex = 23;
+            label4.Text = "Go to Main Page";
+            label4.Click += label4_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(10, 385);
+            label5.Location = new Point(10, 374);
             label5.Name = "label5";
             label5.Size = new Size(52, 21);
             label5.TabIndex = 22;
@@ -94,7 +109,7 @@
             guna2Button1.FillColor = Color.IndianRed;
             guna2Button1.Font = new Font("Segoe UI", 9F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(10, 421);
+            guna2Button1.Location = new Point(10, 398);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(149, 27);
@@ -204,6 +219,7 @@
             // 
             // panel2
             // 
+            panel2.BackColor = Color.Black;
             panel2.Location = new Point(193, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(613, 447);
@@ -223,7 +239,6 @@
             Name = "Dashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tracker Dashboard";
-            TransparencyKey = Color.White;
             Load += Dashboard_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -248,5 +263,6 @@
         private Label label5;
         private Button button1;
         private Panel panel2;
+        private Label label4;
     }
 }

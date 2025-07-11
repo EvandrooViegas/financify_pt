@@ -105,5 +105,12 @@ namespace financify_pt.Auth
         {
             LoadContent(new NotificationUC());
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            var form = new Main();
+            form.ShowDialog();
+        }
     }
 }

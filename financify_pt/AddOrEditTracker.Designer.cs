@@ -64,7 +64,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(19, 50);
+            label2.Location = new Point(19, 52);
             label2.Name = "label2";
             label2.Size = new Size(57, 19);
             label2.TabIndex = 4;
@@ -76,7 +76,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Tahoma", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(19, 14);
+            label1.Location = new Point(19, 17);
             label1.Name = "label1";
             label1.Size = new Size(176, 27);
             label1.TabIndex = 3;
@@ -88,7 +88,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(19, 113);
+            label3.Location = new Point(19, 114);
             label3.Name = "label3";
             label3.Size = new Size(124, 19);
             label3.TabIndex = 6;
@@ -107,6 +107,7 @@
             // 
             // tbName
             // 
+            tbName.BackColor = Color.Transparent;
             tbName.BorderRadius = 10;
             tbName.CustomizableEdges = customizableEdges1;
             tbName.DefaultText = "";
@@ -117,7 +118,7 @@
             tbName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             tbName.Font = new Font("Segoe UI", 9F);
             tbName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            tbName.Location = new Point(19, 72);
+            tbName.Location = new Point(19, 74);
             tbName.Name = "tbName";
             tbName.PlaceholderText = "";
             tbName.SelectedText = "";
@@ -138,6 +139,10 @@
             // 
             guna2CustomGradientPanel3.BorderColor = Color.Transparent;
             guna2CustomGradientPanel3.Controls.Add(pictureBox1);
+            guna2CustomGradientPanel3.Controls.Add(tbName);
+            guna2CustomGradientPanel3.Controls.Add(label1);
+            guna2CustomGradientPanel3.Controls.Add(label2);
+            guna2CustomGradientPanel3.Controls.Add(label3);
             guna2CustomGradientPanel3.Controls.Add(label4);
             guna2CustomGradientPanel3.Controls.Add(guna2Button4);
             guna2CustomGradientPanel3.Controls.Add(guna2Button5);
@@ -268,11 +273,7 @@
             BackColor = Color.Black;
             ClientSize = new Size(392, 500);
             Controls.Add(richTextBox1);
-            Controls.Add(tbName);
             Controls.Add(dataGridView1);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(guna2CustomGradientPanel3);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
@@ -284,7 +285,6 @@
             guna2CustomGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

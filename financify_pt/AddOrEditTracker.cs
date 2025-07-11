@@ -136,9 +136,16 @@ namespace financify_pt
                 return;
             }
 
+
+            if (tbName.Text.Length < 3 || tbName.Text.Length > 15)
+            {
+                MessageBox.Show("The tracker name cannot be less than 3 or larger than 15 chars!");
+                return;
+            }
+
             if (richTextBox1.Text.Length < 10 || richTextBox1.Text.Length > 100)
             {
-                MessageBox.Show("The text length cannot be less than 10 or larger than 100 chars!");
+                MessageBox.Show("The tracker description cannot be less than 10 or larger than 100 chars!");
                 return;
             }
             else

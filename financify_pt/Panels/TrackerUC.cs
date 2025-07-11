@@ -21,18 +21,17 @@ namespace financify_pt.Panels
         private void TrackerUC_Load(object sender, EventArgs e)
         {
             panel3.Controls.Clear();
+            panel3.HorizontalScroll.Enabled = false;
+            panel3.HorizontalScroll.Visible = false;
             panel3.AutoScroll = true;
 
             var trackers = BLL.Tracker.GetTrackersByUserId(Globals.UserId);
             var trackersReversed = trackers.Reverse().ToList();
 
-            int margin = 10;
+            int margin = 5;
             int columns = 2;
-
-            // Calculate card width to fit inside panel3 width (577px)
-            int panelWidth = 577;
-            int itemWidth = (panelWidth - (columns - 1) * margin) / columns;  // = (577 - 10)/2 = 283 approx
-            int itemHeight = 180; // reduce height a bit to fit more vertically, adjust as needed
+            int itemWidth = ((panel3.ClientSize.Width - (columns - 1) * margin) / columns) - 20;
+            int itemHeight = 180;
 
             for (int i = 0; i < trackersReversed.Count(); i++)
             {

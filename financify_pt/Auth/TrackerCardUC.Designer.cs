@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             btm_view = new Guna.UI2.WinForms.Guna2Button();
             label2 = new Label();
@@ -50,7 +50,7 @@
             // btm_view
             // 
             btm_view.BorderRadius = 10;
-            btm_view.CustomizableEdges = customizableEdges1;
+            btm_view.CustomizableEdges = customizableEdges5;
             btm_view.DisabledState.BorderColor = Color.DarkGray;
             btm_view.DisabledState.CustomBorderColor = Color.DarkGray;
             btm_view.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -60,7 +60,7 @@
             btm_view.ForeColor = Color.White;
             btm_view.Location = new Point(24, 146);
             btm_view.Name = "btm_view";
-            btm_view.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btm_view.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btm_view.Size = new Size(97, 23);
             btm_view.TabIndex = 3;
             btm_view.Text = "View";
@@ -86,7 +86,7 @@
             Controls.Add(btm_view);
             Controls.Add(label1);
             Name = "TrackerCardUC";
-            Size = new Size(251, 180);
+            Size = new Size(212, 180);
             Load += TrackerUC_Load;
             ResumeLayout(false);
             PerformLayout();

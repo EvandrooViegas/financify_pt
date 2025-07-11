@@ -1,4 +1,5 @@
 ﻿using financify_pt.Auth;
+using Guna.UI2.WinForms;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -27,6 +28,27 @@ namespace financify_pt
 
         private void Main_Load(object sender, EventArgs e)
         {
+
+            if (Globals.UserId == 0)
+            {
+                //NAO LOGADO
+
+
+                guna2Button2.Hide();
+                guna2Button1.Hide();
+                btnsettings.Hide();
+
+            }
+            else
+            {
+                login_Btn.Hide();
+                register_Btn.Hide();
+
+                btnDasboard.Hide();
+                btnGoals.Hide();
+                btnPlanning.Hide();
+                btnEducation.Hide();
+            }
             // Aplica o evento MouseDown em todos os controles neutros do form
             ApplyMoveFormToControls(this);
         }
@@ -57,7 +79,7 @@ namespace financify_pt
         }
 
         // ✅ Fecha o app corretamente
-      
+
 
         // Outros eventos do form...
 
@@ -68,8 +90,8 @@ namespace financify_pt
 
         private void btnDasboard_Click(object sender, EventArgs e)
         {
-            
-            if(Globals.UserId == 0)
+
+            if (Globals.UserId == 0)
             {
                 MessageBox.Show("You need to be logged in to access the dashboard");
                 return;
@@ -143,6 +165,26 @@ namespace financify_pt
         {
             Application.Exit();
 
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+        }
+
+        private void btnsettings_Click(object sender, EventArgs e)
+        {
+            var form = new EditUser();
+            form.ShowDialog();
         }
     }
 }

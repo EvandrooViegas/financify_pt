@@ -39,6 +39,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            label5 = new Label();
+            richTextBox1 = new RichTextBox();
             guna2NumericUpDown1 = new Guna.UI2.WinForms.Guna2NumericUpDown();
             btn_cancel = new Guna.UI2.WinForms.Guna2Button();
             guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
@@ -49,8 +51,6 @@
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            richTextBox1 = new RichTextBox();
-            label5 = new Label();
             guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2NumericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -82,6 +82,26 @@
             guna2CustomGradientPanel3.Size = new Size(356, 483);
             guna2CustomGradientPanel3.TabIndex = 16;
             guna2CustomGradientPanel3.Paint += guna2CustomGradientPanel3_Paint_1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Transparent;
+            label5.Location = new Point(37, 276);
+            label5.Name = "label5";
+            label5.Size = new Size(189, 19);
+            label5.TabIndex = 37;
+            label5.Text = "Description (Optional)";
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(37, 298);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(273, 96);
+            richTextBox1.TabIndex = 36;
+            richTextBox1.Text = "";
             // 
             // guna2NumericUpDown1
             // 
@@ -224,26 +244,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(37, 298);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(273, 96);
-            richTextBox1.TabIndex = 36;
-            richTextBox1.Text = "";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.Transparent;
-            label5.Location = new Point(37, 276);
-            label5.Name = "label5";
-            label5.Size = new Size(189, 19);
-            label5.TabIndex = 37;
-            label5.Text = "Description (Optional)";
             // 
             // transactions
             // 

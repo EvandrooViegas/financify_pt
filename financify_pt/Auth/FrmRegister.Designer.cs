@@ -156,9 +156,9 @@
             label6.ForeColor = Color.Transparent;
             label6.Location = new Point(394, 102);
             label6.Name = "label6";
-            label6.Size = new Size(52, 19);
+            label6.Size = new Size(91, 19);
             label6.TabIndex = 21;
-            label6.Text = "NAME";
+            label6.Text = "USERNAME";
             // 
             // guna2CustomGradientPanel3
             // 
