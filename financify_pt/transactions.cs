@@ -41,6 +41,21 @@ namespace financify_pt
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click_1(object sender, EventArgs e)
+        {
             var value = guna2NumericUpDown1.Value;
             var date = guna2DateTimePicker1.Value;
             var type = comboBox1.SelectedItem?.ToString(); // ✅ safer way
@@ -87,19 +102,9 @@ namespace financify_pt
             }
         }
 
-        private void btn_cancel_Click(object sender, EventArgs e)
+        private void btn_cancel_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button3_Click_1(object sender, EventArgs e)
-        {
-
+            Close();
         }
     }
 }

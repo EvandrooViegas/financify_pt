@@ -45,9 +45,7 @@ namespace financify_pt
                 register_Btn.Hide();
 
                 btnDasboard.Hide();
-                btnGoals.Hide();
-                btnPlanning.Hide();
-                btnEducation.Hide();
+             
             }
             // Aplica o evento MouseDown em todos os controles neutros do form
             ApplyMoveFormToControls(this);

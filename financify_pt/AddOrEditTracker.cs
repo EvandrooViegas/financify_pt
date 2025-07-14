@@ -72,11 +72,11 @@ namespace financify_pt
             this.Close();
         }
 
-       
+
 
         private void Newtracker_Load(object sender, EventArgs e)
         {
-            if(TrackerToEdit == null)
+            if (TrackerToEdit == null)
             {
                 label5.Text = "Create a tracker";
                 return;
@@ -99,7 +99,7 @@ namespace financify_pt
 
         }
 
-  
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -117,6 +117,33 @@ namespace financify_pt
         }
 
         private void guna2Button3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            var form = new UserPrevileges(TrackerToEdit.Id);
+            form.ShowDialog();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click_2(object sender, EventArgs e)
         {
             if (richTextBox1.Text == "" || tbName.Text == "")
             {
@@ -162,26 +189,9 @@ namespace financify_pt
             }
         }
 
-        private void btn_cancel_Click(object sender, EventArgs e)
+        private void btn_cancel_Click_1(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            var form = new UserPrevileges(TrackerToEdit.Id);
-            form.ShowDialog();
-        }
-
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             richTextBox1 = new RichTextBox();
             tbName = new Guna.UI2.WinForms.Guna2TextBox();
             btn_cancel = new Guna.UI2.WinForms.Guna2Button();
@@ -58,7 +58,7 @@
             // 
             tbName.BackColor = Color.Transparent;
             tbName.BorderRadius = 10;
-            tbName.CustomizableEdges = customizableEdges7;
+            tbName.CustomizableEdges = customizableEdges1;
             tbName.DefaultText = "";
             tbName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -71,7 +71,7 @@
             tbName.Name = "tbName";
             tbName.PlaceholderText = "";
             tbName.SelectedText = "";
-            tbName.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            tbName.ShadowDecoration.CustomizableEdges = customizableEdges2;
             tbName.Size = new Size(354, 21);
             tbName.TabIndex = 44;
             // 
@@ -79,7 +79,7 @@
             // 
             btn_cancel.BackColor = Color.Transparent;
             btn_cancel.BorderRadius = 10;
-            btn_cancel.CustomizableEdges = customizableEdges9;
+            btn_cancel.CustomizableEdges = customizableEdges3;
             btn_cancel.DisabledState.BorderColor = Color.DarkGray;
             btn_cancel.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_cancel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -89,18 +89,19 @@
             btn_cancel.ForeColor = Color.White;
             btn_cancel.Location = new Point(177, 337);
             btn_cancel.Name = "btn_cancel";
-            btn_cancel.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btn_cancel.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btn_cancel.Size = new Size(91, 24);
             btn_cancel.TabIndex = 46;
             btn_cancel.Text = "CANCEL";
             btn_cancel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             btn_cancel.Tile = true;
+            btn_cancel.Click += btn_cancel_Click_1;
             // 
             // guna2Button3
             // 
             guna2Button3.BackColor = Color.Transparent;
             guna2Button3.BorderRadius = 10;
-            guna2Button3.CustomizableEdges = customizableEdges11;
+            guna2Button3.CustomizableEdges = customizableEdges5;
             guna2Button3.DisabledState.BorderColor = Color.DarkGray;
             guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -110,10 +111,11 @@
             guna2Button3.ForeColor = Color.White;
             guna2Button3.Location = new Point(274, 337);
             guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Button3.Size = new Size(101, 24);
             guna2Button3.TabIndex = 45;
             guna2Button3.Text = "SAVE";
+            guna2Button3.Click += guna2Button3_Click_2;
             // 
             // label4
             // 

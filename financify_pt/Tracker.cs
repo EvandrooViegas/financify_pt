@@ -59,6 +59,8 @@ namespace financify_pt
                 register_Btn.Hide();
                 guna2Button3.Hide();
                 guna2Button2.Hide();
+                pictureBox2.Hide();
+                pictureBox3.Hide();
             }
             LoadData();
         }

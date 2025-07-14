@@ -25,7 +25,7 @@ namespace financify_pt
             addedById = _addedById;
             date = _date;
             trackerId = _trackerId;
-
+            id = _id;
             InitializeComponent();
         }
 
@@ -69,8 +69,16 @@ namespace financify_pt
             if (confirmResult == DialogResult.Yes)
             {
                 BLL.Transaction.Delete(id);
+
+                // Remove from the parent container
+                if (this.Parent != null)
+                {
+                    var parent = this.Parent;
+                    parent.Controls.Remove(this);
+                    this.Dispose(); // Optional: free resources
+                }
+
                 MessageBox.Show("Transaction deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Hide();
             }
         }
     }

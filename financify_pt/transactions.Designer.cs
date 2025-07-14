@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btn_cancel = new Guna.UI2.WinForms.Guna2Button();
             guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             guna2NumericUpDown1 = new Guna.UI2.WinForms.Guna2NumericUpDown();
@@ -57,28 +57,29 @@
             // 
             btn_cancel.BackColor = Color.Transparent;
             btn_cancel.BorderRadius = 10;
-            btn_cancel.CustomizableEdges = customizableEdges9;
+            btn_cancel.CustomizableEdges = customizableEdges1;
             btn_cancel.DisabledState.BorderColor = Color.DarkGray;
             btn_cancel.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_cancel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_cancel.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_cancel.FillColor = Color.FromArgb(102, 163, 155);
+            btn_cancel.FillColor = Color.Transparent;
             btn_cancel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_cancel.ForeColor = Color.White;
             btn_cancel.Location = new Point(130, 448);
             btn_cancel.Name = "btn_cancel";
-            btn_cancel.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btn_cancel.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btn_cancel.Size = new Size(91, 24);
             btn_cancel.TabIndex = 36;
             btn_cancel.Text = "CANCEL";
             btn_cancel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             btn_cancel.Tile = true;
+            btn_cancel.Click += btn_cancel_Click_1;
             // 
             // guna2Button3
             // 
             guna2Button3.BackColor = Color.Transparent;
             guna2Button3.BorderRadius = 10;
-            guna2Button3.CustomizableEdges = customizableEdges11;
+            guna2Button3.CustomizableEdges = customizableEdges3;
             guna2Button3.DisabledState.BorderColor = Color.DarkGray;
             guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -88,7 +89,7 @@
             guna2Button3.ForeColor = Color.White;
             guna2Button3.Location = new Point(225, 448);
             guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button3.Size = new Size(101, 24);
             guna2Button3.TabIndex = 35;
             guna2Button3.Text = "SAVE";
@@ -97,11 +98,11 @@
             // guna2NumericUpDown1
             // 
             guna2NumericUpDown1.BackColor = Color.Transparent;
-            guna2NumericUpDown1.CustomizableEdges = customizableEdges13;
+            guna2NumericUpDown1.CustomizableEdges = customizableEdges5;
             guna2NumericUpDown1.Font = new Font("Segoe UI", 9F);
             guna2NumericUpDown1.Location = new Point(28, 129);
             guna2NumericUpDown1.Name = "guna2NumericUpDown1";
-            guna2NumericUpDown1.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2NumericUpDown1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2NumericUpDown1.Size = new Size(298, 24);
             guna2NumericUpDown1.TabIndex = 64;
             // 
@@ -134,7 +135,7 @@
             guna2DateTimePicker1.BackColor = Color.Transparent;
             guna2DateTimePicker1.BorderRadius = 10;
             guna2DateTimePicker1.Checked = true;
-            guna2DateTimePicker1.CustomizableEdges = customizableEdges15;
+            guna2DateTimePicker1.CustomizableEdges = customizableEdges7;
             guna2DateTimePicker1.FillColor = Color.White;
             guna2DateTimePicker1.Font = new Font("Segoe UI", 9F);
             guna2DateTimePicker1.Format = DateTimePickerFormat.Long;
@@ -142,7 +143,7 @@
             guna2DateTimePicker1.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             guna2DateTimePicker1.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            guna2DateTimePicker1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2DateTimePicker1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2DateTimePicker1.Size = new Size(298, 26);
             guna2DateTimePicker1.TabIndex = 61;
             guna2DateTimePicker1.Value = new DateTime(2025, 7, 7, 16, 58, 51, 646);

@@ -48,9 +48,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pictureBox1 = new PictureBox();
             btnDasboard = new Button();
-            btnGoals = new Button();
-            btnPlanning = new Button();
-            btnEducation = new Button();
             btnsettings = new Button();
             Lb1 = new Label();
             label1 = new Label();
@@ -117,48 +114,6 @@
             btnDasboard.Text = "Dashboard";
             btnDasboard.UseVisualStyleBackColor = false;
             btnDasboard.Click += btnDasboard_Click;
-            // 
-            // btnGoals
-            // 
-            btnGoals.BackColor = Color.Black;
-            btnGoals.FlatAppearance.BorderSize = 0;
-            btnGoals.FlatStyle = FlatStyle.Flat;
-            btnGoals.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnGoals.ForeColor = Color.White;
-            btnGoals.Location = new Point(345, 12);
-            btnGoals.Name = "btnGoals";
-            btnGoals.Size = new Size(73, 49);
-            btnGoals.TabIndex = 2;
-            btnGoals.Text = "Goals";
-            btnGoals.UseVisualStyleBackColor = false;
-            // 
-            // btnPlanning
-            // 
-            btnPlanning.BackColor = Color.Black;
-            btnPlanning.FlatAppearance.BorderSize = 0;
-            btnPlanning.FlatStyle = FlatStyle.Flat;
-            btnPlanning.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnPlanning.ForeColor = Color.White;
-            btnPlanning.Location = new Point(408, 12);
-            btnPlanning.Name = "btnPlanning";
-            btnPlanning.Size = new Size(77, 49);
-            btnPlanning.TabIndex = 3;
-            btnPlanning.Text = "Planning";
-            btnPlanning.UseVisualStyleBackColor = false;
-            // 
-            // btnEducation
-            // 
-            btnEducation.BackColor = Color.Black;
-            btnEducation.FlatAppearance.BorderSize = 0;
-            btnEducation.FlatStyle = FlatStyle.Flat;
-            btnEducation.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnEducation.ForeColor = Color.White;
-            btnEducation.Location = new Point(491, 5);
-            btnEducation.Name = "btnEducation";
-            btnEducation.Size = new Size(138, 64);
-            btnEducation.TabIndex = 4;
-            btnEducation.Text = "Financial education";
-            btnEducation.UseVisualStyleBackColor = false;
             // 
             // btnsettings
             // 
@@ -630,9 +585,6 @@
             Controls.Add(label1);
             Controls.Add(Lb1);
             Controls.Add(btnsettings);
-            Controls.Add(btnEducation);
-            Controls.Add(btnPlanning);
-            Controls.Add(btnGoals);
             Controls.Add(btnDasboard);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
@@ -662,9 +614,6 @@
 
         private PictureBox pictureBox1;
         private Button btnDasboard;
-        private Button btnGoals;
-        private Button btnPlanning;
-        private Button btnEducation;
         private Button btnsettings;
         private Label Lb1;
         private Label label1;
