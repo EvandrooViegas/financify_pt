@@ -115,9 +115,8 @@ namespace financify_pt
                     new Exception("User is already a participant of this tracker");
                 }
 
-
-                BLL.UserTracker.Create(trackerId, user.Id, user.Id == Globals.UserId);
-                MessageBox.Show("User participant created successfully!");
+                BLL.Invitation.Create(user.Id, trackerId);
+                MessageBox.Show("Invitation sent to " + user.Username + "!");
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
