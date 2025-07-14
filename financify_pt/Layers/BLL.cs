@@ -541,29 +541,62 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class Invitation
         {
-            public static DataTable GetAllFromUser(int userId)
-            {
-                return new DataAccessLayer().ExecuteReader(
-                    "SELECT * FROM [dbo].[Invitation] WHERE UserId = @UserId",
-                    new[] { new SqlParameter("UserId", userId) });
-            }
+                public static List<InvitationModel> GetAllFromUser(int userId)
+                {
+                    var dt = new DataAccessLayer().ExecuteReader(
+                        "SELECT * FROM [dbo].[Invitation] WHERE UserId = @UserId",
+                        new[] { new SqlParameter("UserId", userId) });
 
-            public static void Create(int userId, int trackerId)
-            {
-                new DataAccessLayer().ExecuteNonQuery(
-                    "INSERT INTO [dbo].[Invitation] (UserId, TrackerId) VALUES (@UserId, @TrackerId)",
-                    new[]
+                    var invitations = new List<InvitationModel>();
+
+                    foreach (DataRow row in dt.Rows)
                     {
-                new SqlParameter("UserId", userId),
-                new SqlParameter("TrackerId", trackerId)
-                    });
-            }
+                        invitations.Add(new InvitationModel
+                        {
+                            Id = Convert.ToInt32(row["Id"]),
+                            UserId = Convert.ToInt32(row["UserId"]),
+                            TrackerId = Convert.ToInt32(row["TrackerId"])
+                        });
+                    }
 
-            public static void Delete(int id)
-            {
-                new DataAccessLayer().ExecuteNonQuery(
-                    "DELETE FROM [dbo].[Invitation] WHERE Id = @Id",
-                    new[] { new SqlParameter("Id", id) });
+                    return invitations;
+                }
+
+                public static InvitationModel GetById(int id)
+                {
+                    var dt = new DataAccessLayer().ExecuteReader(
+                        "SELECT * FROM [dbo].[Invitation] WHERE Id = @Id",
+                        new[] { new SqlParameter("Id", id) });
+
+                    if (dt.Rows.Count == 0)
+                        return null;
+
+                    var row = dt.Rows[0];
+
+                    return new InvitationModel
+                    {
+                        Id = Convert.ToInt32(row["Id"]),
+                        UserId = Convert.ToInt32(row["UserId"]),
+                        TrackerId = Convert.ToInt32(row["TrackerId"])
+                    };
+                }
+
+                public static void Create(int userId, int trackerId)
+                {
+                    new DataAccessLayer().ExecuteNonQuery(
+                        "INSERT INTO [dbo].[Invitation] (UserId, TrackerId) VALUES (@UserId, @TrackerId)",
+                        new[]
+                        {
+                    new SqlParameter("UserId", userId),
+                    new SqlParameter("TrackerId", trackerId)
+                        });
+                }
+
+                public static void Delete(int id)
+                {
+                    new DataAccessLayer().ExecuteNonQuery(
+                        "DELETE FROM [dbo].[Invitation] WHERE Id = @Id",
+                        new[] { new SqlParameter("Id", id) });
             }
         }
 
