@@ -50,7 +50,7 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.IndianRed;
-            label4.Location = new Point(389, 20);
+            label4.Location = new Point(304, 20);
             label4.Name = "label4";
             label4.Size = new Size(42, 15);
             label4.TabIndex = 6;
@@ -60,7 +60,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(550, 20);
+            label1.Location = new Point(462, 22);
             label1.Name = "label1";
             label1.Size = new Size(65, 15);
             label1.TabIndex = 7;
@@ -71,7 +71,7 @@
             label3.AllowDrop = true;
             label3.AutoSize = true;
             label3.ForeColor = Color.White;
-            label3.Location = new Point(440, 20);
+            label3.Location = new Point(352, 20);
             label3.Name = "label3";
             label3.Size = new Size(104, 15);
             label3.TabIndex = 8;
@@ -80,7 +80,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.ForeColor = Color.Transparent;
+            label5.ForeColor = Color.White;
             label5.Location = new Point(639, 20);
             label5.Name = "label5";
             label5.Size = new Size(14, 15);
@@ -88,7 +88,7 @@
             label5.Text = "X";
             label5.Click += label5_Click;
             // 
-            // TransactionUC
+            // TransactionRowUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -99,7 +99,7 @@
             Controls.Add(label1);
             Controls.Add(label4);
             Controls.Add(label2);
-            Name = "TransactionUC";
+            Name = "TransactionRowUC";
             Size = new Size(666, 52);
             Load += TransactionUC_Load;
             ResumeLayout(false);

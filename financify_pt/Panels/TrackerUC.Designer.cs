@@ -34,8 +34,8 @@
             btn_newTracker = new Guna.UI2.WinForms.Guna2Button();
             panel3 = new Panel();
             label4 = new Label();
-            pictureBox5 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            pictureBox4 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // btn_newTracker
@@ -79,30 +79,30 @@
             label4.TabIndex = 30;
             label4.Text = "My Trackers";
             // 
-            // pictureBox5
+            // pictureBox4
             // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(16, 22);
-            pictureBox5.Margin = new Padding(3, 2, 3, 2);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(24, 24);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 29;
-            pictureBox5.TabStop = false;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(16, 22);
+            pictureBox4.Margin = new Padding(3, 2, 3, 2);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(24, 24);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 33;
+            pictureBox4.TabStop = false;
             // 
             // TrackerUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
+            Controls.Add(pictureBox4);
             Controls.Add(btn_newTracker);
             Controls.Add(panel3);
             Controls.Add(label4);
-            Controls.Add(pictureBox5);
             Name = "TrackerUC";
             Size = new Size(613, 447);
             Load += TrackerUC_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -112,6 +112,6 @@
         private Guna.UI2.WinForms.Guna2Button btn_newTracker;
         private Panel panel3;
         private Label label4;
-        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
     }
 }

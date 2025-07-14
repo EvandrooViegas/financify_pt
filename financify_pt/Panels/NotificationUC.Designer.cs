@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotificationUC));
             label4 = new Label();
             panel3 = new Panel();
             pictureBox2 = new PictureBox();
@@ -57,7 +58,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.bell__1_2;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(18, 20);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";

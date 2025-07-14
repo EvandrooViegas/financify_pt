@@ -42,8 +42,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label7 = new Label();
             label2 = new Label();
             register_showpass = new CheckBox();
@@ -61,7 +59,6 @@
             register_pass = new Guna.UI2.WinForms.Guna2TextBox();
             register_confirmpass = new Guna.UI2.WinForms.Guna2TextBox();
             btn_register = new Guna.UI2.WinForms.Guna2Button();
-            btn_cancel = new Guna.UI2.WinForms.Guna2Button();
             guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -111,20 +108,20 @@
             label5.ForeColor = Color.Transparent;
             label5.Location = new Point(394, 219);
             label5.Name = "label5";
-            label5.Size = new Size(94, 19);
+            label5.Size = new Size(76, 19);
             label5.TabIndex = 14;
-            label5.Text = "PASSWORD";
+            label5.Text = "Password";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(394, 163);
+            label4.Location = new Point(394, 173);
             label4.Name = "label4";
-            label4.Size = new Size(55, 19);
+            label4.Size = new Size(48, 19);
             label4.TabIndex = 12;
-            label4.Text = "EMAIL";
+            label4.Text = "Email";
             // 
             // label3
             // 
@@ -145,9 +142,9 @@
             label1.ForeColor = Color.Transparent;
             label1.Location = new Point(394, 273);
             label1.Name = "label1";
-            label1.Size = new Size(168, 19);
+            label1.Size = new Size(138, 19);
             label1.TabIndex = 19;
-            label1.Text = "CONFIRM PASSWORD";
+            label1.Text = "Confirm password";
             // 
             // label6
             // 
@@ -156,9 +153,9 @@
             label6.ForeColor = Color.Transparent;
             label6.Location = new Point(394, 102);
             label6.Name = "label6";
-            label6.Size = new Size(91, 19);
+            label6.Size = new Size(80, 19);
             label6.TabIndex = 21;
-            label6.Text = "USERNAME";
+            label6.Text = "Username";
             // 
             // guna2CustomGradientPanel3
             // 
@@ -320,39 +317,17 @@
             btn_register.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_register.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_register.FillColor = Color.FromArgb(102, 163, 155);
-            btn_register.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_register.Font = new Font("Arial", 10F);
             btn_register.ForeColor = Color.White;
-            btn_register.Location = new Point(394, 370);
+            btn_register.Location = new Point(642, 379);
             btn_register.Name = "btn_register";
             btn_register.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btn_register.Size = new Size(109, 31);
             btn_register.TabIndex = 30;
-            btn_register.Text = "SIGNUP";
+            btn_register.Text = "Sign-up";
             btn_register.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             btn_register.Tile = true;
             btn_register.Click += btn_register_Click;
-            // 
-            // btn_cancel
-            // 
-            btn_cancel.BackColor = Color.Transparent;
-            btn_cancel.BorderRadius = 10;
-            btn_cancel.CustomizableEdges = customizableEdges15;
-            btn_cancel.DisabledState.BorderColor = Color.DarkGray;
-            btn_cancel.DisabledState.CustomBorderColor = Color.DarkGray;
-            btn_cancel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btn_cancel.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_cancel.FillColor = Color.FromArgb(102, 163, 155);
-            btn_cancel.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_cancel.ForeColor = Color.White;
-            btn_cancel.Location = new Point(642, 370);
-            btn_cancel.Name = "btn_cancel";
-            btn_cancel.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btn_cancel.Size = new Size(109, 31);
-            btn_cancel.TabIndex = 31;
-            btn_cancel.Text = "CANCEL";
-            btn_cancel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            btn_cancel.Tile = true;
-            btn_cancel.Click += btn_cancel_Click_1;
             // 
             // FrmRegister
             // 
@@ -360,7 +335,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(783, 436);
-            Controls.Add(btn_cancel);
             Controls.Add(btn_register);
             Controls.Add(register_confirmpass);
             Controls.Add(register_pass);
@@ -380,6 +354,7 @@
             Name = "FrmRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "registerform";
+            Load += FrmRegister_Load;
             MouseDown += FrmRegister_MouseDown;
             guna2CustomGradientPanel3.ResumeLayout(false);
             guna2CustomGradientPanel3.PerformLayout();
@@ -405,7 +380,6 @@
         private Guna.UI2.WinForms.Guna2TextBox register_pass;
         private Guna.UI2.WinForms.Guna2TextBox register_confirmpass;
         private Guna.UI2.WinForms.Guna2Button btn_register;
-        private Guna.UI2.WinForms.Guna2Button btn_cancel;
         private Guna.UI2.WinForms.Guna2Button btn_registerlogin;
     }
 }

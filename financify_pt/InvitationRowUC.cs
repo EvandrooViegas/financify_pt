@@ -28,8 +28,8 @@ namespace financify_pt
                 return;
             }
 
-            var owner = BLL.User.GetById(invitation.UserId);
             var tracker = BLL.Tracker.GetById(invitation.TrackerId);
+            var owner = BLL.UserTracker.GetOwnerByTrackerId(tracker.Id);
 
             if (owner == null || tracker == null)
             {
@@ -37,7 +37,7 @@ namespace financify_pt
                 return;
             }
 
-            string message = $"{owner.Username} invited you to their tracker ({tracker.Name})";
+            string message = $"{owner["Username"]} invited you to their tracker ({tracker.Name})";
 
             // Supondo que tenhas um Label chamado lblMessage
             label1.Text = message;
@@ -55,11 +55,16 @@ namespace financify_pt
 
             var tracker = BLL.Tracker.GetById(invitation.TrackerId);
             if (tracker == null) return;
+            var owner = BLL.UserTracker.GetOwnerByTrackerId(tracker.Id);
+
+            var authedUser = BLL.User.GetById(Globals.UserId);
 
             BLL.UserTracker.Create(tracker.Id, invitation.UserId, false);
             BLL.Invitation.Delete(InvitationId);
 
+
             BLL.Notification.Create($"You joined {tracker.Name}", invitation.UserId);
+            BLL.Notification.Create($"{authedUser.Username} is a new member to your tracker ({tracker.Name})", Convert.ToInt32(owner["Id"]));
 
             MessageBox.Show($"You joined the tracker: {tracker.Name}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Hide();

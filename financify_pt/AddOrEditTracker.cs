@@ -8,7 +8,7 @@ namespace financify_pt
 {
     public partial class AddOrEditTracker : Form
     {
-        private TrackerModel TrackerToEdit { get; }
+        private TrackerModel TrackerToEdit { get; set; }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -72,27 +72,21 @@ namespace financify_pt
             this.Close();
         }
 
-        private void RefreshUserDataGridViewData()
-        {
-            var trackerUsers = BLL.UserTracker.GetUsersByTrackerId(TrackerToEdit.Id);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = trackerUsers;
-        }
+       
 
         private void Newtracker_Load(object sender, EventArgs e)
         {
-            if (TrackerToEdit == null)
+            if(TrackerToEdit == null)
             {
-                label4.Hide();
-                guna2Button4.Hide();
-                guna2Button5.Hide();
-                dataGridView1.Hide();
+                label5.Text = "Create a tracker";
                 return;
             }
             tbName.Text = TrackerToEdit.Name;
             richTextBox1.Text = TrackerToEdit.Description;
+            label5.Text = "Edit your tracker";
 
-            RefreshUserDataGridViewData();
+
+
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)
@@ -105,13 +99,7 @@ namespace financify_pt
 
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-            var form = new UserPrevileges(TrackerToEdit.Id);
-            form.ShowDialog();
-            RefreshUserDataGridViewData();
-        }
+  
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -125,7 +113,7 @@ namespace financify_pt
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void guna2Button3_Click_1(object sender, EventArgs e)
@@ -187,35 +175,13 @@ namespace financify_pt
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Select a row first");
-                return;
-            }
 
-            var idToDelete = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
-
-            try
-            {
-                var isOwner = BLL.UserTracker.IsUserOwner(idToDelete, TrackerToEdit.Id);
-                if (isOwner)
-                {
-                    MessageBox.Show("You can't remove the owner");
-                    return;
-                }
-
-
-                BLL.UserTracker.Delete(TrackerToEdit.Id, idToDelete);
-                MessageBox.Show("User removed!");
-        RefreshUserDataGridViewData();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
         }
 
+        private void guna2CustomGradientPanel3_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

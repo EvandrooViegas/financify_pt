@@ -57,6 +57,8 @@ namespace financify_pt
             if (!isOwner)
             {
                 register_Btn.Hide();
+                guna2Button3.Hide();
+                guna2Button2.Hide();
             }
             LoadData();
         }
@@ -101,5 +103,15 @@ namespace financify_pt
             }
         }
 
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            var form = new ManageUsers(TrackerToEdit.Id);
+            form.ShowDialog();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

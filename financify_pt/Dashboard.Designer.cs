@@ -39,9 +39,7 @@
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             pictureBox4 = new PictureBox();
             pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
             label3 = new Label();
-            label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             button1 = new Button();
@@ -50,7 +48,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -65,9 +62,7 @@
             panel1.Controls.Add(guna2Button1);
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Fill;
@@ -82,7 +77,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(15, 213);
+            pictureBox5.Location = new Point(15, 175);
             pictureBox5.Margin = new Padding(3, 2, 3, 2);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(24, 24);
@@ -97,7 +92,7 @@
             label6.Cursor = Cursors.Hand;
             label6.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.ButtonFace;
-            label6.Location = new Point(48, 213);
+            label6.Location = new Point(45, 175);
             label6.Name = "label6";
             label6.Size = new Size(90, 18);
             label6.TabIndex = 24;
@@ -109,7 +104,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(15, 441);
+            label4.Location = new Point(40, 443);
             label4.Name = "label4";
             label4.Size = new Size(95, 15);
             label4.TabIndex = 23;
@@ -130,7 +125,7 @@
             // guna2Button1
             // 
             guna2Button1.BackColor = Color.Transparent;
-            guna2Button1.BorderRadius = 20;
+            guna2Button1.BorderRadius = 10;
             guna2Button1.CustomizableEdges = customizableEdges1;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -160,25 +155,14 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.bell__1_2;
-            pictureBox2.Location = new Point(15, 172);
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(15, 134);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(24, 24);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(15, 132);
-            pictureBox3.Margin = new Padding(3, 2, 3, 2);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(24, 24);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 4;
-            pictureBox3.TabStop = false;
             // 
             // label3
             // 
@@ -187,26 +171,12 @@
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(48, 178);
+            label3.Location = new Point(45, 140);
             label3.Name = "label3";
             label3.Size = new Size(105, 18);
             label3.TabIndex = 2;
             label3.Text = "Notifications";
             label3.Click += label3_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Cursor = Cursors.Hand;
-            label2.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(48, 138);
-            label2.Name = "label2";
-            label2.Size = new Size(104, 18);
-            label2.TabIndex = 2;
-            label2.Text = "Transactions";
-            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -215,7 +185,7 @@
             label1.Cursor = Cursors.Hand;
             label1.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(48, 96);
+            label1.Location = new Point(45, 102);
             label1.Name = "label1";
             label1.Size = new Size(74, 18);
             label1.TabIndex = 1;
@@ -275,7 +245,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -285,9 +254,7 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Label label1;
-        private PictureBox pictureBox3;
         private Label label3;
-        private Label label2;
         private PictureBox pictureBox4;
         private PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;

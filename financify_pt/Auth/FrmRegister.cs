@@ -68,8 +68,9 @@ namespace financify_pt
         }
         private void register_showpass_CheckedChanged(object sender, EventArgs e)
         {
-            register_pass.PasswordChar = register_showpass.Checked ? '\0' : '*';
-            register_confirmpass.PasswordChar = register_showpass.Checked ? '\0' : '*';
+            bool show = register_showpass.Checked;
+            register_pass.PasswordChar = show ? '\0' : '*';
+            register_confirmpass.PasswordChar = show ? '\0' : '*';
         }
 
 
@@ -96,19 +97,20 @@ namespace financify_pt
                 return;
             }
 
-            var addr = new System.Net.Mail.MailAddress(register_email.Text);
-            if (addr.Address != register_email.Text)
-                throw new Exception("Invalid email format.");
-
 
             else
             {
                 try
                 {
+                    var addr = new System.Net.Mail.MailAddress(register_email.Text);
                     BLL.User.CreateUser(register_email.Text, register_pass.Text, register_name.Text, false, false);
                     MessageBox.Show("Register Successful");
-                    var form = new FrmLogin();
-                    form.ShowDialog();
+
+                    FrmLogin loginForm = new FrmLogin();
+                    loginForm.Show();
+
+                    this.Close();
+
                 }
                 catch (Exception ex)
                 {
@@ -126,7 +128,7 @@ namespace financify_pt
         {
             FrmLogin loginform = new FrmLogin();
             loginform.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void register_confirmpass_TextChanged(object sender, EventArgs e)
@@ -137,6 +139,14 @@ namespace financify_pt
         private void register_pass_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmRegister_Load(object sender, EventArgs e)
+        {
+            register_pass.PasswordChar = '*';
+            register_confirmpass.PasswordChar = '*';
+
+            ApplyMoveFormToControls(this);
         }
     }
 }

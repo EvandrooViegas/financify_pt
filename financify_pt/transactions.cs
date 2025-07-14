@@ -58,9 +58,16 @@ namespace financify_pt
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(type)) // ✅ better check
+            if (string.IsNullOrWhiteSpace(type))
             {
                 MessageBox.Show("The type cannot be empty");
+                return;
+            }
+
+            string[] validTypes = { "Eletronics", "Fitness", "Alimentation", "Health", "Others" };
+            if (!validTypes.Contains(type))
+            {
+                MessageBox.Show("Invalid type selected. Please choose a valid category.");
                 return;
             }
 
@@ -86,6 +93,11 @@ namespace financify_pt
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click_1(object sender, EventArgs e)
         {
 
         }

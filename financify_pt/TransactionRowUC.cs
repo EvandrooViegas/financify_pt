@@ -24,6 +24,7 @@ namespace financify_pt
             type = _type;
             addedById = _addedById;
             date = _date;
+            trackerId = _trackerId;
 
             InitializeComponent();
         }
@@ -44,9 +45,12 @@ namespace financify_pt
             if (!isOwner)
             {
                 label5.Hide();
+            } else
+            {
+                label5.Show();
             }
 
-            var user = BLL.User.GetById(addedById);
+                var user = BLL.User.GetById(addedById);
 
             label2.Text = value.ToString() + "$";
             label1.Text = date.ToString();

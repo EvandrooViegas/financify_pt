@@ -36,6 +36,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tracker));
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             label2 = new Label();
             label3 = new Label();
@@ -45,6 +46,16 @@
             panelTransactions = new Panel();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            label4 = new Label();
+            label5 = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // sqlCommand1
@@ -55,7 +66,7 @@
             // label2
             // 
             label2.ForeColor = Color.White;
-            label2.Location = new Point(26, 74);
+            label2.Location = new Point(30, 170);
             label2.MaximumSize = new Size(400, 100);
             label2.Name = "label2";
             label2.Size = new Size(400, 72);
@@ -68,7 +79,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(26, 26);
+            label3.Location = new Point(29, 122);
             label3.Name = "label3";
             label3.Size = new Size(160, 37);
             label3.TabIndex = 5;
@@ -85,14 +96,14 @@
             register_Btn.DisabledState.CustomBorderColor = Color.DarkGray;
             register_Btn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             register_Btn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            register_Btn.FillColor = Color.White;
+            register_Btn.FillColor = Color.Transparent;
             register_Btn.FocusedColor = Color.Transparent;
             register_Btn.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
-            register_Btn.ForeColor = Color.Black;
-            register_Btn.Location = new Point(561, 40);
+            register_Btn.ForeColor = Color.White;
+            register_Btn.Location = new Point(665, 56);
             register_Btn.Name = "register_Btn";
             register_Btn.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            register_Btn.Size = new Size(100, 23);
+            register_Btn.Size = new Size(56, 23);
             register_Btn.TabIndex = 22;
             register_Btn.Text = "Edit";
             register_Btn.Click += register_Btn_Click;
@@ -102,7 +113,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 16.25F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(26, 179);
+            label1.Location = new Point(62, 243);
             label1.Name = "label1";
             label1.Size = new Size(127, 27);
             label1.TabIndex = 23;
@@ -123,7 +134,7 @@
             guna2Button1.FocusedColor = Color.Transparent;
             guna2Button1.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
             guna2Button1.ForeColor = Color.Black;
-            guna2Button1.Location = new Point(626, 177);
+            guna2Button1.Location = new Point(630, 241);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button1.Size = new Size(143, 29);
@@ -134,7 +145,7 @@
             // panelTransactions
             // 
             panelTransactions.AutoScroll = true;
-            panelTransactions.Location = new Point(26, 222);
+            panelTransactions.Location = new Point(30, 286);
             panelTransactions.Name = "panelTransactions";
             panelTransactions.Size = new Size(743, 204);
             panelTransactions.TabIndex = 25;
@@ -150,16 +161,18 @@
             guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button2.FillColor = Color.White;
+            guna2Button2.FillColor = Color.Transparent;
             guna2Button2.FocusedColor = Color.Transparent;
             guna2Button2.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
-            guna2Button2.ForeColor = Color.Black;
-            guna2Button2.Location = new Point(423, 40);
+            guna2Button2.ForeColor = Color.White;
+            guna2Button2.Location = new Point(671, 27);
             guna2Button2.Name = "guna2Button2";
+            guna2Button2.PressedColor = Color.Azure;
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Button2.Size = new Size(132, 23);
+            guna2Button2.Size = new Size(102, 23);
             guna2Button2.TabIndex = 26;
             guna2Button2.Text = "Manage Users";
+            guna2Button2.Click += guna2Button2_Click;
             // 
             // guna2Button3
             // 
@@ -176,20 +189,93 @@
             guna2Button3.FocusedColor = Color.Transparent;
             guna2Button3.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
             guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(667, 40);
+            guna2Button3.Location = new Point(650, 99);
             guna2Button3.Name = "guna2Button3";
             guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Button3.Size = new Size(102, 23);
+            guna2Button3.Size = new Size(138, 23);
             guna2Button3.TabIndex = 27;
             guna2Button3.Text = "Delete";
             guna2Button3.Click += guna2Button3_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Transparent;
+            label4.Location = new Point(30, 78);
+            label4.Name = "label4";
+            label4.Size = new Size(116, 25);
+            label4.TabIndex = 58;
+            label4.Text = "________";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Transparent;
+            label5.Location = new Point(30, 53);
+            label5.Name = "label5";
+            label5.Size = new Size(212, 25);
+            label5.TabIndex = 57;
+            label5.Text = "Tracker Dashboard";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.image;
+            pictureBox1.Location = new Point(32, 21);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(129, 30);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 56;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(32, 246);
+            pictureBox4.Margin = new Padding(3, 2, 3, 2);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(24, 24);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 59;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(650, 27);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(24, 24);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 60;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(650, 56);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(24, 24);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 61;
+            pictureBox3.TabStop = false;
             // 
             // Tracker
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 502);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox4);
+            Controls.Add(label4);
+            Controls.Add(label5);
+            Controls.Add(pictureBox1);
             Controls.Add(guna2Button3);
             Controls.Add(guna2Button2);
             Controls.Add(panelTransactions);
@@ -202,6 +288,10 @@
             Name = "Tracker";
             Text = "Tracker";
             Load += Tracker_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -217,5 +307,11 @@
         private Panel panelTransactions;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Label label4;
+        private Label label5;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
     }
 }

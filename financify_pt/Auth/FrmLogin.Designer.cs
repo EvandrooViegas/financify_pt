@@ -78,9 +78,9 @@
             label4.ForeColor = Color.Transparent;
             label4.Location = new Point(388, 136);
             label4.Name = "label4";
-            label4.Size = new Size(55, 19);
+            label4.Size = new Size(48, 19);
             label4.TabIndex = 3;
-            label4.Text = "EMAIL";
+            label4.Text = "Email";
             // 
             // label5
             // 
@@ -89,9 +89,9 @@
             label5.ForeColor = Color.Transparent;
             label5.Location = new Point(388, 200);
             label5.Name = "label5";
-            label5.Size = new Size(94, 19);
+            label5.Size = new Size(76, 19);
             label5.TabIndex = 5;
-            label5.Text = "PASSWORD";
+            label5.Text = "Password";
             // 
             // login_showpass
             // 

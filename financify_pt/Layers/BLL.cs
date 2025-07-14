@@ -94,7 +94,7 @@ namespace financify_pt
 
                 new DataAccessLayer().ExecuteNonQuery
                 (
-                    "INSERT INTO [dbo].[User] ([Email], [Password], [Username], [Salt], [IsAdmin], [IsLocked], [Username]) VALUES (@Email, @Password, @Username, @Salt, @IsAdmin, @IsLocked)",
+                    "INSERT INTO [dbo].[User] ([Email], [Password], [Username], [Salt], [IsAdmin], [IsLocked]) VALUES (@Email, @Password, @Username, @Salt, @IsAdmin, @IsLocked)",
                     new SqlParameter[]
                     {
                     new("Email", email),
@@ -360,7 +360,17 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class UserTracker
         {
+            public static DataRow GetOwnerByTrackerId(int trackerId)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    @"SELECT u.* 
+          FROM [dbo].[User] u
+          INNER JOIN [dbo].[UserTracker] ut ON u.Id = ut.IdUser
+          WHERE ut.IdTracker = @TrackerId AND ut.IsOwner = 1",
+                    new[] { new SqlParameter("@TrackerId", trackerId) });
 
+                return dt.Rows.Count > 0 ? dt.Rows[0] : null;
+            }
             public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker]", []);
 
             public static DataRow GetById(int id) =>
@@ -433,6 +443,8 @@ namespace financify_pt
         "DELETE FROM [dbo].[UserTracker] WHERE IdTracker = @IdTracker",
         new[] { new SqlParameter("@IdTracker", trackerId) });
         }
+
+       
 
         // ------------------------------------------------------------------
         // TRANSACTION
