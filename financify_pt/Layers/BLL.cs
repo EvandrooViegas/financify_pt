@@ -70,7 +70,7 @@ namespace financify_pt
                 return user;
             }
 
-            public static void CreateUser(string email, string password, string name,bool isAdmin, bool isLocked)
+            public static void CreateUser(string email, string password, string name, bool isAdmin, bool isLocked)
             {
                 if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("Cannot be null or whitespace", nameof(email));
                 if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Cannot be null or whitespace", nameof(password));
@@ -231,17 +231,46 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class Notification
         {
-            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Notification]", []);
+            public static List<NotificationModel> GetAllFromUser(int userId)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    "SELECT * FROM [dbo].[Notification] WHERE IdUser = @IdUser",
+                    new[] { new SqlParameter("IdUser", userId) });
 
-            public static DataRow GetById(int id) =>
-                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[Notification] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+                var notifications = new List<NotificationModel>();
 
+                foreach (DataRow row in dt.Rows)
+                {
+                    notifications.Add(new NotificationModel
+                    {
+                        Id = Convert.ToInt32(row["Id"]),
+                        UserId = Convert.ToInt32(row["IdUser"]),
+                        Message = row["Message"].ToString(),
+                    });
+                }
+
+                return notifications;
+            }
             public static void Create(string messages, int userId) =>
-                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Notification] (Message, IdUser) VALUES (@Message, @IdUser)",
-                    new[] { new SqlParameter("Message", messages), new SqlParameter("IdUser", userId) });
+            new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[Notification] (Message, IdUser) VALUES (@Message, @IdUser)",
+                new[] { new SqlParameter("Message", messages), new SqlParameter("IdUser", userId) });
 
-            public static void Delete(int id) =>
-                new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Notification] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
+
+            // Supondo que este método já existe:
+            public static DataRow GetById(int id)
+            {
+                return new DataAccessLayer().ExecuteReader(
+                    "SELECT * FROM [dbo].[Notification] WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id) }
+                ).Rows[0];
+            }
+
+            public static void Delete(int id)
+            {
+                new DataAccessLayer().ExecuteNonQuery(
+                    "DELETE FROM [dbo].[Notification] WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id) });
+            }
         }
 
         // ------------------------------------------------------------------
@@ -329,21 +358,21 @@ namespace financify_pt
         // ------------------------------------------------------------------
         // USERTRACKER
         // ------------------------------------------------------------------
-            public static class UserTracker
-            {
+        public static class UserTracker
+        {
 
-                public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker]", []);
+            public static DataTable ListAll() => new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker]", []);
 
-                public static DataRow GetById(int id) =>
-                    new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
+            public static DataRow GetById(int id) =>
+                new DataAccessLayer().ExecuteReader("SELECT * FROM [dbo].[UserTracker] WHERE Id = @Id", new[] { new SqlParameter("Id", id) }).Rows[0];
 
-                public static void Create(int idTracker, int idUser, bool isOwner) =>
-                    new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[UserTracker] (IdTracker, IdUser, IsOwner) VALUES (@IdTracker, @IdUser, @IsOwner)",
-                        new[] { new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
+            public static void Create(int idTracker, int idUser, bool isOwner) =>
+                new DataAccessLayer().ExecuteNonQuery("INSERT INTO [dbo].[UserTracker] (IdTracker, IdUser, IsOwner) VALUES (@IdTracker, @IdUser, @IsOwner)",
+                    new[] { new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
 
-                public static void Update(int id, int idTracker, int idUser, bool isOwner) =>
-                    new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[UserTracker] SET IdTracker = @IdTracker, IdUser = @IdUser, IsOwner = @IsOwner WHERE Id = @Id",
-                        new[] { new SqlParameter("Id", id), new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
+            public static void Update(int id, int idTracker, int idUser, bool isOwner) =>
+                new DataAccessLayer().ExecuteNonQuery("UPDATE [dbo].[UserTracker] SET IdTracker = @IdTracker, IdUser = @IdUser, IsOwner = @IsOwner WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id), new SqlParameter("IdTracker", idTracker), new SqlParameter("IdUser", idUser), new SqlParameter("IsOwner", isOwner) });
 
             public static void Delete(int trackerId, int userId) =>
   new DataAccessLayer().ExecuteNonQuery(
@@ -353,52 +382,57 @@ namespace financify_pt
             new SqlParameter("@IdUser", userId)
       });
             public static DataTable GetUsersByTrackerId(int trackerId)
-                {
-                    return new DataAccessLayer().ExecuteReader(
-                        @"SELECT u.* 
+            {
+                return new DataAccessLayer().ExecuteReader(
+                    @"SELECT u.* 
                   FROM [dbo].[User] u
                   INNER JOIN [dbo].[UserTracker] ut ON u.Id = ut.IdUser
                   WHERE ut.IdTracker = @TrackerId",
-                        new[] { new SqlParameter("@TrackerId", trackerId) });
-                }
+                    new[] { new SqlParameter("@TrackerId", trackerId) });
+            }
 
-                // New method: returns true if user is already a participant in the tracker
-                public static bool IsUserParticipant(int userId, int trackerId)
-                {
-                    var dt = new DataAccessLayer().ExecuteReader(
-                        @"SELECT COUNT(*) AS Count
+            // New method: returns true if user is already a participant in the tracker
+            public static bool IsUserParticipant(int userId, int trackerId)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    @"SELECT COUNT(*) AS Count
                   FROM [dbo].[UserTracker]
                   WHERE IdUser = @UserId AND IdTracker = @TrackerId",
-                        new[] {
+                    new[] {
                     new SqlParameter("@UserId", userId),
                     new SqlParameter("@TrackerId", trackerId)
-                        });
+                    });
 
-                    if (dt.Rows.Count > 0 && int.TryParse(dt.Rows[0]["Count"].ToString(), out int count))
-                    {
-                        return count > 0;
-                    }
-                    return false;
-                }
-
-                public static bool IsUserOwner(int userId, int trackerId)
+                if (dt.Rows.Count > 0 && int.TryParse(dt.Rows[0]["Count"].ToString(), out int count))
                 {
-                    var dt = new DataAccessLayer().ExecuteReader(
-                        @"SELECT COUNT(*) AS Count
+                    return count > 0;
+                }
+                return false;
+            }
+
+            public static bool IsUserOwner(int userId, int trackerId)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    @"SELECT COUNT(*) AS Count
               FROM [dbo].[UserTracker]
               WHERE IdUser = @UserId AND IdTracker = @TrackerId AND IsOwner = 1",
-                        new[] {
+                    new[] {
                 new SqlParameter("@UserId", userId),
                 new SqlParameter("@TrackerId", trackerId)
-                        });
+                    });
 
-                    if (dt.Rows.Count > 0 && int.TryParse(dt.Rows[0]["Count"].ToString(), out int count))
-                    {
-                        return count > 0;
-                    }
-                    return false;
+                if (dt.Rows.Count > 0 && int.TryParse(dt.Rows[0]["Count"].ToString(), out int count))
+                {
+                    return count > 0;
                 }
+                return false;
             }
+
+            public static void DeleteAllUsersFromTracker(int trackerId) =>
+    new DataAccessLayer().ExecuteNonQuery(
+        "DELETE FROM [dbo].[UserTracker] WHERE IdTracker = @IdTracker",
+        new[] { new SqlParameter("@IdTracker", trackerId) });
+        }
 
         // ------------------------------------------------------------------
         // TRANSACTION
@@ -468,6 +502,11 @@ namespace financify_pt
                 new DataAccessLayer().ExecuteNonQuery(
                     "DELETE FROM [dbo].[Transaction] WHERE Id = @Id",
                     new[] { new SqlParameter("Id", id) });
+
+            public static void DeleteAllFromTracker(int trackerId) =>
+    new DataAccessLayer().ExecuteNonQuery(
+        "DELETE FROM [dbo].[Transaction] WHERE TrackerId = @TrackerId",
+        new[] { new SqlParameter("TrackerId", trackerId) });
         }
 
         // ------------------------------------------------------------------
@@ -541,62 +580,62 @@ namespace financify_pt
         // ------------------------------------------------------------------
         public static class Invitation
         {
-                public static List<InvitationModel> GetAllFromUser(int userId)
+            public static List<InvitationModel> GetAllFromUser(int userId)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    "SELECT * FROM [dbo].[Invitation] WHERE UserId = @UserId",
+                    new[] { new SqlParameter("UserId", userId) });
+
+                var invitations = new List<InvitationModel>();
+
+                foreach (DataRow row in dt.Rows)
                 {
-                    var dt = new DataAccessLayer().ExecuteReader(
-                        "SELECT * FROM [dbo].[Invitation] WHERE UserId = @UserId",
-                        new[] { new SqlParameter("UserId", userId) });
-
-                    var invitations = new List<InvitationModel>();
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        invitations.Add(new InvitationModel
-                        {
-                            Id = Convert.ToInt32(row["Id"]),
-                            UserId = Convert.ToInt32(row["UserId"]),
-                            TrackerId = Convert.ToInt32(row["TrackerId"])
-                        });
-                    }
-
-                    return invitations;
-                }
-
-                public static InvitationModel GetById(int id)
-                {
-                    var dt = new DataAccessLayer().ExecuteReader(
-                        "SELECT * FROM [dbo].[Invitation] WHERE Id = @Id",
-                        new[] { new SqlParameter("Id", id) });
-
-                    if (dt.Rows.Count == 0)
-                        return null;
-
-                    var row = dt.Rows[0];
-
-                    return new InvitationModel
+                    invitations.Add(new InvitationModel
                     {
                         Id = Convert.ToInt32(row["Id"]),
                         UserId = Convert.ToInt32(row["UserId"]),
                         TrackerId = Convert.ToInt32(row["TrackerId"])
-                    };
+                    });
                 }
 
-                public static void Create(int userId, int trackerId)
-                {
-                    new DataAccessLayer().ExecuteNonQuery(
-                        "INSERT INTO [dbo].[Invitation] (UserId, TrackerId) VALUES (@UserId, @TrackerId)",
-                        new[]
-                        {
-                    new SqlParameter("UserId", userId),
-                    new SqlParameter("TrackerId", trackerId)
-                        });
-                }
+                return invitations;
+            }
 
-                public static void Delete(int id)
+            public static InvitationModel GetById(int id)
+            {
+                var dt = new DataAccessLayer().ExecuteReader(
+                    "SELECT * FROM [dbo].[Invitation] WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id) });
+
+                if (dt.Rows.Count == 0)
+                    return null;
+
+                var row = dt.Rows[0];
+
+                return new InvitationModel
                 {
-                    new DataAccessLayer().ExecuteNonQuery(
-                        "DELETE FROM [dbo].[Invitation] WHERE Id = @Id",
-                        new[] { new SqlParameter("Id", id) });
+                    Id = Convert.ToInt32(row["Id"]),
+                    UserId = Convert.ToInt32(row["UserId"]),
+                    TrackerId = Convert.ToInt32(row["TrackerId"])
+                };
+            }
+
+            public static void Create(int userId, int trackerId)
+            {
+                new DataAccessLayer().ExecuteNonQuery(
+                    "INSERT INTO [dbo].[Invitation] (UserId, TrackerId) VALUES (@UserId, @TrackerId)",
+                    new[]
+                    {
+             new SqlParameter("UserId", userId),
+             new SqlParameter("TrackerId", trackerId)
+                    });
+            }
+
+            public static void Delete(int id)
+            {
+                new DataAccessLayer().ExecuteNonQuery(
+                    "DELETE FROM [dbo].[Invitation] WHERE Id = @Id",
+                    new[] { new SqlParameter("Id", id) });
             }
         }
 
@@ -622,5 +661,7 @@ namespace financify_pt
             public static void Delete(int id) =>
                 new DataAccessLayer().ExecuteNonQuery("DELETE FROM [dbo].[Tag] WHERE Id = @Id", new[] { new SqlParameter("Id", id) });
         }
+
+
     }
 }

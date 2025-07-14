@@ -80,5 +80,26 @@ namespace financify_pt
         {
 
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Are you sure you want to delete this tracker? This action cannot be undone.",
+                "Confirm Deletion",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                BLL.UserTracker.DeleteAllUsersFromTracker(TrackerToEdit.Id);
+                BLL.Transaction.DeleteAllFromTracker(TrackerToEdit.Id);
+                BLL.Tracker.Delete(TrackerToEdit.Id);
+                MessageBox.Show("Tracker deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Hide(); // ou this.Parent.Controls.Remove(this); se estiver em um container
+            }
+        }
+
     }
 }

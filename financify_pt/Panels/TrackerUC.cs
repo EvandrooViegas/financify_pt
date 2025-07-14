@@ -53,5 +53,11 @@ namespace financify_pt.Panels
                 panel3.Controls.Add(trackerUC);
             }
         }
+
+        private void btn_newTracker_Click(object sender, EventArgs e)
+        {
+            var form = new AddOrEditTracker();
+            form.ShowDialog();
         }
     }
+}

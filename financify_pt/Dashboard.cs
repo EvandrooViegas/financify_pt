@@ -83,7 +83,7 @@ namespace financify_pt.Auth
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            LoadContent(new TrackerUC());
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -111,6 +111,11 @@ namespace financify_pt.Auth
             this.Close();
             var form = new Main();
             form.ShowDialog();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            LoadContent(new InvitationUC());
         }
     }
 }

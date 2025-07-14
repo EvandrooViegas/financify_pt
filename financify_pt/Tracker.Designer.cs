@@ -32,6 +32,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             label2 = new Label();
             label3 = new Label();
@@ -39,6 +43,8 @@
             label1 = new Label();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             panelTransactions = new Panel();
+            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
             // sqlCommand1
@@ -83,7 +89,7 @@
             register_Btn.FocusedColor = Color.Transparent;
             register_Btn.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
             register_Btn.ForeColor = Color.Black;
-            register_Btn.Location = new Point(669, 40);
+            register_Btn.Location = new Point(561, 40);
             register_Btn.Name = "register_Btn";
             register_Btn.ShadowDecoration.CustomizableEdges = customizableEdges2;
             register_Btn.Size = new Size(100, 23);
@@ -133,12 +139,59 @@
             panelTransactions.Size = new Size(743, 204);
             panelTransactions.TabIndex = 25;
             // 
+            // guna2Button2
+            // 
+            guna2Button2.BackColor = Color.Transparent;
+            guna2Button2.BackgroundImageLayout = ImageLayout.None;
+            guna2Button2.BorderColor = Color.Transparent;
+            guna2Button2.BorderRadius = 10;
+            guna2Button2.CustomizableEdges = customizableEdges5;
+            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button2.FillColor = Color.White;
+            guna2Button2.FocusedColor = Color.Transparent;
+            guna2Button2.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            guna2Button2.ForeColor = Color.Black;
+            guna2Button2.Location = new Point(423, 40);
+            guna2Button2.Name = "guna2Button2";
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Button2.Size = new Size(132, 23);
+            guna2Button2.TabIndex = 26;
+            guna2Button2.Text = "Manage Users";
+            // 
+            // guna2Button3
+            // 
+            guna2Button3.BackColor = Color.Transparent;
+            guna2Button3.BackgroundImageLayout = ImageLayout.None;
+            guna2Button3.BorderColor = Color.IndianRed;
+            guna2Button3.BorderRadius = 10;
+            guna2Button3.CustomizableEdges = customizableEdges7;
+            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button3.FillColor = Color.IndianRed;
+            guna2Button3.FocusedColor = Color.Transparent;
+            guna2Button3.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            guna2Button3.ForeColor = Color.White;
+            guna2Button3.Location = new Point(667, 40);
+            guna2Button3.Name = "guna2Button3";
+            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Button3.Size = new Size(102, 23);
+            guna2Button3.TabIndex = 27;
+            guna2Button3.Text = "Delete";
+            guna2Button3.Click += guna2Button3_Click;
+            // 
             // Tracker
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(800, 450);
+            Controls.Add(guna2Button3);
+            Controls.Add(guna2Button2);
             Controls.Add(panelTransactions);
             Controls.Add(guna2Button1);
             Controls.Add(label1);
@@ -162,5 +215,7 @@
         private Label label1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Panel panelTransactions;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }

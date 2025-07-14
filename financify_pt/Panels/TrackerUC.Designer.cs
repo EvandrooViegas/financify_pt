@@ -56,6 +56,7 @@
             btn_newTracker.Size = new Size(180, 29);
             btn_newTracker.TabIndex = 32;
             btn_newTracker.Text = "Add New Tracker";
+            btn_newTracker.Click += btn_newTracker_Click;
             // 
             // panel3
             // 
